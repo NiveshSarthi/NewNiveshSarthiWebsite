@@ -758,6 +758,18 @@ function App() {
     setRoute("/properties");
   }, [route]);
 
+  useEffect(() => {
+    if (route !== "/nri-corner") return;
+    history.replaceState({}, "", "/");
+    setRoute("/");
+  }, [route]);
+
+  useEffect(() => {
+    if (!isMediaRoute(route)) return;
+    history.replaceState({}, "", "/");
+    setRoute("/");
+  }, [route]);
+
   const pageUrl = useMemo(() => {
     if (!routes) return null;
     return routes.routes[route] || routes.routes[route.replace(/\/$/, "")] || routes.routes["/"];
@@ -770,33 +782,23 @@ function App() {
       .then((response) => response.text())
       .then((text) => {
         const documentHtml = new DOMParser().parseFromString(text, "text/html");
-        brandMirrorDocument(documentHtml);
+        prepareMirrorDocument(documentHtml, route, properties);
         setHtml(documentHtml.body.innerHTML);
         setStatus("ready");
         document.title = SITE_TITLE;
       })
       .catch(() => setStatus("missing"));
-  }, [pageUrl]);
+  }, [pageUrl, route]);
+
+  useEffect(() => {
+    if (status !== "ready" || route !== "/") return;
+    setupFaridabadProjects(document.getElementById("mirrored-page"), properties);
+  }, [properties, route, status]);
 
   useEffect(() => {
     if (status !== "ready") return;
 
     const root = document.getElementById("mirrored-page");
-    applyNavbarBranding(root);
-    setupHeroShowcase(root);
-    setupHomepageWhoWeAre(root, route);
-    setupFaridabadProjects(root, properties);
-    setupFaridabadEditorial(root, route);
-    removeHomepageInsightHub(root, route);
-    setupExpertiseRedesign(root, route);
-    setupWhyNiveshRedesign(root, route);
-    setupFaridabadPartners(root, route);
-    removeHomepageScaleSections(root, route);
-    setupFaridabadOpportunities(root, route);
-    setupFaridabadProcess(root, route);
-    setupNriFaqAndReviews(root, route);
-    setupContactRedesign(root, route);
-    setupLeadCapture(root, route);
 
     root?.querySelectorAll("script").forEach((oldScript) => {
       const script = document.createElement("script");
@@ -805,24 +807,10 @@ function App() {
       oldScript.replaceWith(script);
     });
 
-    applyNavbarBranding(root);
     setupHeroShowcase(root);
-    setupHomepageWhoWeAre(root, route);
-    setupFaridabadProjects(root, properties);
-    setupFaridabadEditorial(root, route);
-    removeHomepageInsightHub(root, route);
-    setupExpertiseRedesign(root, route);
-    setupWhyNiveshRedesign(root, route);
-    setupFaridabadPartners(root, route);
-    removeHomepageScaleSections(root, route);
-    setupFaridabadOpportunities(root, route);
-    setupFaridabadProcess(root, route);
-    setupNriFaqAndReviews(root, route);
-    setupContactRedesign(root, route);
-    setupLeadCapture(root, route);
     window.AOS?.init?.({ duration: 800, once: true });
     wireLocalNavigation(root, setRoute);
-  }, [html, properties, route, status]);
+  }, [html, status]);
 
   if (status === "missing") {
     return (
@@ -971,6 +959,7 @@ function AboutPage() {
           <span>info.niveshsarthi@gmail.com</span>
         </div>
       </section>
+      <LocalFooter />
     </main>
   );
 }
@@ -1065,6 +1054,7 @@ function CareerPage() {
         </div>
         <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
       </section>
+      <LocalFooter />
     </main>
   );
 }
@@ -1242,6 +1232,7 @@ function AdminPanel({ properties, setProperties }) {
           </div>
         )}
       </section>
+      <LocalFooter />
     </main>
   );
 }
@@ -1311,7 +1302,94 @@ function PropertyListingPage({ category, properties }) {
           </div>
         )}
       </section>
+      <LocalFooter />
     </main>
+  );
+}
+
+function LocalFooter() {
+  const footerLinks = [
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/our-story" },
+    { label: "Properties", href: "/properties" },
+    { label: "Careers", href: "/career" },
+    { label: "Contact", href: "/contact" },
+  ];
+  const serviceLinks = [
+    { label: "Investment Advisory", href: "/investment-sales-advisory" },
+    { label: "NRI Advisory", href: "/nri-advisory" },
+    { label: "Property Management", href: "/property-management" },
+    { label: "Land & Acquisition", href: "/land-acquisition" },
+  ];
+
+  return (
+    <footer className="position-relative pt-5 pb-0 text-white overflow-hidden" style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)" }}>
+      <div className="position-absolute top-0 start-0 w-100" style={{ height: "2px", background: "linear-gradient(90deg, transparent, #D4AF37, transparent)" }}></div>
+      <div className="container position-relative z-1 py-5">
+        <div className="row gy-5 justify-content-between">
+          <div className="col-lg-4 col-md-12">
+            <img src={NAVBAR_LOGO} alt="Nivesh Sarthi" className="mb-4" style={{ maxWidth: "210px", height: "auto" }} />
+            <p className="text-white mb-4" style={{ lineHeight: 1.8, fontSize: "0.95rem" }}>
+              Nivesh Sarthi brings focused real estate guidance across Faridabad, combining local market knowledge with a calm, transparent advisory process.
+            </p>
+            <div className="d-flex gap-2">
+              <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Nivesh Sarthi Facebook" className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style={{ width: "40px", height: "40px" }}>
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Nivesh Sarthi Instagram" className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style={{ width: "40px", height: "40px" }}>
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Nivesh Sarthi LinkedIn" className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style={{ width: "40px", height: "40px" }}>
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <div className="col-lg-2 col-md-4 col-6">
+            <h6 className="text-white text-uppercase fw-bold mb-4" style={{ fontSize: "0.85rem", letterSpacing: "2px" }}>Quick Links</h6>
+            <ul className="list-unstyled d-flex flex-column gap-3">
+              {footerLinks.map((link) => (
+                <li key={link.href}><a href={link.href} className="text-white text-decoration-none hover-white transition-all">{link.label}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="col-lg-2 col-md-4 col-6">
+            <h6 className="text-white text-uppercase fw-bold mb-4" style={{ fontSize: "0.85rem", letterSpacing: "2px" }}>Our Services</h6>
+            <ul className="list-unstyled d-flex flex-column gap-3">
+              {serviceLinks.map((link) => (
+                <li key={link.href}><a href={link.href} className="text-white text-decoration-none hover-white transition-all">{link.label}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="col-lg-3 col-md-4">
+            <h6 className="text-white text-uppercase fw-bold mb-4" style={{ fontSize: "0.85rem", letterSpacing: "2px" }}>Get In Touch</h6>
+            <ul className="list-unstyled d-flex flex-column gap-4">
+              <li><a href="https://maps.google.com/?q=Puri%2081%20Business%20Hub%20Sector%2081%20Faridabad" className="text-decoration-none footer-link"><i className="fas fa-map-marker-alt text-gold mt-1 me-3"></i><span className="text-white" style={{ fontSize: "0.9rem" }}>{CONTACT_ADDRESS}</span></a></li>
+              <li><a href={`tel:${CONTACT_PHONE_TEL}`} className="text-decoration-none footer-link"><i className="fas fa-phone text-gold me-3"></i><span className="text-white" style={{ fontSize: "0.9rem" }}>{CONTACT_PHONE_DISPLAY}</span></a></li>
+              <li><a href={`mailto:${CONTACT_EMAIL}`} className="text-decoration-none footer-link"><i className="fas fa-envelope text-gold me-3"></i><span className="text-white" style={{ fontSize: "0.9rem" }}>{CONTACT_EMAIL}</span></a></li>
+              <li><a href="/" className="text-decoration-none footer-link"><i className="fas fa-globe text-gold me-3"></i><span className="text-white" style={{ fontSize: "0.9rem" }}>{CONTACT_WEBSITE}</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="border-top border-secondary border-opacity-10 bg-black py-4 position-relative z-1 footer-copyright">
+        <div className="container">
+          <div className="row align-items-center gy-3">
+            <div className="col-md-6 text-center text-md-start">
+              <p className="mb-0 text-white small">&copy; 2026 Nivesh Sarthi. All Rights Reserved.</p>
+            </div>
+            <div className="col-md-6 text-center text-md-end">
+              <ul className="list-inline mb-0">
+                <li className="list-inline-item me-4"><a href="/privacy-policy" className="text-white text-decoration-none small hover-white">Privacy Policy</a></li>
+                <li className="list-inline-item"><a href="/terms-conditions" className="text-white text-decoration-none small hover-white">Terms & Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }
 
@@ -1356,7 +1434,6 @@ function LocalNavbar({ flat = false }) {
                 <>
                   <li className="nav-item"><a className="nav-link" href="/investment-sales-advisory" onClick={closeMenu}>Services</a></li>
                   <li className="nav-item"><a className="nav-link" href="/properties" onClick={closeMenu}>Properties</a></li>
-                  <li className="nav-item"><a className="nav-link" href="/insight-blog" onClick={closeMenu}>Media & Insights</a></li>
                 </>
               ) : (
                 <>
@@ -1379,17 +1456,8 @@ function LocalNavbar({ flat = false }) {
                       <li><a className="dropdown-item" href="/properties/sco" onClick={closeMenu}>SCO Plots</a></li>
                     </ul>
                   </li>
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="/insight-blog" id="insightsDropdown" role="button" aria-expanded="false">Media & Insights</a>
-                    <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="insightsDropdown">
-                      <li><a className="dropdown-item" href="/pr-media" onClick={closeMenu}>Media & Press</a></li>
-                      <li><a className="dropdown-item" href="/insight-blog" onClick={closeMenu}>Insights & Blogs</a></li>
-                      <li><a className="dropdown-item" href="/news-update" onClick={closeMenu}>News & Updates</a></li>
-                    </ul>
-                  </li>
                 </>
               )}
-              <li className="nav-item"><a className="nav-link" href="/nri-corner" onClick={closeMenu}>NRI Corner</a></li>
               <li className="nav-item"><a className="nav-link" href="/career" onClick={closeMenu}>Careers</a></li>
               <li className="nav-item ms-lg-3"><a href="/contact" className="btn btn-gold" onClick={closeMenu}>CONSULT</a></li>
             </ul>
@@ -1454,6 +1522,7 @@ function ProjectDetail({ project, onBack }) {
         </div>
         <a className="nivesh-project-detail-cta" href="/contact">Consult About This Property</a>
       </section>
+      <LocalFooter />
     </main>
   );
 }
@@ -1461,6 +1530,17 @@ function ProjectDetail({ project, onBack }) {
 function normalizeRoute(pathname) {
   const clean = pathname.replace(/\/+$/, "") || "/";
   return clean.endsWith(".php") ? clean.replace(/\.php$/, "") : clean;
+}
+
+function isMediaRoute(route) {
+  return [
+    "/pr-media",
+    "/insight-blog",
+    "/news-update",
+  ].some((prefix) => route === prefix || route.startsWith(`${prefix}/`)) ||
+    route.startsWith("/pr-media-detail/") ||
+    route.startsWith("/insight-blog-detail/") ||
+    route.startsWith("/news-updates-detail/");
 }
 
 function wireLocalNavigation(root, setRoute) {
@@ -1503,6 +1583,27 @@ function brandMirrorDocument(documentHtml) {
 
   applyContactDetails(documentHtml);
   applySocialLinks(documentHtml);
+}
+
+function prepareMirrorDocument(documentHtml, route, properties) {
+  const root = documentHtml.body;
+  brandMirrorDocument(documentHtml);
+  applyNavbarBranding(root);
+  setupHeroShowcase(root);
+  setupHomepageWhoWeAre(root, route);
+  setupFaridabadProjects(root, properties);
+  setupFaridabadEditorial(root, route);
+  removeHomepageInsightHub(root, route);
+  setupExpertiseRedesign(root, route);
+  setupWhyNiveshRedesign(root, route);
+  setupFaridabadPartners(root, route);
+  removeHomepageScaleSections(root, route);
+  setupFaridabadOpportunities(root, route);
+  setupFaridabadProcess(root, route);
+  setupNriFaqAndReviews(root, route);
+  setupContactRedesign(root, route);
+  setupLeadCapture(root, route);
+  removePremiumFooterLinks(root);
 }
 
 function applyContactDetails(root) {
@@ -1619,6 +1720,21 @@ function applySocialLinks(root) {
   });
 }
 
+function removePremiumFooterLinks(root) {
+  const footerLinkHeadings = [
+    "Property in India",
+    "Residential Properties",
+    "Commercial Properties",
+    "SCO Plots",
+  ];
+
+  root?.querySelectorAll("section").forEach((section) => {
+    const headings = [...section.querySelectorAll("h6")].map((heading) => heading.textContent?.trim());
+    const hasPremiumFooterLinks = footerLinkHeadings.every((label) => headings.includes(label));
+    if (hasPremiumFooterLinks) section.remove();
+  });
+}
+
 function applyNavbarBranding(root) {
   const navLogoSelectors = [
     ".navbar .navbar-brand img",
@@ -1672,6 +1788,14 @@ function applyNavbarBranding(root) {
     button.setAttribute("aria-label", "Consult with Nivesh Sarthi");
   });
 
+  root?.querySelectorAll(".navbar a[href='/nri-corner']").forEach((link) => {
+    link.closest("li")?.remove();
+  });
+
+  root?.querySelectorAll(".navbar #insightsDropdown, .navbar a[href='/pr-media'], .navbar a[href='/insight-blog'], .navbar a[href='/news-update']").forEach((link) => {
+    link.closest("li")?.remove();
+  });
+
   root?.querySelectorAll(".navbar #aboutDropdown").forEach((aboutLink) => {
     const navItem = aboutLink.closest(".nav-item");
     navItem?.classList.remove("dropdown");
@@ -1710,38 +1834,42 @@ function applyNavbarBranding(root) {
 
 function setupHeroShowcase(root) {
   root?.querySelectorAll("#heroCarouselDesktop, #heroCarouselMobile").forEach((carousel) => {
-    if (carousel.dataset.niveshHeroReady === "true") return;
-    carousel.dataset.niveshHeroReady = "true";
-    carousel.setAttribute("data-bs-interval", "4800");
-    carousel.setAttribute("data-bs-ride", "carousel");
-    carousel.setAttribute("data-bs-pause", "false");
+    const isReady = carousel.dataset.niveshHeroReady === "true";
 
-    const fixedCaption = document.createElement("div");
-    fixedCaption.className = "carousel-caption nivesh-hero-fixed-copy";
-    fixedCaption.innerHTML = HERO_CONTENT;
-    carousel.appendChild(fixedCaption);
+    if (!isReady) {
+      carousel.dataset.niveshHeroReady = "true";
+      carousel.setAttribute("data-bs-interval", "4800");
+      carousel.setAttribute("data-bs-ride", "carousel");
+      carousel.setAttribute("data-bs-pause", "false");
 
-    carousel.querySelectorAll(".carousel-caption:not(.nivesh-hero-fixed-copy)").forEach((caption) => {
-      caption.setAttribute("aria-hidden", "true");
-      caption.classList.add("nivesh-hero-hidden-caption");
-    });
+      const fixedCaption = (carousel.ownerDocument || document).createElement("div");
+      fixedCaption.className = "carousel-caption nivesh-hero-fixed-copy";
+      fixedCaption.innerHTML = HERO_CONTENT;
+      carousel.appendChild(fixedCaption);
 
-    const inner = carousel.querySelector(".carousel-inner");
-    if (inner) {
-      inner.innerHTML = HERO_IMAGES.map((src, index) => `
-        <div class="carousel-item ${index === 0 ? "active" : ""}" style="height: 90vh;" data-bs-interval="4800">
-          <img src="${src}" class="d-block w-100 h-100 object-fit-cover nivesh-hero-image" alt="Premium real estate ${index + 1}" loading="${index === 0 ? "eager" : "lazy"}">
-        </div>
-      `).join("");
+      carousel.querySelectorAll(".carousel-caption:not(.nivesh-hero-fixed-copy)").forEach((caption) => {
+        caption.setAttribute("aria-hidden", "true");
+        caption.classList.add("nivesh-hero-hidden-caption");
+      });
+
+      const inner = carousel.querySelector(".carousel-inner");
+      if (inner) {
+        inner.innerHTML = HERO_IMAGES.map((src, index) => `
+          <div class="carousel-item ${index === 0 ? "active" : ""}" style="height: 90vh;" data-bs-interval="4800">
+            <img src="${src}" class="d-block w-100 h-100 object-fit-cover nivesh-hero-image" alt="Premium real estate ${index + 1}" loading="${index === 0 ? "eager" : "lazy"}">
+          </div>
+        `).join("");
+      }
+
+      const indicators = carousel.querySelector(".carousel-indicators");
+      if (indicators) {
+        indicators.innerHTML = HERO_IMAGES.map((_, index) => `
+          <button type="button" data-bs-target="#${carousel.id}" data-bs-slide-to="${index}" class="${index === 0 ? "active" : ""}" ${index === 0 ? 'aria-current="true"' : ""} aria-label="Slide ${index + 1}"></button>
+        `).join("");
+      }
     }
 
-    const indicators = carousel.querySelector(".carousel-indicators");
-    if (indicators) {
-      indicators.innerHTML = HERO_IMAGES.map((_, index) => `
-        <button type="button" data-bs-target="#${carousel.id}" data-bs-slide-to="${index}" class="${index === 0 ? "active" : ""}" ${index === 0 ? 'aria-current="true"' : ""} aria-label="Slide ${index + 1}"></button>
-      `).join("");
-    }
-
+    if (!carousel.isConnected) return;
     window.bootstrap?.Carousel?.getOrCreateInstance(carousel, {
       interval: 4800,
       ride: "carousel",
