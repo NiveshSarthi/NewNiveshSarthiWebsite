@@ -1,0 +1,11 @@
+{
+  "name": "nivesh-sarthi-backend",
+  "version": "1.0.0",
+  "description": "Local JSON API for the Nivesh Sarthi website",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node tools/backend.mjs",
+    "serve": "node tools/serve-static.mjs"
+  },
+  "license": "ISC"
+}

@@ -516,6 +516,198 @@ body {
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 38%);
 }
 
+#mirrored-page .nivesh-home-match-section {
+  padding: 74px 0 86px;
+}
+
+#mirrored-page .nivesh-home-match-head {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+#mirrored-page .nivesh-home-match-head span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #f4d276;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+#mirrored-page .nivesh-home-match-head span::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f4d276);
+}
+
+#mirrored-page .nivesh-home-match-head h2 {
+  max-width: 820px;
+  margin: 0;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: clamp(2.25rem, 4.8vw, 4.65rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+#mirrored-page .nivesh-home-match-head p {
+  max-width: 720px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+#mirrored-page .nivesh-home-match-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(340px, 0.82fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+#mirrored-page .nivesh-home-match-feature {
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  border: 1px solid rgba(245, 207, 113, 0.24);
+  border-radius: 16px 16px 8px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.3);
+}
+
+#mirrored-page .nivesh-home-match-feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 32%, rgba(0, 0, 0, 0.88)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.16), transparent 54%);
+}
+
+#mirrored-page .nivesh-home-match-feature img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s ease, filter 0.65s ease;
+}
+
+#mirrored-page .nivesh-home-match-feature:hover img {
+  filter: saturate(1.05) contrast(1.08);
+  transform: scale(1.035);
+}
+
+#mirrored-page .nivesh-home-match-feature-copy {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  left: 28px;
+  z-index: 1;
+}
+
+#mirrored-page .nivesh-home-match-feature-copy span {
+  display: block;
+  margin-bottom: 12px;
+  color: #f4d276;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 1.35px;
+  text-transform: uppercase;
+}
+
+#mirrored-page .nivesh-home-match-feature-copy strong {
+  display: block;
+  max-width: 500px;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.55rem, 2.8vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+#mirrored-page .nivesh-home-match-feature-copy a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin-top: 22px;
+  padding: 0 20px;
+  border: 1px solid rgba(255, 231, 160, 0.58);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f7df95, #b98a27);
+  color: #090909;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#mirrored-page .nivesh-home-match-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+#mirrored-page .nivesh-home-match-grid article {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 26px;
+  min-height: 270px;
+  padding: 24px;
+  border: 1px solid rgba(245, 207, 113, 0.18);
+  border-radius: 12px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+    rgba(0, 0, 0, 0.3);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(16px);
+}
+
+#mirrored-page .nivesh-home-match-grid i {
+  display: inline-grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(245, 207, 113, 0.14);
+  color: #f4d276;
+}
+
+#mirrored-page .nivesh-home-match-grid span {
+  display: block;
+  margin-bottom: 10px;
+  color: #f4d276;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+#mirrored-page .nivesh-home-match-grid h3 {
+  margin: 0;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+#mirrored-page .nivesh-home-match-grid p {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.68;
+}
+
 #mirrored-page .nivesh-home-about-layout {
   position: relative;
   z-index: 1;
@@ -529,6 +721,74 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+}
+
+#mirrored-page .nivesh-home-pathways-media {
+  display: grid;
+  gap: 18px;
+}
+
+#mirrored-page .nivesh-home-pathways-media article {
+  position: relative;
+  overflow: hidden;
+  min-height: 234px;
+  border: 1px solid rgba(245, 207, 113, 0.24);
+  border-radius: 16px 16px 8px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.3);
+}
+
+#mirrored-page .nivesh-home-pathways-media article:nth-child(2) {
+  margin-left: 72px;
+}
+
+#mirrored-page .nivesh-home-pathways-media article::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 34%, rgba(0, 0, 0, 0.82));
+}
+
+#mirrored-page .nivesh-home-pathways-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 234px;
+  object-fit: cover;
+  transition: transform 0.65s ease, filter 0.65s ease;
+}
+
+#mirrored-page .nivesh-home-pathways-media article:hover img {
+  filter: saturate(1.05) contrast(1.08);
+  transform: scale(1.04);
+}
+
+#mirrored-page .nivesh-home-pathways-media div {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1;
+}
+
+#mirrored-page .nivesh-home-pathways-media span,
+#mirrored-page .nivesh-home-pathways-media strong {
+  display: block;
+}
+
+#mirrored-page .nivesh-home-pathways-media span {
+  color: #f4d276;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 1.35px;
+  text-transform: uppercase;
+}
+
+#mirrored-page .nivesh-home-pathways-media strong {
+  margin-top: 8px;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.05;
 }
 
 #mirrored-page .nivesh-home-founder-card {
@@ -643,6 +903,10 @@ body {
   color: rgba(255, 255, 255, 0.72);
   font-size: 1.02rem;
   line-height: 1.82;
+}
+
+#mirrored-page .nivesh-home-pathways-old-copy {
+  display: none;
 }
 
 #mirrored-page .nivesh-home-about-highlights {
@@ -887,12 +1151,61 @@ body {
 }
 
 @media (max-width: 767.98px) {
-  #mirrored-page .nivesh-home-about-media {
+  #mirrored-page .nivesh-home-match-section {
+    padding: 52px 0 58px;
+  }
+
+  #mirrored-page .nivesh-home-match-head {
+    margin-bottom: 22px;
+  }
+
+  #mirrored-page .nivesh-home-match-head h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  #mirrored-page .nivesh-home-match-head p {
+    font-size: 0.96rem;
+    line-height: 1.72;
+  }
+
+  #mirrored-page .nivesh-home-match-feature {
+    min-height: 420px;
+  }
+
+  #mirrored-page .nivesh-home-match-feature-copy {
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  #mirrored-page .nivesh-home-match-feature-copy a {
+    width: 100%;
+  }
+
+  #mirrored-page .nivesh-home-match-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #mirrored-page .nivesh-home-match-grid article {
+    min-height: 0;
+  }
+
+  #mirrored-page .nivesh-home-about-media,
+  #mirrored-page .nivesh-home-pathways-media {
     grid-template-columns: 1fr;
   }
 
   #mirrored-page .nivesh-home-founder-card:nth-child(2) {
     margin-top: 0;
+  }
+
+  #mirrored-page .nivesh-home-pathways-media article:nth-child(2) {
+    margin-left: 0;
+  }
+
+  #mirrored-page .nivesh-home-pathways-media article,
+  #mirrored-page .nivesh-home-pathways-media img {
+    min-height: 220px;
   }
 
   #mirrored-page .nivesh-home-about-copy h2 {
@@ -930,7 +1243,16 @@ body {
     gap: 34px;
   }
 
-  #mirrored-page .nivesh-home-about-media {
+  #mirrored-page .nivesh-home-match-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #mirrored-page .nivesh-home-match-feature {
+    min-height: 460px;
+  }
+
+  #mirrored-page .nivesh-home-about-media,
+  #mirrored-page .nivesh-home-pathways-media {
     order: 2;
   }
 
@@ -3837,12 +4159,13 @@ body {
 
 .nivesh-career-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.72fr);
-  gap: clamp(28px, 6vw, 76px);
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.56fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 158px 0 78px;
+  min-height: 620px;
+  padding: 132px 0 58px;
 }
 
 .nivesh-career-copy span,
@@ -3861,14 +4184,14 @@ body {
 }
 
 .nivesh-career-copy h1 {
-  max-width: 820px;
+  max-width: 760px;
   margin: 0;
   color: #fff;
   font-family: "Playfair Display", Georgia, serif !important;
-  font-size: clamp(2.8rem, 6.2vw, 6.4rem);
+  font-size: clamp(2.55rem, 4.8vw, 4.9rem);
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 0.94;
+  line-height: 1;
 }
 
 .nivesh-career-copy p,
@@ -3926,8 +4249,8 @@ body {
 
 .nivesh-career-panel {
   display: grid;
-  gap: 12px;
-  padding: 14px;
+  gap: 0;
+  padding: 28px;
   border: 1px solid rgba(245, 207, 113, 0.22);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.07);
@@ -3935,25 +4258,54 @@ body {
   backdrop-filter: blur(18px);
 }
 
+.nivesh-career-panel > span {
+  display: block;
+  margin-bottom: 16px;
+  color: #f4d276;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 1.7px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.nivesh-career-panel h2 {
+  margin: 0;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: clamp(1.65rem, 2.6vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.nivesh-career-panel p {
+  margin: 16px 0 24px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
 .nivesh-career-panel div {
-  padding: 24px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid rgba(245, 207, 113, 0.18);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.07);
 }
 
 .nivesh-career-panel strong {
   display: block;
-  color: #fff;
+  color: #f4d276;
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 2rem;
+  font-size: 2.15rem;
   line-height: 1;
 }
 
-.nivesh-career-panel span {
-  display: block;
-  margin-top: 10px;
-  color: #f4d276;
-  font-size: 0.72rem;
+.nivesh-career-panel small {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.74rem;
   font-weight: 900;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -4858,7 +5210,16 @@ body {
   .nivesh-career-hero {
     grid-template-columns: 1fr;
     width: min(100% - 28px, 1180px);
-    padding: 168px 0 44px;
+    min-height: 0;
+    padding: 136px 0 44px;
+  }
+
+  .nivesh-career-copy h1 {
+    font-size: clamp(2.35rem, 10vw, 3.3rem);
+  }
+
+  .nivesh-career-panel {
+    max-width: 540px;
   }
 
   .nivesh-career-culture,
@@ -5330,6 +5691,847 @@ body {
   .nivesh-project-detail-cta {
     grid-column: auto;
     width: 100%;
+  }
+}
+
+.nivesh-site-footer {
+  background: #10100f;
+  color: #f7f2e7;
+  overflow: hidden;
+}
+
+.nivesh-services-page {
+  background: #f7f4ed;
+  color: #171512;
+}
+
+.nivesh-services-hero {
+  min-height: 620px;
+  padding: 132px max(24px, calc((100vw - 1180px) / 2)) 58px;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.5) 54%, rgba(0, 0, 0, 0.72)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.78)),
+    url("/assets/images/hero section real estate.jpeg") center/cover;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.nivesh-services-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 76% 26%, rgba(245, 207, 113, 0.16), transparent 30%),
+    radial-gradient(circle at 14% 72%, rgba(245, 207, 113, 0.08), transparent 28%);
+  pointer-events: none;
+}
+
+.nivesh-services-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.56fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  min-height: 430px;
+}
+
+.nivesh-services-hero-copy {
+  max-width: 790px;
+}
+
+.nivesh-services-hero-copy > span,
+.nivesh-services-process-head span,
+.nivesh-services-cta span {
+  display: block;
+  margin-bottom: 14px;
+  color: #d4af37;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.nivesh-services-hero h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.55rem, 4.8vw, 4.9rem);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+}
+
+.nivesh-services-hero p {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1.05rem;
+  line-height: 1.76;
+}
+
+.nivesh-services-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.nivesh-services-actions a,
+.nivesh-services-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 234, 168, 0.64);
+  background: linear-gradient(135deg, #f8e39b, #b98a27);
+  color: #080808;
+  box-shadow: 0 18px 40px rgba(185, 138, 39, 0.22);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nivesh-services-actions a + a {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.nivesh-services-hero-card {
+  align-self: center;
+  padding: 28px;
+  border: 1px solid rgba(245, 207, 113, 0.24);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(245, 207, 113, 0.18), transparent 42%),
+    rgba(255, 255, 255, 0.08);
+  color: #fff;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+}
+
+.nivesh-services-hero-card > span {
+  display: block;
+  margin-bottom: 18px;
+  color: #f4d276;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 1.7px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.nivesh-services-hero-card h2 {
+  margin: 0;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.65rem, 2.6vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.nivesh-services-hero-card p {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+
+.nivesh-services-grid,
+.nivesh-services-assets,
+.nivesh-services-market,
+.nivesh-services-journey,
+.nivesh-services-process,
+.nivesh-services-cta {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.nivesh-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 76px 0;
+}
+
+.nivesh-services-grid article {
+  display: flex;
+  flex-direction: column;
+  min-height: 370px;
+  padding: 28px 24px;
+  border: 1px solid rgba(23, 21, 18, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(23, 21, 18, 0.08);
+}
+
+.nivesh-services-grid i {
+  display: inline-grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  margin-bottom: 24px;
+  border-radius: 6px;
+  background: #171512;
+  color: #d4af37;
+  font-size: 1.15rem;
+}
+
+.nivesh-services-grid h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.nivesh-services-grid p {
+  margin: 16px 0 22px;
+  color: rgba(23, 21, 18, 0.68);
+  line-height: 1.65;
+}
+
+.nivesh-services-grid ul {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: auto 0 0;
+  list-style: none;
+}
+
+.nivesh-services-grid li {
+  color: rgba(23, 21, 18, 0.78);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.nivesh-services-grid li::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: #d4af37;
+}
+
+.nivesh-services-section-head {
+  max-width: 820px;
+  margin-bottom: 30px;
+}
+
+.nivesh-services-section-head span,
+.nivesh-services-market span {
+  display: block;
+  margin-bottom: 12px;
+  color: #9d7a19;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.nivesh-services-section-head h2,
+.nivesh-services-market h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.nivesh-services-section-head p,
+.nivesh-services-market p {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: rgba(23, 21, 18, 0.68);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.nivesh-services-assets {
+  padding: 0 0 78px;
+}
+
+.nivesh-services-assets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.nivesh-services-assets-grid article {
+  border: 1px solid rgba(23, 21, 18, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(23, 21, 18, 0.08);
+  overflow: hidden;
+}
+
+.nivesh-services-assets-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.35;
+  object-fit: cover;
+  background: #ddd6c8;
+}
+
+.nivesh-services-assets-grid div {
+  padding: 24px;
+}
+
+.nivesh-services-assets-grid h3,
+.nivesh-services-journey-grid h3 {
+  margin: 0 0 12px;
+  font-size: 1.18rem;
+  font-weight: 900;
+}
+
+.nivesh-services-assets-grid p,
+.nivesh-services-journey-grid p {
+  margin: 0;
+  color: rgba(23, 21, 18, 0.66);
+  line-height: 1.65;
+}
+
+.nivesh-services-market {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 78px;
+  padding: 38px;
+  border-radius: 8px;
+  background: #171512;
+  color: #fff;
+}
+
+.nivesh-services-market h2,
+.nivesh-services-market p {
+  color: #fff;
+}
+
+.nivesh-services-market p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.nivesh-services-market ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nivesh-services-market li {
+  min-height: 58px;
+  padding: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 900;
+}
+
+.nivesh-services-journey {
+  padding: 0 0 78px;
+}
+
+.nivesh-services-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid rgba(23, 21, 18, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(23, 21, 18, 0.08);
+  overflow: hidden;
+}
+
+.nivesh-services-journey-grid article {
+  min-height: 250px;
+  padding: 28px 24px;
+  border-right: 1px solid rgba(23, 21, 18, 0.1);
+}
+
+.nivesh-services-journey-grid article:last-child {
+  border-right: 0;
+}
+
+.nivesh-services-journey-grid strong {
+  display: block;
+  margin-bottom: 56px;
+  color: #d4af37;
+  font-size: 0.86rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.nivesh-services-process {
+  padding: 0 0 78px;
+}
+
+.nivesh-services-process-head {
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.nivesh-services-process-head h2,
+.nivesh-services-cta h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.nivesh-services-process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid rgba(23, 21, 18, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.nivesh-services-process-grid article {
+  padding: 30px 26px;
+  border-right: 1px solid rgba(23, 21, 18, 0.1);
+}
+
+.nivesh-services-process-grid article:last-child {
+  border-right: 0;
+}
+
+.nivesh-services-process-grid strong {
+  display: block;
+  margin-bottom: 22px;
+  color: #d4af37;
+  font-size: 0.86rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.nivesh-services-process-grid h3 {
+  margin: 0 0 12px;
+  font-size: 1.12rem;
+  font-weight: 900;
+}
+
+.nivesh-services-process-grid p {
+  margin: 0;
+  color: rgba(23, 21, 18, 0.66);
+  line-height: 1.65;
+}
+
+.nivesh-services-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 76px;
+  padding: 34px;
+  border-radius: 8px;
+  background: #171512;
+  color: #fff;
+}
+
+.nivesh-services-cta div {
+  max-width: 760px;
+}
+
+.nivesh-services-cta p {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.nivesh-footer-cta,
+.nivesh-footer-main,
+.nivesh-footer-bottom {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.nivesh-footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 34px 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+}
+
+.nivesh-footer-cta span {
+  display: block;
+  margin-bottom: 8px;
+  color: #d4af37;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.nivesh-footer-cta h2 {
+  max-width: 720px;
+  margin: 0;
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.55rem, 3vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.nivesh-footer-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid rgba(212, 175, 55, 0.64);
+  border-radius: 6px;
+  background: #d4af37;
+  color: #17130a;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nivesh-footer-main {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.2fr) minmax(320px, 1fr) minmax(280px, 0.9fr);
+  gap: 46px;
+  padding: 54px 0 42px;
+}
+
+.nivesh-footer-brand img {
+  display: block;
+  width: min(230px, 100%);
+  height: auto;
+  margin-bottom: 22px;
+}
+
+.nivesh-footer-brand p {
+  max-width: 430px;
+  margin: 0;
+  color: rgba(247, 242, 231, 0.76);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.nivesh-footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.nivesh-footer-socials a {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(247, 242, 231, 0.18);
+  border-radius: 50%;
+  color: #f7f2e7;
+  text-decoration: none;
+  transition: transform 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.nivesh-footer-socials a:hover,
+.nivesh-footer-socials a:focus {
+  border-color: rgba(212, 175, 55, 0.8);
+  background: rgba(212, 175, 55, 0.14);
+  transform: translateY(-2px);
+}
+
+.nivesh-footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.nivesh-footer-links h3,
+.nivesh-footer-contact span {
+  margin: 0 0 16px;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nivesh-footer-links ul {
+  display: grid;
+  gap: 11px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nivesh-footer-links a,
+.nivesh-footer-bottom a {
+  color: rgba(247, 242, 231, 0.72);
+  font-size: 0.94rem;
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+
+.nivesh-footer-links a:hover,
+.nivesh-footer-links a:focus,
+.nivesh-footer-bottom a:hover,
+.nivesh-footer-bottom a:focus {
+  color: #d4af37;
+}
+
+.nivesh-footer-contact {
+  display: grid;
+  gap: 13px;
+  min-width: 0;
+  padding: 24px;
+  margin: 0;
+  border: 1px solid rgba(247, 242, 231, 0.12);
+  border-radius: 8px;
+  background: #171715;
+  font-style: normal;
+}
+
+.nivesh-footer-contact a {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  color: rgba(247, 242, 231, 0.76);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.nivesh-footer-contact i {
+  margin-top: 4px;
+  color: #d4af37;
+}
+
+.nivesh-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(247, 242, 231, 0.1);
+}
+
+.nivesh-footer-bottom p {
+  margin: 0;
+  color: rgba(247, 242, 231, 0.64);
+  font-size: 0.88rem;
+}
+
+.nivesh-footer-bottom div {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 991px) {
+  .nivesh-services-hero {
+    min-height: 0;
+    padding-top: 132px;
+  }
+
+  .nivesh-services-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .nivesh-services-hero-card {
+    max-width: 560px;
+  }
+
+  .nivesh-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nivesh-services-assets-grid,
+  .nivesh-services-market,
+  .nivesh-services-journey-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nivesh-services-market {
+    gap: 28px;
+  }
+
+  .nivesh-services-journey-grid article {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(23, 21, 18, 0.1);
+  }
+
+  .nivesh-services-journey-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .nivesh-services-journey-grid strong {
+    margin-bottom: 24px;
+  }
+
+  .nivesh-services-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nivesh-services-process-grid article {
+    border-right: 0;
+    border-bottom: 1px solid rgba(23, 21, 18, 0.1);
+  }
+
+  .nivesh-services-process-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .nivesh-services-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nivesh-footer-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nivesh-footer-main {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+}
+
+@media (max-width: 767px) {
+  .nivesh-career-hero {
+    padding: 116px 0 42px;
+  }
+
+  .nivesh-career-panel {
+    display: none;
+  }
+
+  .nivesh-services-hero {
+    padding: 116px 18px 42px;
+  }
+
+  .nivesh-services-hero h1 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .nivesh-services-hero p {
+    font-size: 1rem;
+  }
+
+  .nivesh-services-actions a {
+    width: 100%;
+  }
+
+  .nivesh-services-hero-card {
+    display: none;
+  }
+
+  .nivesh-services-grid,
+  .nivesh-services-assets,
+  .nivesh-services-market,
+  .nivesh-services-journey,
+  .nivesh-services-process,
+  .nivesh-services-cta {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .nivesh-services-grid {
+    grid-template-columns: 1fr;
+    padding: 52px 0;
+  }
+
+  .nivesh-services-grid article {
+    min-height: 0;
+  }
+
+  .nivesh-services-assets {
+    padding-bottom: 52px;
+  }
+
+  .nivesh-services-assets-grid div {
+    padding: 20px;
+  }
+
+  .nivesh-services-market {
+    margin-bottom: 52px;
+    padding: 26px 20px;
+  }
+
+  .nivesh-services-market ul {
+    grid-template-columns: 1fr;
+  }
+
+  .nivesh-services-journey {
+    padding-bottom: 52px;
+  }
+
+  .nivesh-services-journey-grid article {
+    padding: 24px 20px;
+  }
+
+  .nivesh-services-process {
+    padding-bottom: 52px;
+  }
+
+  .nivesh-services-cta {
+    margin-bottom: 52px;
+    padding: 26px 20px;
+  }
+
+  .nivesh-services-cta a {
+    width: 100%;
+  }
+
+  .nivesh-footer-cta,
+  .nivesh-footer-main,
+  .nivesh-footer-bottom {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .nivesh-footer-cta {
+    padding: 28px 0;
+  }
+
+  .nivesh-footer-cta a {
+    width: 100%;
+  }
+
+  .nivesh-footer-main {
+    padding: 38px 0 30px;
+  }
+
+  .nivesh-footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .nivesh-footer-contact {
+    padding: 20px;
+  }
+
+  .nivesh-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nivesh-footer-bottom div {
+    flex-wrap: wrap;
+    gap: 10px 18px;
   }
 }
 

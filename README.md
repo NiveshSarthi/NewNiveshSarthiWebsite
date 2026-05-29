@@ -1,21 +1,51 @@
-# Elite Pro Infra React Mirror
+# Nivesh Sarthi Website
 
-This project is a React/Vite static mirror of `https://www.eliteproinfra.com/`.
+This repo is now split into two folders:
 
-## Commands
+- `frontend/` - React/Vite website, mirrored pages, assets, and Docker/Nginx deployment files.
+- `backend/` - local JSON API and property/lead data storage.
+
+## Frontend
 
 ```bash
-npm run mirror
-npm run backend
+cd frontend
+npm run dev
 npm run build
+npm run preview
+```
+
+The Vite dev server proxies `/api` requests to the backend at `http://127.0.0.1:5174`.
+
+## Backend
+
+```bash
+cd backend
+npm run start
+```
+
+The API runs at `http://127.0.0.1:5174/api/health`.
+
+## Combined Local Serve
+
+After building the frontend:
+
+```bash
+cd frontend
+npm run build
+cd ../backend
 npm run serve -- 4180
 ```
 
-- `npm run mirror` crawls the live website, stores copied pages in `public/mirror/pages`, and downloads local assets under `public/assets`.
-- `npm run build` creates the production build in `dist`.
-- `npm run serve -- 4180` serves the built copy and the local JSON API at `http://127.0.0.1:4180/`.
-- `npm run backend` starts only the API at `http://127.0.0.1:5174/` for Vite development.
-- The admin panel is available at `http://127.0.0.1:4180/admin`.
-- Property data is stored in `data/properties.json`; leads are stored in `data/leads.json`.
+This serves the built frontend and the local API together at `http://127.0.0.1:4180/`.
 
-The React app reads `public/mirror/routes.json`, loads the matching mirrored HTML page, and intercepts internal links so the copied pages behave like client-side routes.
+## Docker Deployment
+
+The frontend deployment Dockerfile is in `frontend/Dockerfile`:
+
+```bash
+cd frontend
+docker build -t nivesh-sarthi-frontend .
+docker run -p 8080:80 nivesh-sarthi-frontend
+```
+
+Property data lives in `backend/data/properties.json`. Leads are written to `backend/data/leads.json`.

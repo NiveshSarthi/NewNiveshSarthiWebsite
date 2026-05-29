@@ -19,7 +19,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Runtime data
-data/leads.json
+backend/data/leads.json
 
 # Local scrape/source dumps
 elitepro-home.html

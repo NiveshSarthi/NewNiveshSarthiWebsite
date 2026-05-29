@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "mirror": "node tools/mirror-site.mjs",
-    "backend": "node tools/backend.mjs",
+    "backend": "npm --prefix ../backend start",
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "serve": "node tools/serve-static.mjs"
+    "serve": "npm --prefix ../backend run serve"
   },
   "keywords": [],
   "author": "",

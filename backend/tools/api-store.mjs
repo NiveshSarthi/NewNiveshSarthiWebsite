@@ -1,7 +1,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-export const dataDir = path.resolve(process.cwd(), "data");
+const backendRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+export const dataDir = process.env.DATA_DIR || path.join(backendRoot, "data");
 export const propertiesFile = path.join(dataDir, "properties.json");
 export const leadsFile = path.join(dataDir, "leads.json");
 

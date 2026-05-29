@@ -40,10 +40,8 @@ const HERO_CONTENT = `
     <label>
       <span>Location</span>
       <select>
-        <option>Gurgaon</option>
-        <option>Cyber City</option>
-        <option>Sector 81 Faridabad</option>
-        <option>NCR Corridors</option>
+        <option>Faridabad</option>
+        <option>Greater Faridabad</option>
       </select>
     </label>
     <label>
@@ -69,44 +67,104 @@ const HERO_CONTENT = `
 `;
 
 const NIVESH_HOME_ABOUT_SECTION = `
-  <section id="about" class="nivesh-home-about-section" aria-label="Who we are">
+  <section id="about" class="nivesh-home-about-section nivesh-home-pathways-section" aria-label="Property pathways">
     <div class="container">
       <div class="nivesh-home-about-layout">
-        <div class="nivesh-home-about-media" data-aos="fade-right">
-          <div class="nivesh-home-founder-card">
-            <img src="/assets/images/founder.jpeg" alt="Nivesh Sarthi founder" loading="eager" decoding="async">
-            <span><strong>Founder</strong><small>Nivesh Sarthi</small></span>
-          </div>
-          <div class="nivesh-home-founder-card">
-            <img src="/assets/images/cofounder.jpeg" alt="Nivesh Sarthi co-founder" loading="eager" decoding="async">
-            <span><strong>Co-Founder</strong><small>Nivesh Sarthi</small></span>
-          </div>
+        <div class="nivesh-home-pathways-media" data-aos="fade-right">
+          <article>
+            <img src="/assets/images/propertymaster/optimized/bptp-skynest-towers.jpg" alt="Residential property in Faridabad" loading="eager" decoding="async">
+            <div><span>Residential</span><strong>Homes For End Use</strong></div>
+          </article>
+          <article>
+            <img src="/assets/images/propertymaster/faridabad/adore-fantasy-street.webp" alt="Commercial property in Faridabad" loading="eager" decoding="async">
+            <div><span>Commercial</span><strong>Retail And Office Assets</strong></div>
+          </article>
         </div>
         <div class="nivesh-home-about-copy" data-aos="fade-left">
-          <span>Who We Are</span>
-          <h2>Started In 2024 To Bring Clearer Real Estate Guidance To Faridabad</h2>
+          <span>Property Pathways</span>
+          <h2>Choose The Right Route For Your Faridabad Real Estate Goal</h2>
           <p>
-            Nivesh Sarthi was founded in 2024 with a simple belief: property decisions should feel transparent, well-researched, and personally guided. We help families, investors, entrepreneurs, and NRIs discover residential, commercial, SCO, and investment-ready opportunities across Faridabad.
+            Every buyer arrives with a different objective. Some need a family home, some want rental income, some are comparing commercial visibility, and some are waiting for the right plotted opportunity.
           </p>
-          <p>
+          <p class="nivesh-home-pathways-copy">
+            We organize the market into clear pathways so you can compare options by purpose, location, budget, possession stage, and long-term usability.
+          </p>
+          <p class="nivesh-home-pathways-old-copy">
             Our approach is focused, not scattered. Every recommendation is shaped by location strength, builder credibility, pricing logic, future usability, and the client’s real objective.
           </p>
           <div class="nivesh-home-about-highlights">
-            <div><strong>2024</strong><small>Started With A Faridabad-First Vision</small></div>
-            <div><strong>4</strong><small>Residential, Commercial, SCO, Investment</small></div>
-            <div><strong>1:1</strong><small>Private-Client Advisory Process</small></div>
+            <div><strong>Buy</strong><small>Ready And Under-Construction Homes</small></div>
+            <div><strong>Invest</strong><small>Growth Corridors And Rental Potential</small></div>
+            <div><strong>Build</strong><small>SCO, Plotted And Land-Led Options</small></div>
           </div>
-          <div class="nivesh-home-about-method" aria-label="The Sarthi method">
+          <div class="nivesh-home-about-method" aria-label="Property pathway process">
             <div>
-              <strong>The Sarthi Method</strong>
-              <p>Listen deeply, shortlist selectively, compare honestly, and guide the decision only when the property truly fits.</p>
+              <strong>Start With Your Objective</strong>
+              <p>Tell us what the property needs to do for you. We convert that into a focused shortlist instead of sending random inventory.</p>
             </div>
             <ul>
-              <li><span>01</span>Requirement Mapping</li>
-              <li><span>02</span>Verified Project Match</li>
-              <li><span>03</span>Closure With Clarity</li>
+              <li><span>01</span>End-Use Home</li>
+              <li><span>02</span>Investment Asset</li>
+              <li><span>03</span>Commercial Growth</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+`;
+
+const NIVESH_HOME_MATCH_SECTION = `
+  <section id="about" class="nivesh-home-about-section nivesh-home-match-section" aria-label="Find your property match">
+    <div class="container">
+      <div class="nivesh-home-match-head" data-aos="fade-up">
+        <span>Find Your Property Match</span>
+        <p>Instead of browsing everything at once, compare the market through the route that fits your purpose: living, investing, business visibility, or plotted growth.</p>
+      </div>
+
+      <div class="nivesh-home-match-layout">
+        <div class="nivesh-home-match-feature" data-aos="fade-right">
+          <img src="/assets/images/hero section real estate.jpeg" alt="Faridabad real estate advisory" loading="eager" decoding="async">
+          <div class="nivesh-home-match-feature-copy">
+            <span>Faridabad Advisory</span>
+            <strong>Residential, commercial, SCO and plotted options curated around your real objective.</strong>
+            <a href="/properties">Explore Properties</a>
+          </div>
+        </div>
+
+        <div class="nivesh-home-match-grid" data-aos="fade-left">
+          <article>
+            <i class="fas fa-house-chimney"></i>
+            <div>
+              <span>Live</span>
+              <h3>Family Homes</h3>
+              <p>Ready and under-construction residences matched to lifestyle, connectivity, and possession comfort.</p>
+            </div>
+          </article>
+          <article>
+            <i class="fas fa-chart-line"></i>
+            <div>
+              <span>Invest</span>
+              <h3>Growth Assets</h3>
+              <p>Projects and pockets compared for appreciation logic, rental demand, and exit potential.</p>
+            </div>
+          </article>
+          <article>
+            <i class="fas fa-store"></i>
+            <div>
+              <span>Operate</span>
+              <h3>Commercial Spaces</h3>
+              <p>Retail, office, and high-street opportunities reviewed for visibility, access, and footfall.</p>
+            </div>
+          </article>
+          <article>
+            <i class="fas fa-map-location-dot"></i>
+            <div>
+              <span>Build</span>
+              <h3>SCO And Plots</h3>
+              <p>Land-led options screened for location strength, approvals, usability, and long-term value.</p>
+            </div>
+          </article>
         </div>
       </div>
     </div>
@@ -706,6 +764,33 @@ const PROPERTY_CATEGORY_META = {
   },
 };
 
+const SERVICE_PAGE_ITEMS = [
+  {
+    title: "Investment Advisory",
+    icon: "fa-chart-line",
+    text: "Shortlists shaped around budget, location logic, launch timing, rental potential, and long-term exit value.",
+    points: ["Project comparison", "Pricing logic", "Portfolio fit"],
+  },
+  {
+    title: "NRI Advisory",
+    icon: "fa-globe-asia",
+    text: "Remote-friendly discovery and coordination for clients evaluating Faridabad opportunities from outside India.",
+    points: ["Video walkthroughs", "Document clarity", "Local coordination"],
+  },
+  {
+    title: "Property Management",
+    icon: "fa-key",
+    text: "Post-purchase support for possession planning, leasing readiness, resale preparation, and asset upkeep.",
+    points: ["Possession support", "Leasing readiness", "Asset monitoring"],
+  },
+  {
+    title: "Land & Acquisition",
+    icon: "fa-map-location-dot",
+    text: "Guidance across plotted communities, SCO opportunities, and land-led assets in active Faridabad growth pockets.",
+    points: ["Location screening", "Use-case mapping", "Due diligence flow"],
+  },
+];
+
 function App() {
   const [routes, setRoutes] = useState(null);
   const [route, setRoute] = useState(normalizeRoute(window.location.pathname));
@@ -770,6 +855,12 @@ function App() {
     setRoute("/");
   }, [route]);
 
+  useEffect(() => {
+    if (!isLegacyServiceRoute(route)) return;
+    history.replaceState({}, "", "/services");
+    setRoute("/services");
+  }, [route]);
+
   const pageUrl = useMemo(() => {
     if (!routes) return null;
     return routes.routes[route] || routes.routes[route.replace(/\/$/, "")] || routes.routes["/"];
@@ -827,6 +918,10 @@ function App() {
 
   if (propertyCategory) {
     return <PropertyListingPage category={propertyCategory} properties={properties} />;
+  }
+
+  if (route === "/services") {
+    return <ServicesPage />;
   }
 
   if (route === "/career") {
@@ -959,7 +1054,7 @@ function AboutPage() {
           <span>info.niveshsarthi@gmail.com</span>
         </div>
       </section>
-      <LocalFooter />
+      <RedesignedFooter />
     </main>
   );
 }
@@ -991,18 +1086,22 @@ function CareerPage() {
       <LocalNavbar />
       <section className="nivesh-career-hero">
         <div className="nivesh-career-copy">
-          <span>Careers At Nivesh Sarthi</span>
-          <h1>Build A Career In Faridabad Real Estate Advisory</h1>
-          <p>Join a focused, premium property advisory team working across Sector 81, Greater Faridabad, SCO opportunities, residential investments, and NCR growth corridors.</p>
+          <span>Careers</span>
+          <h1>Build Your Career With A Faridabad Real Estate Team.</h1>
+          <p>Join our advisory office in Sector 81 and work closely with clients, projects, site visits, operations, and local market conversations.</p>
           <div className="nivesh-career-actions">
             <a href="#open-roles">View Open Roles</a>
             <a href={`mailto:${CONTACT_EMAIL}`}>Send Resume</a>
           </div>
         </div>
         <div className="nivesh-career-panel" aria-label="Career highlights">
-          <div><strong>Sector 81</strong><span>Corporate HQ</span></div>
-          <div><strong>Faridabad</strong><span>Focused Market</span></div>
-          <div><strong>2 Roles</strong><span>Open Hiring</span></div>
+          <span>Hiring Desk</span>
+          <h2>Open roles for sales and people operations.</h2>
+          <p>We are looking for organized, confident people who can communicate clearly and handle real estate clients with care.</p>
+          <div>
+            <strong>2</strong>
+            <small>Open Roles</small>
+          </div>
         </div>
       </section>
 
@@ -1054,7 +1153,151 @@ function CareerPage() {
         </div>
         <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
       </section>
-      <LocalFooter />
+      <RedesignedFooter />
+    </main>
+  );
+}
+
+function ServicesPage() {
+  const processSteps = [
+    { step: "01", title: "Map The Requirement", text: "We clarify purpose, budget, timeline, risk comfort, and preferred Faridabad pockets before discussing inventory." },
+    { step: "02", title: "Curate The Shortlist", text: "Projects are compared on location strength, builder credibility, pricing logic, payment structure, and usability." },
+    { step: "03", title: "Guide The Decision", text: "You get a clear recommendation path with site visits, documentation support, and closure coordination." },
+  ];
+  const assetTypes = [
+    {
+      title: "Residential Homes",
+      text: "Apartments, independent floors, villas, and ready-to-move options matched to family needs, lifestyle, and resale strength.",
+      image: "/assets/images/propertymaster/optimized/bptp-skynest-towers.jpg",
+    },
+    {
+      title: "Commercial Assets",
+      text: "Retail shops, office spaces, high-street developments, and rental-focused assets reviewed for footfall, access, and yield logic.",
+      image: "/assets/images/propertymaster/faridabad/adore-fantasy-street.webp",
+    },
+    {
+      title: "SCO & Plotted Property",
+      text: "SCO plots, residential plots, and land-led opportunities evaluated for location visibility, approvals, and long-term utility.",
+      image: "/assets/images/propertymaster/optimized/neoliv-golf-one.jpg",
+    },
+  ];
+  const marketPockets = ["Faridabad", "Greater Faridabad", "Sector 80-99A", "Neharpar", "Delhi-Mumbai Expressway Belt", "Commercial High Streets"];
+  const journeyItems = [
+    { title: "Requirement Brief", text: "Budget, purpose, family size, preferred possession stage, and investment horizon are documented first." },
+    { title: "Market Comparison", text: "We compare real options across price, location, builder track record, amenities, and future demand." },
+    { title: "Site Visit Plan", text: "Shortlisted properties are arranged into efficient visits with clear pros, cons, and negotiation notes." },
+    { title: "Closure Support", text: "Our team coordinates documentation, booking steps, payment milestones, and handover follow-up." },
+  ];
+
+  return (
+    <main className="nivesh-services-page">
+      <LocalNavbar />
+
+      <section className="nivesh-services-hero">
+        <div className="nivesh-services-hero-inner">
+          <div className="nivesh-services-hero-copy">
+            <span>Services</span>
+            <h1>Real Estate Advisory For Every Property Decision.</h1>
+            <p>Compare residential, commercial, SCO, plotted, and investment opportunities across Faridabad with clear shortlists and guided support.</p>
+            <div className="nivesh-services-actions">
+              <a href="/contact">Book Consultation</a>
+              <a href="/properties">View Properties</a>
+            </div>
+          </div>
+
+          <aside className="nivesh-services-hero-card" aria-label="Service overview">
+            <span>Advisory Desk</span>
+            <h2>Residential, commercial, SCO and land-led opportunities.</h2>
+            <p>One guided process for discovery, comparison, site visits, documentation, and closure.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="services-list" className="nivesh-services-grid" aria-label="Nivesh Sarthi services">
+        {SERVICE_PAGE_ITEMS.map((service) => (
+          <article key={service.title}>
+            <i className={`fas ${service.icon}`}></i>
+            <h2>{service.title}</h2>
+            <p>{service.text}</p>
+            <ul>
+              {service.points.map((point) => <li key={point}>{point}</li>)}
+            </ul>
+          </article>
+        ))}
+      </section>
+
+      <section className="nivesh-services-assets" aria-label="Real estate asset coverage">
+        <div className="nivesh-services-section-head">
+          <span>Real Estate Coverage</span>
+          <h2>Property Advice Across The Segments Clients Actually Buy.</h2>
+          <p>From end-use homes to rental assets and plotted opportunities, our recommendations stay grounded in local demand, practical use, and exit potential.</p>
+        </div>
+        <div className="nivesh-services-assets-grid">
+          {assetTypes.map((item) => (
+            <article key={item.title}>
+              <img src={item.image} alt={item.title} />
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="nivesh-services-market" aria-label="Market focus">
+        <div>
+          <span>Market Focus</span>
+          <h2>Built Around Faridabad And Greater Faridabad Micro-Markets.</h2>
+          <p>We track residential corridors, commercial activity zones, infrastructure movement, and project-level inventory so clients can compare opportunities with local context.</p>
+        </div>
+        <ul>
+          {marketPockets.map((pocket) => <li key={pocket}>{pocket}</li>)}
+        </ul>
+      </section>
+
+      <section className="nivesh-services-journey" aria-label="Client journey">
+        <div className="nivesh-services-section-head">
+          <span>Advisory Journey</span>
+          <h2>From First Call To Final Decision, The Process Stays Organized.</h2>
+        </div>
+        <div className="nivesh-services-journey-grid">
+          {journeyItems.map((item, index) => (
+            <article key={item.title}>
+              <strong>{String(index + 1).padStart(2, "0")}</strong>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="nivesh-services-process">
+        <div className="nivesh-services-process-head">
+          <span>How We Work</span>
+          <h2>Structured Enough To Be Clear, Personal Enough To Be Useful</h2>
+        </div>
+        <div className="nivesh-services-process-grid">
+          {processSteps.map((item) => (
+            <article key={item.step}>
+              <strong>{item.step}</strong>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="nivesh-services-cta">
+        <div>
+          <span>Start With A Better Shortlist</span>
+          <h2>Tell Us What You Want To Achieve With The Property.</h2>
+          <p>We will help you compare the right Faridabad and Greater Faridabad options with practical market context.</p>
+        </div>
+        <a href={`tel:${CONTACT_PHONE_TEL}`}>{CONTACT_PHONE_DISPLAY}</a>
+      </section>
+
+      <RedesignedFooter />
     </main>
   );
 }
@@ -1232,7 +1475,7 @@ function AdminPanel({ properties, setProperties }) {
           </div>
         )}
       </section>
-      <LocalFooter />
+      <RedesignedFooter />
     </main>
   );
 }
@@ -1302,7 +1545,7 @@ function PropertyListingPage({ category, properties }) {
           </div>
         )}
       </section>
-      <LocalFooter />
+      <RedesignedFooter />
     </main>
   );
 }
@@ -1316,10 +1559,7 @@ function LocalFooter() {
     { label: "Contact", href: "/contact" },
   ];
   const serviceLinks = [
-    { label: "Investment Advisory", href: "/investment-sales-advisory" },
-    { label: "NRI Advisory", href: "/nri-advisory" },
-    { label: "Property Management", href: "/property-management" },
-    { label: "Land & Acquisition", href: "/land-acquisition" },
+    { label: "Services Overview", href: "/services" },
   ];
 
   return (
@@ -1393,6 +1633,79 @@ function LocalFooter() {
   );
 }
 
+function RedesignedFooter() {
+  const footerLinks = [
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/our-story" },
+    { label: "Properties", href: "/properties" },
+    { label: "Careers", href: "/career" },
+    { label: "Contact", href: "/contact" },
+  ];
+  const serviceLinks = [
+    { label: "Services Overview", href: "/services" },
+  ];
+
+  return (
+    <footer className="nivesh-site-footer">
+      <div className="nivesh-footer-cta">
+        <div>
+          <span>Faridabad Advisory Desk</span>
+          <h2>Ready To Compare The Right Property Options?</h2>
+        </div>
+        <a href="/contact">Start A Consultation</a>
+      </div>
+
+      <div className="nivesh-footer-main">
+        <div className="nivesh-footer-brand">
+          <img src={NAVBAR_LOGO} alt="Nivesh Sarthi" />
+          <p>Nivesh Sarthi brings focused real estate guidance across Faridabad and Greater Faridabad with a calm, transparent advisory process.</p>
+          <div className="nivesh-footer-socials">
+            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Nivesh Sarthi Facebook"><i className="fab fa-facebook-f"></i></a>
+            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Nivesh Sarthi Instagram"><i className="fab fa-instagram"></i></a>
+            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Nivesh Sarthi LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div className="nivesh-footer-links">
+          <div>
+            <h3>Explore</h3>
+            <ul>
+              {footerLinks.map((link) => (
+                <li key={link.href}><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>Services</h3>
+            <ul>
+              {serviceLinks.map((link) => (
+                <li key={link.href}><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <address className="nivesh-footer-contact">
+          <span>Contact</span>
+          <a href={`tel:${CONTACT_PHONE_TEL}`}><i className="fas fa-phone"></i>{CONTACT_PHONE_DISPLAY}</a>
+          <a href={`mailto:${CONTACT_EMAIL}`}><i className="fas fa-envelope"></i>{CONTACT_EMAIL}</a>
+          <a href="https://maps.google.com/?q=Puri%2081%20Business%20Hub%20Sector%2081%20Faridabad" target="_blank" rel="noopener noreferrer">
+            <i className="fas fa-location-dot"></i>{CONTACT_ADDRESS}
+          </a>
+        </address>
+      </div>
+
+      <div className="nivesh-footer-bottom">
+        <p>&copy; 2026 Nivesh Sarthi. All Rights Reserved.</p>
+        <div>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms-conditions">Terms & Conditions</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 function LocalNavbar({ flat = false }) {
   const [isOpen, setIsOpen] = useState(false);
   const closeMenu = () => setIsOpen(false);
@@ -1432,20 +1745,12 @@ function LocalNavbar({ flat = false }) {
               <li className="nav-item"><a className="nav-link" href="/our-story" onClick={closeMenu}>About</a></li>
               {flat ? (
                 <>
-                  <li className="nav-item"><a className="nav-link" href="/investment-sales-advisory" onClick={closeMenu}>Services</a></li>
+                  <li className="nav-item"><a className="nav-link" href="/services" onClick={closeMenu}>Services</a></li>
                   <li className="nav-item"><a className="nav-link" href="/properties" onClick={closeMenu}>Properties</a></li>
                 </>
               ) : (
                 <>
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="/investment-sales-advisory" id="servicesDropdown" role="button" aria-expanded="false">Services</a>
-                    <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="servicesDropdown">
-                      <li><a className="dropdown-item" href="/investment-sales-advisory" onClick={closeMenu}>Investment Sales Advisory</a></li>
-                      <li><a className="dropdown-item" href="/nri-advisory" onClick={closeMenu}>NRI Advisory</a></li>
-                      <li><a className="dropdown-item" href="/property-management" onClick={closeMenu}>Property Management</a></li>
-                      <li><a className="dropdown-item" href="/land-acquisition" onClick={closeMenu}>Land & Acquisition</a></li>
-                    </ul>
-                  </li>
+                  <li className="nav-item"><a className="nav-link" href="/services" onClick={closeMenu}>Services</a></li>
                   <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="/properties" id="propertiesDropdown" role="button" aria-expanded="false">Properties</a>
                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="propertiesDropdown">
@@ -1522,7 +1827,7 @@ function ProjectDetail({ project, onBack }) {
         </div>
         <a className="nivesh-project-detail-cta" href="/contact">Consult About This Property</a>
       </section>
-      <LocalFooter />
+      <RedesignedFooter />
     </main>
   );
 }
@@ -1541,6 +1846,15 @@ function isMediaRoute(route) {
     route.startsWith("/pr-media-detail/") ||
     route.startsWith("/insight-blog-detail/") ||
     route.startsWith("/news-updates-detail/");
+}
+
+function isLegacyServiceRoute(route) {
+  return [
+    "/investment-sales-advisory",
+    "/nri-advisory",
+    "/property-management",
+    "/land-acquisition",
+  ].includes(route);
 }
 
 function wireLocalNavigation(root, setRoute) {
@@ -1604,6 +1918,7 @@ function prepareMirrorDocument(documentHtml, route, properties) {
   setupContactRedesign(root, route);
   setupLeadCapture(root, route);
   removePremiumFooterLinks(root);
+  applyRedesignedFooter(root);
 }
 
 function applyContactDetails(root) {
@@ -1735,6 +2050,75 @@ function removePremiumFooterLinks(root) {
   });
 }
 
+function getRedesignedFooterHtml() {
+  return `
+    <footer class="nivesh-site-footer">
+      <div class="nivesh-footer-cta">
+        <div>
+          <span>Faridabad Advisory Desk</span>
+          <h2>Ready To Compare The Right Property Options?</h2>
+        </div>
+        <a href="/contact">Start A Consultation</a>
+      </div>
+
+      <div class="nivesh-footer-main">
+        <div class="nivesh-footer-brand">
+          <img src="${NAVBAR_LOGO}" alt="Nivesh Sarthi">
+          <p>Nivesh Sarthi brings focused real estate guidance across Faridabad and Greater Faridabad with a calm, transparent advisory process.</p>
+          <div class="nivesh-footer-socials">
+            <a href="${SOCIAL_LINKS.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Nivesh Sarthi Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Nivesh Sarthi Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="${SOCIAL_LINKS.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="Nivesh Sarthi LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="nivesh-footer-links">
+          <div>
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/our-story">About Us</a></li>
+              <li><a href="/properties">Properties</a></li>
+              <li><a href="/career">Careers</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Services</h3>
+            <ul>
+              <li><a href="/services">Services Overview</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <address class="nivesh-footer-contact">
+          <span>Contact</span>
+          <a href="tel:${CONTACT_PHONE_TEL}"><i class="fas fa-phone"></i>${CONTACT_PHONE_DISPLAY}</a>
+          <a href="mailto:${CONTACT_EMAIL}"><i class="fas fa-envelope"></i>${CONTACT_EMAIL}</a>
+          <a href="https://maps.google.com/?q=Puri%2081%20Business%20Hub%20Sector%2081%20Faridabad" target="_blank" rel="noopener noreferrer"><i class="fas fa-location-dot"></i>${CONTACT_ADDRESS}</a>
+        </address>
+      </div>
+
+      <div class="nivesh-footer-bottom">
+        <p>&copy; 2026 Nivesh Sarthi. All Rights Reserved.</p>
+        <div>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms-conditions">Terms & Conditions</a>
+        </div>
+      </div>
+    </footer>
+  `;
+}
+
+function applyRedesignedFooter(root) {
+  const existingFooter = root?.querySelector("footer");
+  if (!existingFooter) return;
+
+  const template = (root.ownerDocument || document).createElement("template");
+  template.innerHTML = getRedesignedFooterHtml().trim();
+  existingFooter.replaceWith(template.content.firstElementChild);
+}
+
 function applyNavbarBranding(root) {
   const navLogoSelectors = [
     ".navbar .navbar-brand img",
@@ -1794,6 +2178,18 @@ function applyNavbarBranding(root) {
 
   root?.querySelectorAll(".navbar #insightsDropdown, .navbar a[href='/pr-media'], .navbar a[href='/insight-blog'], .navbar a[href='/news-update']").forEach((link) => {
     link.closest("li")?.remove();
+  });
+
+  root?.querySelectorAll(".navbar #servicesDropdown").forEach((servicesLink) => {
+    const navItem = servicesLink.closest(".nav-item");
+    navItem?.classList.remove("dropdown");
+    servicesLink.classList.remove("dropdown-toggle");
+    servicesLink.setAttribute("href", "/services");
+    servicesLink.removeAttribute("data-bs-toggle");
+    servicesLink.removeAttribute("aria-expanded");
+    servicesLink.removeAttribute("role");
+    servicesLink.textContent = "Services";
+    navItem?.querySelector(".dropdown-menu")?.remove();
   });
 
   root?.querySelectorAll(".navbar #aboutDropdown").forEach((aboutLink) => {
@@ -1886,7 +2282,7 @@ function setupHomepageWhoWeAre(root, route) {
   if (!about || about.classList.contains("nivesh-home-about-section")) return;
 
   const section = document.createElement("div");
-  section.innerHTML = NIVESH_HOME_ABOUT_SECTION.trim();
+  section.innerHTML = NIVESH_HOME_MATCH_SECTION.trim();
   about.replaceWith(section.firstElementChild);
 }
 

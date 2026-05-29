@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { handleApiRequest } from "./api-store.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const dist = path.join(root, "dist");
+const dist = process.env.FRONTEND_DIST || path.resolve(root, "..", "frontend", "dist");
 const port = Number(process.env.PORT || process.argv[2] || 4173);
 
 const mimeTypes = {
