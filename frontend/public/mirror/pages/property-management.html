@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Pro Infra | Premium Real Estate Consultants</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link href="/assets/css/style.css" rel="stylesheet">
+    
+</head>
+<body class="property-management-page">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <!-- Use existing logo asset -->
+                <img src="/assets/images/Elite-pro-logo.png" data-default-logo="/assets/images/Elite-pro-logo.png" data-scrolled-logo="/assets/images/dark-logo.png" alt="Elite Pro Infraventure">
+            </a>
+            <button class="navbar-toggler mobile-nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="mobile-nav-head d-lg-none">
+                    <div class="mobile-nav-brand">
+                        <img src="/assets/images/Elite-pro-logo.png" alt="Elite Pro Infra">
+                        <div class="mobile-nav-brand-text">
+                            <div class="mobile-nav-brand-title">Elite Pro Infra</div>
+                            <div class="mobile-nav-brand-subtitle">Premium Real Estate Consultants</div>
+                        </div>
+                    </div>
+                    <button type="button" class="mobile-nav-close" data-mobile-nav-close aria-label="Close menu">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#services" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="/our-story">Our Story & Journey</a></li>
+                            <li><a class="dropdown-item" href="/leadership">Leadership</a></li>
+                            <li><a class="dropdown-item" href="/social-commitment">Social Commitment (CSR)</a></li>
+                            
+                            <li class="dropend">
+                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Management</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/sales-expert">Sales Portfolio management</a></li>
+                                    <li><a class="dropdown-item" href="/lease-expert">Leasing  Portfolio management </a></li>
+                                    <li><a class="dropdown-item" href="/crm-accounts">CRM & Marketing</a></li>
+                                </ul>
+                            </li>
+
+                             
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="/investment-sales-advisory">Investment Sales Advisory</a></li>
+                            <li><a class="dropdown-item" href="/nri-advisory">NRI Advisory</a></li>
+                            <li><a class="dropdown-item" href="/property-management">Property Management</a></li>
+                            <li><a class="dropdown-item" href="/land-acquisition">Land & Acquisition</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="propertiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Properties</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="propertiesDropdown">
+                            <li><a class="dropdown-item" href="/properties">All Properties</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-1">Commercial</a></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-4">Industrial Plots</a></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-2">Residential</a></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-3">SCO Plots</a></li>
+                                                                                    </ul>
+                    </li>
+                   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="insightsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Media & Insights</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="insightsDropdown">
+                            <li><a class="dropdown-item" href="/pr-media">Media & Press</a></li>
+                            <li><a class="dropdown-item" href="/insight-blog">Insights & Blogs</a></li>
+                            <li><a class="dropdown-item" href="/news-update">News & Updates</a></li>
+                            <!-- <li><a class="dropdown-item" href="#">Corporate Events</a></li> -->
+                            <li><a class="dropdown-item" href="/life-at-elite">Life at Elite Pro Infra</a></li>
+                            <li><a class="dropdown-item" href="/awards">Awards & Recognitions</a></li>
+                        </ul>
+                    </li>
+                      <li class="nav-item"><a class="nav-link" href="/nri-corner">NRI Corner</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/career">Careers</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="/contact" class="btn btn-gold">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-nav-backdrop d-lg-none" data-mobile-nav-close></div>
+
+
+    
+
+<!-- Hero Section -->
+<section class="pm-hero">
+    <div class="container position-relative z-1">
+        <div class="row">
+            <div class="col-lg-7" data-aos="fade-right">
+                <div class="pm-hero-content">
+                    <h5 class="text-gold text-uppercase letter-spacing-2 mb-3">Premium Asset Care</h5>
+                    <h1 class="display-3 fw-bold mb-4">
+                        Your Property.<br>Our Priority.                    </h1>
+                    <p class="lead mb-5 text-white-50" style="max-width: 600px;">Experience white-glove property management services designed to maximize your ROI while ensuring complete peace of mind. From tenant vetting to maintenance, we handle it all.</p>
+                    <div class="d-flex gap-3">
+                                                    <a href="#list-property" class="btn btn-gold px-4 py-3">
+                                List Your Property                            </a>
+                                                                            <a href="#services" class="btn btn-outline-light px-4 py-3">
+                                View Services                            </a>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="pm-stat-row">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+                            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pm-stat-item">
+                        <span class="pm-stat-val">₹200Cr+</span>
+                        <span class="pm-stat-desc">Assets Managed</span>
+                    </div>
+                </div>
+                            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pm-stat-item">
+                        <span class="pm-stat-val">98%</span>
+                        <span class="pm-stat-desc">Occupancy Rate</span>
+                    </div>
+                </div>
+                            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pm-stat-item">
+                        <span class="pm-stat-val">100%</span>
+                        <span class="pm-stat-desc">On-Time Rent</span>
+                    </div>
+                </div>
+                            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="pm-stat-item">
+                        <span class="pm-stat-val">0</span>
+                        <span class="pm-stat-desc">Hidden Charges</span>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h6 class="text-gold text-uppercase letter-spacing-2">The Elite Standard</h6>
+                <h2 class="display-5 fw-bold text-dark">Why Owners Trust Us?</h2>
+                <p class="text-muted">We don't just manage properties; we nurture assets. Our comprehensive approach ensures your real estate investment continues to appreciate while generating steady passive income.</p>
+                <ul class="list-unstyled check-list mt-4 text-muted"><li><strong>Verified Tenants:</strong> Rigorous background checks and credit scoring.</li><li><strong>Proactive Maintenance:</strong> Regular inspections to prevent costly repairs.</li><li><strong>Legal Safeguards:</strong> Iron-clad rental agreements and dispute resolution.</li><li><strong>Tech-Enabled:</strong> Real-time dashboard for owners to track rent and expenses.</li></ul>            </div>
+            <div class="col-lg-5 offset-lg-1" data-aos="fade-left">
+                <div class="row g-3">
+                                            <div class="col-6">
+                            <div class="pm-feature-box text-center">
+                                <div class="pm-icon-wrapper mx-auto">
+                                                                            <i class="fas fa-user-shield"></i>
+                                                                    </div>
+                                <h5 class="fw-bold">Safety First</h5>
+                                <p class="small text-muted mb-0">Tenant verification &amp; security audits.</p>
+                            </div>
+                        </div>
+                                            <div class="col-6">
+                            <div class="pm-feature-box text-center">
+                                <div class="pm-icon-wrapper mx-auto">
+                                                                            <i class="fas fa-wallet"></i>
+                                                                    </div>
+                                <h5 class="fw-bold">Max ROI</h5>
+                                <p class="small text-muted mb-0">Strategic pricing &amp; minimal vacancy.</p>
+                            </div>
+                        </div>
+                                            <div class="col-6">
+                            <div class="pm-feature-box text-center">
+                                <div class="pm-icon-wrapper mx-auto">
+                                                                            <i class="fas fa-tools"></i>
+                                                                    </div>
+                                <h5 class="fw-bold">Upkeep</h5>
+                                <p class="small text-muted mb-0">24/7 maintenance support.</p>
+                            </div>
+                        </div>
+                                            <div class="col-6">
+                            <div class="pm-feature-box text-center">
+                                <div class="pm-icon-wrapper mx-auto">
+                                                                            <i class="fas fa-file-contract"></i>
+                                                                    </div>
+                                <h5 class="fw-bold">Compliance</h5>
+                                <p class="small text-muted mb-0">Legal &amp; tax assistance.</p>
+                            </div>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comprehensive Services -->
+<section id="services" class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h6 class="text-gold text-uppercase letter-spacing-2">End-to-End Solutions</h6>
+            <h2 class="display-5 fw-bold text-dark">Full-Spectrum Management</h2>
+        </div>
+        
+        <div class="row g-4">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pm-feature-box">
+                        <div class="pm-icon-wrapper">
+                                                            <i class="fas fa-search-location"></i>
+                                                    </div>
+                        <h4 class="h5 fw-bold text-dark">Tenant Discovery</h4>
+                        <p class="text-muted">Marketing your property on premium platforms, conducting viewings, and selecting high-quality tenants.</p>
+                    </div>
+                </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pm-feature-box">
+                        <div class="pm-icon-wrapper">
+                                                            <i class="fas fa-file-signature"></i>
+                                                    </div>
+                        <h4 class="h5 fw-bold text-dark">Lease Management</h4>
+                        <p class="text-muted">Drafting legally sound agreements, handling renewals, and managing move-in/move-out formalities.</p>
+                    </div>
+                </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pm-feature-box">
+                        <div class="pm-icon-wrapper">
+                                                            <i class="fas fa-hand-holding-usd"></i>
+                                                    </div>
+                        <h4 class="h5 fw-bold text-dark">Rent Collection</h4>
+                        <p class="text-muted">Automated invoicing and follow-ups to ensure rent is deposited on time.</p>
+                    </div>
+                </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="pm-feature-box">
+                        <div class="pm-icon-wrapper">
+                                                            <i class="fas fa-hard-hat"></i>
+                                                    </div>
+                        <h4 class="h5 fw-bold text-dark">Maintenance &amp; Repairs</h4>
+                        <p class="text-muted">Coordinating with vetted vendors for all maintenance work.</p>
+                    </div>
+                </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="pm-feature-box">
+                        <div class="pm-icon-wrapper">
+                                                            <i class="fas fa-clipboard-check"></i>
+                                                    </div>
+                        <h4 class="h5 fw-bold text-dark">Regular Inspections</h4>
+                        <p class="text-muted">Periodic property visits with detailed reports.</p>
+                    </div>
+                </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="pm-feature-box">
+                        <div class="pm-icon-wrapper">
+                                                            <i class="fas fa-file-invoice-dollar"></i>
+                                                    </div>
+                        <h4 class="h5 fw-bold text-dark">Financial Reporting</h4>
+                        <p class="text-muted">Quarterly statements of income and expenses.</p>
+                    </div>
+                </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="pm-feature-box">
+                        <div class="pm-icon-wrapper">
+                                                            <i class="fas fa-headset"></i>
+                                                    </div>
+                        <h4 class="h5 fw-bold text-dark">Tenant Support</h4>
+                        <p class="text-muted">Responsive support for tenant queries and requests.</p>
+                    </div>
+                </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="800">
+                    <div class="pm-feature-box">
+                        <div class="pm-icon-wrapper">
+                                                            <i class="fas fa-chart-line"></i>
+                                                    </div>
+                        <h4 class="h5 fw-bold text-dark">Yield Optimization</h4>
+                        <p class="text-muted">Data-backed recommendations to improve rental yield.</p>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-5 section-dark-modern">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h6 class="text-gold text-uppercase letter-spacing-2">Seamless Process</h6>
+                <h2 class="text-white display-5">How We Work</h2>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-right">
+                                    <div class="pm-process-step">
+                        <div class="pm-step-number text-white">01</div>
+                        <div class="pm-step-content">
+                            <h4 class="text-white">Onboarding</h4>
+                            <p class="text-secondary">Initial audit and recommendations to make the property market-ready.</p>
+                        </div>
+                    </div>
+                                    <div class="pm-process-step">
+                        <div class="pm-step-number text-white">02</div>
+                        <div class="pm-step-content">
+                            <h4 class="text-white">Marketing &amp; Tenant Search</h4>
+                            <p class="text-secondary">Listings and screening to find the right tenant.</p>
+                        </div>
+                    </div>
+                                    <div class="pm-process-step">
+                        <div class="pm-step-number text-white">03</div>
+                        <div class="pm-step-content">
+                            <h4 class="text-white">Agreement &amp; Move-In</h4>
+                            <p class="text-secondary">Paperwork, deposit collection, and move-in checks.</p>
+                        </div>
+                    </div>
+                                    <div class="pm-process-step">
+                        <div class="pm-step-number text-white">04</div>
+                        <div class="pm-step-content">
+                            <h4 class="text-white">Ongoing Management</h4>
+                            <p class="text-secondary">Rent collection, maintenance, and owner updates.</p>
+                        </div>
+                    </div>
+                            </div>
+            <div class="col-lg-6 d-none d-lg-block" data-aos="fade-left">
+                                <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Process" class="img-fluid rounded-3 opacity-75">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-gold text-uppercase letter-spacing-2">Client Stories</h6>
+            <h2 class="display-5 fw-bold text-dark">What Owners Say</h2>
+        </div>
+        
+        <div class="row g-4">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card-pm h-100">
+                                                                            <img src="/assets/images/property-management/pm_testimonial_0_1775596138_8888.webp" alt="Client" class="client-avatar-pm">
+                                                <p class="fst-italic text-muted mb-3">Living in Singapore, I was worried about my apartment in Gurgaon. Elite Pro Infra has been a godsend. They handle everything professionally.</p>
+                        <h5 class="fw-bold text-dark mb-0">Vikram S.</h5>
+                        <small class="text-gold">NRI Investor</small>
+                    </div>
+                </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card-pm h-100">
+                                                                            <img src="/assets/images/property-management/pm_testimonial_1_1775596138_2748.webp" alt="Client" class="client-avatar-pm">
+                                                <p class="fst-italic text-muted mb-3">The transparency is what I love. I get monthly reports, and the rent is always on time.</p>
+                        <h5 class="fw-bold text-dark mb-0">Anjali K.</h5>
+                        <small class="text-gold">Property Owner</small>
+                    </div>
+                </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card-pm h-100">
+                                                                            <img src="/assets/images/property-management/pm_testimonial_2_1775596138_5249.webp" alt="Client" class="client-avatar-pm">
+                                                <p class="fst-italic text-muted mb-3">They found me a corporate tenant within 2 weeks at a higher rent than I expected.</p>
+                        <h5 class="fw-bold text-dark mb-0">Rajeev M.</h5>
+                        <small class="text-gold">Multiple Unit Owner</small>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section id="list-property" class="py-5">
+    <div class="container py-5">
+        <div class="pm-cta-box text-center" data-aos="zoom-in">
+            <h2 class="display-4 fw-bold mb-4">Ready to Maximize Your Rental Yield?</h2>
+            <p class="lead text-white-50 mb-5">Get a free rental assessment and find out how much your property can earn.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form class="row g-3 pm-cta-form">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control py-3" placeholder="Name">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="tel" class="form-control py-3" placeholder="Phone Number">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-gold w-100 py-2 fw-bold">Get Free Consultation</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Premium Footer Links -->
+    <section class="py-5 bg-dark border-bottom border-secondary border-opacity-10">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Property in India -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">Property in India</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Gurgaon</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Mumbai</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Delhi</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Noida</a></li>
+                    </ul>
+                </div>
+
+                <!-- Residential Properties -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">Residential Properties</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Birla Pravaah</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar Serenity Hills</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Tulip Monsella</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Godrej Sora</a></li>
+                    </ul>
+                </div>
+
+                <!-- Commercial Properties -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">Commercial Properties</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>AIPL Joy Central</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Conscient SOHO</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Reach Airia Corporate Tower</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar India Business Centre</a></li>
+                    </ul>
+                </div>
+
+                <!-- SCO Plots -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">SCO Plots</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar EBD 65</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar EBD 65 NXT</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>M3M SCO 113 Market</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar EBD 89</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="position-relative pt-5 pb-0 text-white overflow-hidden" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
+        <!-- Decorative Elements -->
+        <div class="position-absolute top-0 start-0 w-100" style="height: 2px; background: linear-gradient(90deg, transparent, #D4AF37, transparent);"></div>
+        
+        <div class="container position-relative z-1 py-5">
+            <div class="row gy-5 justify-content-between">
+                <!-- Brand Column -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="mb-4">
+                        <img src="/assets/images/Elite-pro-logo.png" alt="Elite Pro" height="70" class="mb-4  p-2 rounded-2" style="opacity: 0.9;">
+                        <p class="text-white mb-4" style="line-height: 1.8; font-size: 0.95rem;">
+                            Elite Pro Infra represents the pinnacle of luxury real estate. We blend deep market intelligence with a curated selection of premier properties to deliver an unmatched service experience.
+                        </p>
+                        <div class="d-flex gap-2">
+                            <a href="https://www.facebook.com/eliteproinfra" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/eliteproinfra?igsh=emwzMnpiZW8zejN4" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/eliteproinfra/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@eliteproinfra984" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="text-white text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem; letter-spacing: 2px;">Quick Links</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="/" class="text-white text-decoration-none hover-white transition-all">Home</a></li>
+                        <li><a href="/our-story" class="text-white text-decoration-none hover-white transition-all">About Us</a></li>
+                        <li><a href="/properties" class="text-white text-decoration-none hover-white transition-all">Properties</a></li>
+                        <li><a href="/" class="text-white text-decoration-none hover-white transition-all">Services</a></li>
+                        <li><a href="/contact" class="text-white text-decoration-none hover-white transition-all">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="text-white text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem; letter-spacing: 2px;">Our Services</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="/investment-sales-advisory" class="text-white text-decoration-none hover-white transition-all">Investment Advisory</a></li>
+                        <li><a href="/nri-advisory" class="text-white text-decoration-none hover-white transition-all">NRI Services</a></li>
+                        <li><a href="/property-management" class="text-white text-decoration-none hover-white transition-all">Property Management</a></li>
+                        <li><a href="/land-acquisition" class="text-white text-decoration-none hover-white transition-all">Land & Acquisition</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="text-white text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem; letter-spacing: 2px;">Get in Touch</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-4">
+                        <li class="d-flex">
+                            <a href="https://maps.app.goo.gl/Urz5goXdpGSANVGi6" class="text-decoration-none footer-link"><i class="fas fa-map-marker-alt text-gold mt-1 me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">3rd Floor, Golf View Corporate Tower A, Golf Course Road, Sector 42, Gurgaon 122002</span></a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="tel:+919968686868" class="text-decoration-none footer-link"><i class="fas fa-phone text-gold me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">+91 9968686868</span></a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="mailto:info@eliteproinfra.com" class="text-decoration-none footer-link"><i class="fas fa-envelope text-gold me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">info@eliteproinfra.com</span></a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="/" target="_blank" class="text-decoration-none footer-link"><i class="fas fa-globe text-gold me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">www.eliteproinfra.com</span></a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-4 pt-2 footer-newsletter">
+                         <div class="input-group">
+                            <input type="email" class="form-control bg-dark border-secondary text-white shadow-none" placeholder="Your Email" style="font-size: 0.9rem;">
+                            <button class="btn btn-gold text-dark fw-bold px-3" type="button"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <small class="text-white mt-2 d-block fst-italic">Subscribe for exclusive updates.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="border-top border-secondary border-opacity-10 bg-black py-4 position-relative z-1 footer-copyright">
+            <div class="container">
+                <div class="row align-items-center gy-3">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0 text-white small">&copy; 2026 Elite Pro Infra. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4"><a href="/privacy-policy" class="text-white text-decoration-none small hover-white">Privacy Policy</a></li>
+                            <li class="list-inline-item me-4"><a href="/terms-conditions" class="text-white text-decoration-none small hover-white">Terms & Conditions</a></li>
+                            <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small hover-white">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+
+    // Handle Sub-dropdowns for Mobile
+    document.addEventListener("DOMContentLoaded", function () {
+        // Prevent closing on click inside dropdown
+        document.querySelectorAll('.dropdown-menu').forEach(function (element) {
+            element.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+
+        // Toggle sub-dropdown on mobile
+        if (window.innerWidth < 992) {
+            document.querySelectorAll('.dropdown-menu a.dropdown-toggle').forEach(function (element) {
+                element.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Stop event bubbling
+                    
+                    let nextEl = this.nextElementSibling;
+                    if (nextEl && nextEl.classList.contains('dropdown-menu')) {
+                        // Close other open sub-menus in the same parent
+                        let parent = this.closest('.dropdown-menu');
+                        if(parent){
+                            parent.querySelectorAll('.dropdown-menu.show').forEach(function(submenu){
+                                if(submenu !== nextEl){
+                                    submenu.classList.remove('show');
+                                }
+                            });
+                        }
+                        nextEl.classList.toggle('show');
+                    }
+                });
+            });
+        }
+
+        const navbarNav = document.getElementById('navbarNav');
+        const closeEls = document.querySelectorAll('[data-mobile-nav-close]');
+
+        const setMobileNavOpen = function (open) {
+            if (window.innerWidth >= 992) return;
+            document.body.classList.toggle('mobile-nav-open', !!open);
+        };
+
+        const closeMobileNav = function () {
+            if (!navbarNav) return;
+            if (window.innerWidth >= 992) return;
+            try {
+                bootstrap.Collapse.getOrCreateInstance(navbarNav).hide();
+            } catch (e) {
+                navbarNav.classList.remove('show');
+            }
+            setMobileNavOpen(false);
+        };
+
+        if (navbarNav) {
+            navbarNav.addEventListener('show.bs.collapse', function () {
+                setMobileNavOpen(true);
+            });
+
+            navbarNav.addEventListener('hidden.bs.collapse', function () {
+                setMobileNavOpen(false);
+            });
+
+            navbarNav.querySelectorAll('a.nav-link').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth >= 992) return;
+                    if (this.classList.contains('dropdown-toggle')) return;
+                    closeMobileNav();
+                });
+            });
+        }
+
+        closeEls.forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                closeMobileNav();
+            });
+        });
+    });
+
+    // Navbar Color Change on Scroll
+    const updateNavbarOnScroll = function () {
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.navbar .nav-link');
+        const logoImg = document.querySelector('.navbar .navbar-brand img');
+        const defaultLogo = logoImg ? (logoImg.getAttribute('data-default-logo') || logoImg.getAttribute('src')) : '';
+        const scrolledLogo = logoImg ? (logoImg.getAttribute('data-scrolled-logo') || 'assets/images/dark-logo.png') : 'assets/images/dark-logo.png';
+
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+
+            navLinks.forEach(link => {
+                link.classList.add('link-black');
+            });
+
+            if (logoImg && scrolledLogo) {
+                logoImg.setAttribute('src', scrolledLogo);
+            }
+        } else {
+            navbar.classList.remove('scrolled');
+
+            navLinks.forEach(link => {
+                link.classList.remove('link-black');
+            });
+
+            if (logoImg && defaultLogo) {
+                logoImg.setAttribute('src', defaultLogo);
+            }
+        }
+    };
+
+    window.addEventListener('scroll', updateNavbarOnScroll);
+    updateNavbarOnScroll();
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("autoVideo");
+
+    if (video) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            {
+                threshold: 0.5 // 50% visible hone par play
+            }
+        );
+
+        observer.observe(video);
+    }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("india");
+
+    if (video) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            {
+                threshold: 0.5 // 50% visible hone par play
+            }
+        );
+
+        observer.observe(video);
+    }
+});
+</script>
+
+</body>
+</html>
