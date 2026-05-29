@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Pro Infra | Premium Real Estate Consultants</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link href="/assets/css/style.css" rel="stylesheet">
+    
+</head>
+<body class="insight-blog-page">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <!-- Use existing logo asset -->
+                <img src="/assets/images/Elite-pro-logo.png" data-default-logo="/assets/images/Elite-pro-logo.png" data-scrolled-logo="/assets/images/dark-logo.png" alt="Elite Pro Infraventure">
+            </a>
+            <button class="navbar-toggler mobile-nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="mobile-nav-head d-lg-none">
+                    <div class="mobile-nav-brand">
+                        <img src="/assets/images/Elite-pro-logo.png" alt="Elite Pro Infra">
+                        <div class="mobile-nav-brand-text">
+                            <div class="mobile-nav-brand-title">Elite Pro Infra</div>
+                            <div class="mobile-nav-brand-subtitle">Premium Real Estate Consultants</div>
+                        </div>
+                    </div>
+                    <button type="button" class="mobile-nav-close" data-mobile-nav-close aria-label="Close menu">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#services" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="/our-story">Our Story & Journey</a></li>
+                            <li><a class="dropdown-item" href="/leadership">Leadership</a></li>
+                            <li><a class="dropdown-item" href="/social-commitment">Social Commitment (CSR)</a></li>
+                            
+                            <li class="dropend">
+                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Management</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/sales-expert">Sales Portfolio management</a></li>
+                                    <li><a class="dropdown-item" href="/lease-expert">Leasing  Portfolio management </a></li>
+                                    <li><a class="dropdown-item" href="/crm-accounts">CRM & Marketing</a></li>
+                                </ul>
+                            </li>
+
+                             
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="/investment-sales-advisory">Investment Sales Advisory</a></li>
+                            <li><a class="dropdown-item" href="/nri-advisory">NRI Advisory</a></li>
+                            <li><a class="dropdown-item" href="/property-management">Property Management</a></li>
+                            <li><a class="dropdown-item" href="/land-acquisition">Land & Acquisition</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="propertiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Properties</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="propertiesDropdown">
+                            <li><a class="dropdown-item" href="/properties">All Properties</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-1">Commercial</a></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-4">Industrial Plots</a></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-2">Residential</a></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-3">SCO Plots</a></li>
+                                                                                    </ul>
+                    </li>
+                   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="insightsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Media & Insights</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="insightsDropdown">
+                            <li><a class="dropdown-item" href="/pr-media">Media & Press</a></li>
+                            <li><a class="dropdown-item" href="/insight-blog">Insights & Blogs</a></li>
+                            <li><a class="dropdown-item" href="/news-update">News & Updates</a></li>
+                            <!-- <li><a class="dropdown-item" href="#">Corporate Events</a></li> -->
+                            <li><a class="dropdown-item" href="/life-at-elite">Life at Elite Pro Infra</a></li>
+                            <li><a class="dropdown-item" href="/awards">Awards & Recognitions</a></li>
+                        </ul>
+                    </li>
+                      <li class="nav-item"><a class="nav-link" href="/nri-corner">NRI Corner</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/career">Careers</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="/contact" class="btn btn-gold">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-nav-backdrop d-lg-none" data-mobile-nav-close></div>
+
+
+    
+
+<style>
+    body.insight-blog-page .navbar {
+        background: rgb(255 255 255 / 95%);
+        padding: 10px 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        border-bottom: none;
+    }
+    body.insight-blog-page .nav-link { color: #000000 !important; }
+    body.insight-blog-page .navbar-toggler .fa-bars { color: #000000 !important; }
+    .insight-enquiry-form .form-control::placeholder { color: rgba(255,255,255,0.65); opacity: 1; }
+    .insight-enquiry-form .form-control {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        min-height: 40px;
+    }
+    .insight-enquiry-form textarea.form-control {
+        min-height: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .insight-enquiry-form .btn {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        line-height: 1.1;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+        navbar.classList.add('scrolled');
+        navbar.querySelectorAll('.nav-link').forEach(link => link.classList.add('link-black'));
+        const logoImg = navbar.querySelector('.navbar-brand img');
+        if (logoImg) {
+            const scrolledLogo = logoImg.getAttribute('data-scrolled-logo') || 'assets/images/dark-logo.png';
+            logoImg.setAttribute('src', scrolledLogo);
+            logoImg.setAttribute('data-default-logo', scrolledLogo);
+        }
+    });
+</script>
+
+<section class="py-5 bg-lightn mt-5" style="padding-top: 110px;">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm overflow-hidden">
+                    <div class="card-body p-4 p-lg-5">
+                        <div class="d-flex flex-wrap gap-3 align-items-center mb-2 text-muted small">
+                            <span><i class="far fa-calendar-alt me-2"></i>April 23, 2026</span>
+                                                            <span class="text-gold fw-bold">Insights &amp; Blogs</span>
+                                                    </div>
+                        <h1 class="h4 fw-bold mb-2">Ready to Move Luxury Apartments in Gurgaon 2026: Why Krisumi Waterfall Residences Is a Rare Find Under budget </h1>
+                                                    <p class="lead text-muted mb-3">Looking for ready-to-move luxury flats in Gurgaon under budget ? Krisumi Waterfall Residences in Sector 36A offers Indo-Japanese design, Tata Projects construction &amp; 12–15% YOY appreciation. Know why it stands apart in 2026.</p>
+                                                                            <img src="/assets/images/blog/1776924578_Ready%20to%20Move%20Luxury%20Apartments%20in%20Gurgaon%202026%20Why%20Krisumi%20Waterfall%20Residences%20Is%20a%20Rare%20Find%20Under%20budget.png" alt="Ready to Move Luxury Apartments in Gurgaon 2026: Why Krisumi Waterfall Residences Is a Rare Find Under budget " class="img-fluid w-100 mb-3 rounded" >
+                        
+                        <div class="content-area">
+                            <h1 class="bh1">Ready to Move Luxury Apartments in Gurgaon 2026: Why Krisumi Waterfall Residences Is a Rare Find Under ₹10 Crore</h1>
+<p class="lede">In Gurgaon's ultra-competitive luxury housing market, finding a ready-to-move apartment with Japanese precision, Tata Projects construction quality, and a starting price under ₹10 crore is not just rare — it is almost impossible. Almost.</p>
+<p class="bp">Gurgaon's luxury residential market in 2026 is booming — and so are its prices. Property rates in Gurgaon now range from ₹15,000 to ₹20,000 per sq. ft. in premium locations, and the starting price for luxury apartments typically begins at around ₹2.50–₹5 Cr for a 2 BHK and ₹5.65–₹6.5 Cr for 3 BHK units. In this landscape, a ready-to-move project that delivers true luxury — international architecture, premium construction, and a branded identity — at under ₹10 crore is a genuine market anomaly. <strong>Krisumi Waterfall Residences</strong> in Sector 36A, Gurgaon, is exactly that.</p>
+<h2 class="bh2">What makes it truly luxury — not just on paper</h2>
+<p class="bp">The word "luxury" has been diluted by overuse in Indian real estate marketing. Krisumi Waterfall Residences earns it on credentials alone. It is India's first Indo-Japanese mega real estate project, designed by Nikken Sekkei — the Japanese architectural firm behind the iconic Tokyo Skytree. Every inch of the development reflects Nikken Sekkei's core philosophy: maximising natural light, creating open breathing spaces, and building a deep visual connection with nature.</p>
+<p class="bp">The project is backed by two giants: the 400-year-old Japanese conglomerate Sumitomo Corporation and India's Krishna Group, combining Sumitomo's global quality standards with Krishna Group's trusted local execution. Construction was handed to Tata Projects — one of India's most reliable contractors — ensuring that the delivery standard matches the design ambition. The result: a project where the luxury is structural, not cosmetic.</p>
+<h2 class="bh2">The rare advantage: ready to move, right now</h2>
+<p class="bp">In Gurgaon's 2026 luxury market, buying a ready-to-move asset eliminates execution risk, though it typically commands a ~20% premium over under-construction options. That premium is usually worth paying — because what you see is exactly what you get. No construction delays. No specification changes. No "possession in 2029" uncertainty. Krisumi Waterfall Residences achieved possession in November 2024, meaning residents are already living in it, the community is active, and the clubhouse is fully operational.</p>
+<p class="bp">This is particularly significant for buyers who have watched other Gurgaon luxury projects repeatedly push back timelines. At Krisumi, the wait is over. The question is simply: which unit.</p>
+<h2 class="bh2">Under ₹10 crore: what you actually get</h2>
+<p class="bp">A 2 BHK apartment at Krisumi Waterfall Residences starts from ₹3.62 crore, a 3 BHK from ₹6.32 crore onwards, and a 4 BHK from ₹9.17 crore — making the full range of configurations accessible within the ₹10 crore ceiling. Compare this to the broader Gurgaon luxury market, where ready-to-move 4 BHK apartments in comparable addresses regularly cross ₹12–20 crore. The Krisumi pricing reflects a project that was launched in 2019 and has appreciated steadily — early buyers have already seen significant gains, and the current price still represents one of the better entry points available for this tier of luxury product on Dwarka Expressway.</p>
+<p class="bp"> </p>
+<h2 class="bh2">Five reasons it stands apart in the RTM luxury segment</h2>
+<ul class="cklist">
+<li>Only ready-to-move Indo-Japanese luxury project in Gurgaon — no comparable substitute exists in this format</li>
+<li>Designed by Nikken Sekkei (Tokyo Skytree architect) — design credibility that most Indian luxury projects simply cannot match</li>
+<li>Built by Tata Projects — construction quality assurance that is as close to guaranteed as Gurgaon's market offers</li>
+<li>36,000 sq. ft. clubhouse with spa, gym, restaurant, bar lounge, mini-theatre and sports courts — fully operational, not promised</li>
+<li>RERA registered (HARERA GGM/2018/03) — complete legal transparency for buyers and investors</li>
+</ul>
+<h2 class="bh2">Location: Sector 36A and the Dwarka Expressway advantage</h2>
+<p class="bp">Sector 36A is rapidly transforming into a high-demand micro-market with property appreciation of 12–15% YOY and steady rental income of up to 4% annually. The location connects seamlessly to NH-48, IGI Airport (approximately 25 km), Cyber City (18 km), and Udyog Vihar — the daily commute corridors of Gurgaon's largest professional population. With the Delhi-Mumbai Industrial Corridor, Global City Project, and Gurugram Metro extension all in the pipeline for the area, the structural tailwinds for Sector 36A pricing are firmly in place.</p>
+<p class="bp"> </p>                        </div>
+                        <div class="mt-4">
+                            <a href="/insight-blog" class="btn btn-outline-gold btn-sm">Back to Insight & Blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 110px;">
+                    <div class="card border-0 shadow-sm bg-dark text-white insight-enquiry-form mb-4">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-4 text-gold">Quick Enquiry</h5>
+                            <form action="#" method="POST">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="Your Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control bg-transparent text-white border-secondary" placeholder="Your Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control bg-transparent text-white border-secondary" placeholder="Phone Number" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control bg-transparent text-white border-secondary" rows="1" placeholder="Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-gold w-100 fw-bold">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">Related Insight & Blog</h5>
+                                                            <div class="d-flex flex-column gap-3">
+                                                                                                                    <a class="text-decoration-none" href="/insight-blog-detail/169">
+                                            <div class="d-flex gap-3 align-items-start">
+                                                <div class="flex-shrink-0" style="width: 82px;">
+                                                                                                            <img src="/assets/images/blog/1777704386_Untitled%20design%20(8).png" alt="Key Reasons M3M Elie Saab is a Smart Real Estate Investment in Gurugram" class="img-fluid rounded" style="width: 82px; height: 62px; object-fit: cover;">
+                                                                                                    </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold text-dark" style="line-height: 1.25;">
+                                                        Key Reasons M3M Elie Saab is a Smart Real Estate Investment in Gurugram                                                    </div>
+                                                                                                            <div class="text-muted small mt-1">
+                                                            May 01, 2026                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </a>
+                                                                                                                    <a class="text-decoration-none" href="/insight-blog-detail/162">
+                                            <div class="d-flex gap-3 align-items-start">
+                                                <div class="flex-shrink-0" style="width: 82px;">
+                                                                                                            <img src="/assets/images/blog/1777018244_Untitled%20design%20(70).png" alt="How Oberoi Three Sixty North Can Deliver Strong Returns in the Coming Years" class="img-fluid rounded" style="width: 82px; height: 62px; object-fit: cover;">
+                                                                                                    </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold text-dark" style="line-height: 1.25;">
+                                                        How Oberoi Three Sixty North Can Deliver Strong Returns in the Coming Years                                                    </div>
+                                                                                                            <div class="text-muted small mt-1">
+                                                            April 24, 2026                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </a>
+                                                                                                                    <a class="text-decoration-none" href="/insight-blog-detail/161">
+                                            <div class="d-flex gap-3 align-items-start">
+                                                <div class="flex-shrink-0" style="width: 82px;">
+                                                                                                            <img src="/assets/images/blog/1777353727_Untitled%20design%20(69).png" alt="Gurgaon’s Next Iconic Address: Oberoi Three Sixty North" class="img-fluid rounded" style="width: 82px; height: 62px; object-fit: cover;">
+                                                                                                    </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold text-dark" style="line-height: 1.25;">
+                                                        Gurgaon’s Next Iconic Address: Oberoi Three Sixty North                                                    </div>
+                                                                                                            <div class="text-muted small mt-1">
+                                                            April 24, 2026                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </a>
+                                                                                                                    <a class="text-decoration-none" href="/insight-blog-detail/157">
+                                            <div class="d-flex gap-3 align-items-start">
+                                                <div class="flex-shrink-0" style="width: 82px;">
+                                                                                                            <img src="/assets/images/blog/1777010623_Untitled%20design%20(68).png" alt="Why Sector 36A Is Emerging Because of Krisumi Waterfall Residences" class="img-fluid rounded" style="width: 82px; height: 62px; object-fit: cover;">
+                                                                                                    </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold text-dark" style="line-height: 1.25;">
+                                                        Why Sector 36A Is Emerging Because of Krisumi Waterfall Residences                                                    </div>
+                                                                                                            <div class="text-muted small mt-1">
+                                                            April 23, 2026                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </a>
+                                                                                                                    <a class="text-decoration-none" href="/insight-blog-detail/152">
+                                            <div class="d-flex gap-3 align-items-start">
+                                                <div class="flex-shrink-0" style="width: 82px;">
+                                                                                                            <img src="/assets/images/blog/1776839251_Sector%2071%20SPR%20Gurgaon%20Why%20It"s the City's Most Expensive Address &amp; What It Means for Lamborghini Residences Buyers.png" alt="Sector 71 SPR Gurgaon: Why It's the City's Most Expensive Address &amp; What It Means for Lamborghini Residences Buyers" class="img-fluid rounded" style="width: 82px; height: 62px; object-fit: cover;">
+                                                                                                    </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold text-dark" style="line-height: 1.25;">
+                                                        Sector 71 SPR Gurgaon: Why It's the City's Most Expensive Address &amp; What It Means for Lamborghini Residences Buyers                                                    </div>
+                                                                                                            <div class="text-muted small mt-1">
+                                                            April 22, 2026                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </a>
+                                                                                                                    <a class="text-decoration-none" href="/insight-blog-detail/148">
+                                            <div class="d-flex gap-3 align-items-start">
+                                                <div class="flex-shrink-0" style="width: 82px;">
+                                                                                                            <img src="/assets/images/blog/1776835767_WhatsApp%20Image%202026-04-21%20at%204.15.53%20PM.jpeg" alt="Signature Global Lamborghini Residences Gurgaon – India's First Tonino Lamborghini Branded Homes" class="img-fluid rounded" style="width: 82px; height: 62px; object-fit: cover;">
+                                                                                                    </div>
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-semibold text-dark" style="line-height: 1.25;">
+                                                        Signature Global Lamborghini Residences Gurgaon – India's First Tonino Lamborghini Branded Homes                                                    </div>
+                                                                                                            <div class="text-muted small mt-1">
+                                                            April 21, 2026                                                        </div>
+                                                                                                    </div>
+                                            </div>
+                                        </a>
+                                                                    </div>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Premium Footer Links -->
+    <section class="py-5 bg-dark border-bottom border-secondary border-opacity-10">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Property in India -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">Property in India</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Gurgaon</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Mumbai</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Delhi</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Noida</a></li>
+                    </ul>
+                </div>
+
+                <!-- Residential Properties -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">Residential Properties</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Birla Pravaah</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar Serenity Hills</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Tulip Monsella</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Godrej Sora</a></li>
+                    </ul>
+                </div>
+
+                <!-- Commercial Properties -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">Commercial Properties</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>AIPL Joy Central</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Conscient SOHO</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Reach Airia Corporate Tower</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar India Business Centre</a></li>
+                    </ul>
+                </div>
+
+                <!-- SCO Plots -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">SCO Plots</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar EBD 65</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar EBD 65 NXT</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>M3M SCO 113 Market</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar EBD 89</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="position-relative pt-5 pb-0 text-white overflow-hidden" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
+        <!-- Decorative Elements -->
+        <div class="position-absolute top-0 start-0 w-100" style="height: 2px; background: linear-gradient(90deg, transparent, #D4AF37, transparent);"></div>
+        
+        <div class="container position-relative z-1 py-5">
+            <div class="row gy-5 justify-content-between">
+                <!-- Brand Column -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="mb-4">
+                        <img src="/assets/images/Elite-pro-logo.png" alt="Elite Pro" height="70" class="mb-4  p-2 rounded-2" style="opacity: 0.9;">
+                        <p class="text-white mb-4" style="line-height: 1.8; font-size: 0.95rem;">
+                            Elite Pro Infra represents the pinnacle of luxury real estate. We blend deep market intelligence with a curated selection of premier properties to deliver an unmatched service experience.
+                        </p>
+                        <div class="d-flex gap-2">
+                            <a href="https://www.facebook.com/eliteproinfra" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/eliteproinfra?igsh=emwzMnpiZW8zejN4" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/eliteproinfra/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@eliteproinfra984" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="text-white text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem; letter-spacing: 2px;">Quick Links</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="/" class="text-white text-decoration-none hover-white transition-all">Home</a></li>
+                        <li><a href="/our-story" class="text-white text-decoration-none hover-white transition-all">About Us</a></li>
+                        <li><a href="/properties" class="text-white text-decoration-none hover-white transition-all">Properties</a></li>
+                        <li><a href="/" class="text-white text-decoration-none hover-white transition-all">Services</a></li>
+                        <li><a href="/contact" class="text-white text-decoration-none hover-white transition-all">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="text-white text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem; letter-spacing: 2px;">Our Services</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="/investment-sales-advisory" class="text-white text-decoration-none hover-white transition-all">Investment Advisory</a></li>
+                        <li><a href="/nri-advisory" class="text-white text-decoration-none hover-white transition-all">NRI Services</a></li>
+                        <li><a href="/property-management" class="text-white text-decoration-none hover-white transition-all">Property Management</a></li>
+                        <li><a href="/land-acquisition" class="text-white text-decoration-none hover-white transition-all">Land & Acquisition</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="text-white text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem; letter-spacing: 2px;">Get in Touch</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-4">
+                        <li class="d-flex">
+                            <a href="https://maps.app.goo.gl/Urz5goXdpGSANVGi6" class="text-decoration-none footer-link"><i class="fas fa-map-marker-alt text-gold mt-1 me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">3rd Floor, Golf View Corporate Tower A, Golf Course Road, Sector 42, Gurgaon 122002</span></a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="tel:+919968686868" class="text-decoration-none footer-link"><i class="fas fa-phone text-gold me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">+91 9968686868</span></a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="mailto:info@eliteproinfra.com" class="text-decoration-none footer-link"><i class="fas fa-envelope text-gold me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">info@eliteproinfra.com</span></a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="/" target="_blank" class="text-decoration-none footer-link"><i class="fas fa-globe text-gold me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">www.eliteproinfra.com</span></a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-4 pt-2 footer-newsletter">
+                         <div class="input-group">
+                            <input type="email" class="form-control bg-dark border-secondary text-white shadow-none" placeholder="Your Email" style="font-size: 0.9rem;">
+                            <button class="btn btn-gold text-dark fw-bold px-3" type="button"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <small class="text-white mt-2 d-block fst-italic">Subscribe for exclusive updates.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="border-top border-secondary border-opacity-10 bg-black py-4 position-relative z-1 footer-copyright">
+            <div class="container">
+                <div class="row align-items-center gy-3">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0 text-white small">&copy; 2026 Elite Pro Infra. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4"><a href="/privacy-policy" class="text-white text-decoration-none small hover-white">Privacy Policy</a></li>
+                            <li class="list-inline-item me-4"><a href="/terms-conditions" class="text-white text-decoration-none small hover-white">Terms & Conditions</a></li>
+                            <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small hover-white">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+
+    // Handle Sub-dropdowns for Mobile
+    document.addEventListener("DOMContentLoaded", function () {
+        // Prevent closing on click inside dropdown
+        document.querySelectorAll('.dropdown-menu').forEach(function (element) {
+            element.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+
+        // Toggle sub-dropdown on mobile
+        if (window.innerWidth < 992) {
+            document.querySelectorAll('.dropdown-menu a.dropdown-toggle').forEach(function (element) {
+                element.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Stop event bubbling
+                    
+                    let nextEl = this.nextElementSibling;
+                    if (nextEl && nextEl.classList.contains('dropdown-menu')) {
+                        // Close other open sub-menus in the same parent
+                        let parent = this.closest('.dropdown-menu');
+                        if(parent){
+                            parent.querySelectorAll('.dropdown-menu.show').forEach(function(submenu){
+                                if(submenu !== nextEl){
+                                    submenu.classList.remove('show');
+                                }
+                            });
+                        }
+                        nextEl.classList.toggle('show');
+                    }
+                });
+            });
+        }
+
+        const navbarNav = document.getElementById('navbarNav');
+        const closeEls = document.querySelectorAll('[data-mobile-nav-close]');
+
+        const setMobileNavOpen = function (open) {
+            if (window.innerWidth >= 992) return;
+            document.body.classList.toggle('mobile-nav-open', !!open);
+        };
+
+        const closeMobileNav = function () {
+            if (!navbarNav) return;
+            if (window.innerWidth >= 992) return;
+            try {
+                bootstrap.Collapse.getOrCreateInstance(navbarNav).hide();
+            } catch (e) {
+                navbarNav.classList.remove('show');
+            }
+            setMobileNavOpen(false);
+        };
+
+        if (navbarNav) {
+            navbarNav.addEventListener('show.bs.collapse', function () {
+                setMobileNavOpen(true);
+            });
+
+            navbarNav.addEventListener('hidden.bs.collapse', function () {
+                setMobileNavOpen(false);
+            });
+
+            navbarNav.querySelectorAll('a.nav-link').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth >= 992) return;
+                    if (this.classList.contains('dropdown-toggle')) return;
+                    closeMobileNav();
+                });
+            });
+        }
+
+        closeEls.forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                closeMobileNav();
+            });
+        });
+    });
+
+    // Navbar Color Change on Scroll
+    const updateNavbarOnScroll = function () {
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.navbar .nav-link');
+        const logoImg = document.querySelector('.navbar .navbar-brand img');
+        const defaultLogo = logoImg ? (logoImg.getAttribute('data-default-logo') || logoImg.getAttribute('src')) : '';
+        const scrolledLogo = logoImg ? (logoImg.getAttribute('data-scrolled-logo') || 'assets/images/dark-logo.png') : 'assets/images/dark-logo.png';
+
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+
+            navLinks.forEach(link => {
+                link.classList.add('link-black');
+            });
+
+            if (logoImg && scrolledLogo) {
+                logoImg.setAttribute('src', scrolledLogo);
+            }
+        } else {
+            navbar.classList.remove('scrolled');
+
+            navLinks.forEach(link => {
+                link.classList.remove('link-black');
+            });
+
+            if (logoImg && defaultLogo) {
+                logoImg.setAttribute('src', defaultLogo);
+            }
+        }
+    };
+
+    window.addEventListener('scroll', updateNavbarOnScroll);
+    updateNavbarOnScroll();
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("autoVideo");
+
+    if (video) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            {
+                threshold: 0.5 // 50% visible hone par play
+            }
+        );
+
+        observer.observe(video);
+    }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("india");
+
+    if (video) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            {
+                threshold: 0.5 // 50% visible hone par play
+            }
+        );
+
+        observer.observe(video);
+    }
+});
+</script>
+
+</body>
+</html>
