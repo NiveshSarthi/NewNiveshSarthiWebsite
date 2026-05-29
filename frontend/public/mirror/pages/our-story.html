@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Pro Infra | Premium Real Estate Consultants</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link href="/assets/css/style.css" rel="stylesheet">
+    
+</head>
+<body class="our-story-page">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <!-- Use existing logo asset -->
+                <img src="/assets/images/Elite-pro-logo.png" data-default-logo="/assets/images/Elite-pro-logo.png" data-scrolled-logo="/assets/images/dark-logo.png" alt="Elite Pro Infraventure">
+            </a>
+            <button class="navbar-toggler mobile-nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="mobile-nav-head d-lg-none">
+                    <div class="mobile-nav-brand">
+                        <img src="/assets/images/Elite-pro-logo.png" alt="Elite Pro Infra">
+                        <div class="mobile-nav-brand-text">
+                            <div class="mobile-nav-brand-title">Elite Pro Infra</div>
+                            <div class="mobile-nav-brand-subtitle">Premium Real Estate Consultants</div>
+                        </div>
+                    </div>
+                    <button type="button" class="mobile-nav-close" data-mobile-nav-close aria-label="Close menu">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#services" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="/our-story">Our Story & Journey</a></li>
+                            <li><a class="dropdown-item" href="/leadership">Leadership</a></li>
+                            <li><a class="dropdown-item" href="/social-commitment">Social Commitment (CSR)</a></li>
+                            
+                            <li class="dropend">
+                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Our Management</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/sales-expert">Sales Portfolio management</a></li>
+                                    <li><a class="dropdown-item" href="/lease-expert">Leasing  Portfolio management </a></li>
+                                    <li><a class="dropdown-item" href="/crm-accounts">CRM & Marketing</a></li>
+                                </ul>
+                            </li>
+
+                             
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="/investment-sales-advisory">Investment Sales Advisory</a></li>
+                            <li><a class="dropdown-item" href="/nri-advisory">NRI Advisory</a></li>
+                            <li><a class="dropdown-item" href="/property-management">Property Management</a></li>
+                            <li><a class="dropdown-item" href="/land-acquisition">Land & Acquisition</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="propertiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Properties</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="propertiesDropdown">
+                            <li><a class="dropdown-item" href="/properties">All Properties</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-1">Commercial</a></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-4">Industrial Plots</a></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-2">Residential</a></li>
+                                                                    <li><a class="dropdown-item" href="/properties/category-3">SCO Plots</a></li>
+                                                                                    </ul>
+                    </li>
+                   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="insightsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Media & Insights</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="insightsDropdown">
+                            <li><a class="dropdown-item" href="/pr-media">Media & Press</a></li>
+                            <li><a class="dropdown-item" href="/insight-blog">Insights & Blogs</a></li>
+                            <li><a class="dropdown-item" href="/news-update">News & Updates</a></li>
+                            <!-- <li><a class="dropdown-item" href="#">Corporate Events</a></li> -->
+                            <li><a class="dropdown-item" href="/life-at-elite">Life at Elite Pro Infra</a></li>
+                            <li><a class="dropdown-item" href="/awards">Awards & Recognitions</a></li>
+                        </ul>
+                    </li>
+                      <li class="nav-item"><a class="nav-link" href="/nri-corner">NRI Corner</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/career">Careers</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="/contact" class="btn btn-gold">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-nav-backdrop d-lg-none" data-mobile-nav-close></div>
+
+
+    
+<style>
+  .story-hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* YouTube Wrapper */
+.youtube-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none; /* click disable */
+}
+
+.youtube-bg iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, -50%);
+}
+
+/* Overlay */
+.story-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.7)
+    );
+    z-index: 1;
+}
+
+.story-hero-content {
+    position: relative;
+    z-index: 2;
+}
+.d-flex.align-items-center.border.p-2.rounded-2 {
+    min-height: 85px;
+}
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .youtube-bg iframe {
+        width: 200%;
+        height: 200%;
+    }
+
+    .story-hero {
+        height: 85vh;
+    }
+}
+
+</style>
+<!-- Story Hero Section -->
+<section class="story-hero">
+    <!-- YouTube Background -->
+    <div class="youtube-bg">
+        <iframe 
+            src="https://www.youtube.com/embed/5DcbQcogatQ?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=5DcbQcogatQ&amp;modestbranding=1&amp;rel=0&amp;showinfo=0"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Overlay -->
+    <!--<div class="story-hero-overlay"></div>-->
+
+    <!--<div class="container position-relative z-2 h-100 d-flex align-items-center justify-content-center text-center">-->
+    <!--    <div class="story-hero-content pt-5" data-aos="fade-up">-->
+    <!--        <span class="text-gold text-uppercase letter-spacing-2 fw-bold mb-3 d-block mt-5">Who We Are</span>-->
+    <!--        <h1 class="display-3 fw-bold text-white mb-4">-->
+    <!--            Crafting Legacies, <br>-->
+    <!--            <span class="text-gold">Building Trust</span>-->
+    <!--        </h1>-->
+    <!--        <p class="lead text-white-50 mx-auto" style="max-width: 700px;">-->
+    <!--            Since our inception, Elite Pro Infraventure has been redefining the real estate landscape with a commitment to excellence, transparency, and innovation.-->
+    <!--        </p>-->
+    <!--    </div>-->
+    <!--</div>-->
+
+</section>
+
+
+<!-- Introduction / Our Essence -->
+<section class="story-intro py-5 section-soft bg-white">
+    <div class="container py-lg-5">
+        <div class="row align-items-center">
+            <!--<div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">-->
+            <!--    <div class="position-relative ps-4">-->
+            <!--        <div class="story-img-frame">-->
+            <!--            <img src="/assets/images/teammm.jpg" alt="Our Team" class="img-fluid rounded-4 shadow-lg w-100">-->
+            <!--            <div class="experience-badge bg-gold text-white p-4 rounded-circle position-absolute top-0 start-0 translate-middle shadow-lg d-flex flex-column justify-content-center align-items-center text-center" style="width: 120px; height: 120px;">-->
+            <!--                <span class="h2 fw-bold mb-0">10+</span>-->
+            <!--                <span class="small text-uppercase fw-bold" style="font-size: 0.7rem; line-height: 1.2;">Years of<br>Excellence</span>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
+            <div class="col-lg-12 ps-lg-12" data-aos="fade-left">
+<p><span class="text-gold text-uppercase fw-bold letter-spacing-2 small">Our Essence</span></p>
+<h2 class="display-5 fw-bold mb-4 mt-2">More Than Just Real Estate</h2>
+<p class="text-muted mb-4 lead">We believe that every property transaction is the beginning of a new chapter. Our story is written in the satisfaction of our clients and the skylines we help shape.</p>
+<p class="text-muted mb-4">Elite Pro Infra stands as a beacon of trust in the Indian real estate market. With a deep understanding of property dynamics and a client-centric approach, we navigate the complexities of real estate to deliver seamless, profitable, and enduring solutions.</p>
+    <div class="row g-4 mt-2">
+                <div class="col-sm-3">
+            <div class="d-flex align-items-center border p-2 rounded-2">
+                <div class="icon-box-sm bg-light rounded-circle p-3 text-gold me-3 shadow-sm">
+                                            <i class="fa-solid fa-handshake fa-lg"></i>
+                                    </div>
+                <div>
+                    <h6 class="fw-bold mb-1">Trusted Partners</h6>
+                    <p class="small text-muted mb-0">Building relationships that last.</p>
+                </div>
+            </div>
+        </div>
+                <div class="col-sm-3">
+            <div class="d-flex align-items-center border p-2 rounded-2">
+                <div class="icon-box-sm bg-light rounded-circle p-3 text-gold me-3 shadow-sm">
+                                            <i class="fa-solid fa-award fa-lg"></i>
+                                    </div>
+                <div>
+                    <h6 class="fw-bold mb-1">Award Winning</h6>
+                    <p class="small text-muted mb-0">Recognized for excellence.</p>
+                </div>
+            </div>
+        </div>
+                <div class="col-sm-3">
+            <div class="d-flex align-items-center border p-2 rounded-2">
+                <div class="icon-box-sm bg-light rounded-circle p-3 text-gold me-3 shadow-sm">
+                                            <i class="fa-solid fa-users fa-lg"></i>
+                                    </div>
+                <div>
+                    <h6 class="fw-bold mb-1">Client-First Approach</h6>
+                    <p class="small text-muted mb-0">Your goals guide every decision.</p>
+                </div>
+            </div>
+        </div>
+                <div class="col-sm-3">
+            <div class="d-flex align-items-center border p-2 rounded-2">
+                <div class="icon-box-sm bg-light rounded-circle p-3 text-gold me-3 shadow-sm">
+                                            <i class="fa-solid fa-chart-line fa-lg"></i>
+                                    </div>
+                <div>
+                    <h6 class="fw-bold mb-1">Market Expertise</h6>
+                    <p class="small text-muted mb-0">Insight driven, future focused.</p>
+                </div>
+            </div>
+        </div>
+            </div>
+</div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Timeline Journey -->
+<section class="story-timeline py-5 section-soft bg-light">
+    <div class="container py-lg-5">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-gold text-uppercase fw-bold letter-spacing-2 small">Our Path</span>
+            <h2 class="display-5 fw-bold text-dark mb-3">The Journey of Excellence</h2>
+            <div class="separator mx-auto bg-gold" style="width: 80px; height: 4px;"></div>
+        </div>
+
+        <div class="timeline-container position-relative mt-5">
+            <div class="timeline-line bg-gold position-absolute start-50 translate-middle-x h-100 d-none d-md-block" style="width: 2px;"></div>
+            <div class="row timeline-row mb-5 justify-content-center align-items-center g-0">
+                <div class="col-md-5 text-md-end order-1 order-md-1 pe-md-5" data-aos="fade-right">
+                    <div class="timeline-content p-4 bg-white rounded-4 shadow-sm border-bottom border-4 border-warning position-relative">
+                        <div class="arrow-right position-absolute top-50 start-100 translate-middle-y d-none d-md-block" style="border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 10px solid white;"></div>
+                        <h3 class="fw-bold text-dark">Inception</h3>
+                        <p class="text-muted mb-0">Elite Pro Infra was founded with a vision to organize the unorganized real estate sector.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center order-2 order-md-2 position-relative">
+                    <div class="timeline-year bg-gold text-white rounded-circle d-flex align-items-center justify-content-center mx-auto shadow fw-bold border border-4 border-white" style="width: 70px; height: 70px; z-index: 2; position: relative; font-size: 1.2rem;">2013</div>
+                </div>
+                <div class="col-md-5 order-3 order-md-3 ps-md-5"></div>
+            </div>
+            <div class="row timeline-row mb-5 justify-content-center align-items-center g-0">
+                <div class="col-md-5 order-3 order-md-1 pe-md-5"></div>
+                <div class="col-md-2 text-center order-2 order-md-2 position-relative">
+                    <div class="timeline-year bg-gold text-white rounded-circle d-flex align-items-center justify-content-center mx-auto shadow fw-bold border border-4 border-white" style="width: 70px; height: 70px; z-index: 2; position: relative; font-size: 1.2rem;">2018</div>
+                </div>
+                <div class="col-md-5 order-1 order-md-3 ps-md-5" data-aos="fade-left">
+                    <div class="timeline-content p-4 bg-white rounded-4 shadow-sm border-bottom border-4 border-warning position-relative">
+                        <div class="arrow-left position-absolute top-50 end-100 translate-middle-y d-none d-md-block" style="border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid white;"></div>
+                        <h3 class="fw-bold text-dark">Rapid Expansion</h3>
+                        <p class="text-muted mb-0">Expanded operations across Gurugram and NCR, partnering with top-tier developers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row timeline-row mb-5 justify-content-center align-items-center g-0">
+                <div class="col-md-5 text-md-end order-1 order-md-1 pe-md-5" data-aos="fade-right">
+                    <div class="timeline-content p-4 bg-white rounded-4 shadow-sm border-bottom border-4 border-warning position-relative">
+                        <div class="arrow-right position-absolute top-50 start-100 translate-middle-y d-none d-md-block" style="border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 10px solid white;"></div>
+                        <h3 class="fw-bold text-dark">Award Recognition</h3>
+                        <p class="text-muted mb-0">Recognized as &quot;Best Emerging Real Estate Consultant&quot; for outstanding client service.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center order-2 order-md-2 position-relative">
+                    <div class="timeline-year bg-gold text-white rounded-circle d-flex align-items-center justify-content-center mx-auto shadow fw-bold border border-4 border-white" style="width: 70px; height: 70px; z-index: 2; position: relative; font-size: 1.2rem;">2021</div>
+                </div>
+                <div class="col-md-5 order-3 order-md-3 ps-md-5"></div>
+            </div>
+            <div class="row timeline-row mb-5 justify-content-center align-items-center g-0">
+                <div class="col-md-5 order-3 order-md-1 pe-md-5"></div>
+                <div class="col-md-2 text-center order-2 order-md-2 position-relative">
+                    <div class="timeline-year bg-gold text-white rounded-circle d-flex align-items-center justify-content-center mx-auto shadow fw-bold border border-4 border-white" style="width: 70px; height: 70px; z-index: 2; position: relative; font-size: 1.2rem;">2024</div>
+                </div>
+                <div class="col-md-5 order-1 order-md-3 ps-md-5" data-aos="fade-left">
+                    <div class="timeline-content p-4 bg-white rounded-4 shadow-sm border-bottom border-4 border-warning position-relative">
+                        <div class="arrow-left position-absolute top-50 end-100 translate-middle-y d-none d-md-block" style="border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid white;"></div>
+                        <h3 class="fw-bold text-dark">Global Reach</h3>
+                        <p class="text-muted mb-0">Launched NRI services and digital platforms to serve a global clientele.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row timeline-row mb-5 justify-content-center align-items-center g-0">
+                <div class="col-md-5 text-md-end order-1 order-md-1 pe-md-5" data-aos="fade-right">
+                    <div class="timeline-content p-4 bg-white rounded-4 shadow-sm border-bottom border-4 border-warning position-relative">
+                        <div class="arrow-right position-absolute top-50 start-100 translate-middle-y d-none d-md-block" style="border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 10px solid white;"></div>
+                        <h3 class="fw-bold text-dark">14 Years of Excellence. One Trusted Name.</h3>
+                        <p class="text-muted mb-0">Since 2012, Elite Pro Infra has been redefining real estate with trust, transparency, and scale. From a single vision to a global presence, we’ve delivered thousands of successful transactions and ₹1 Lakh Cr+ in property value. We don’t just deal in properties—we build lasting relationships and create real wealth.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center order-2 order-md-2 position-relative">
+                    <div class="timeline-year bg-gold text-white rounded-circle d-flex align-items-center justify-content-center mx-auto shadow fw-bold border border-4 border-white" style="width: 70px; height: 70px; z-index: 2; position: relative; font-size: 1.2rem;">2026</div>
+                </div>
+                <div class="col-md-5 order-3 order-md-3 ps-md-5"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Founder and Co-founder -->
+
+<!-- Mission & Vision -->
+<section class="story-mission py-4 bg-dark-black text-white position-relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-25" style="background-image: url('/assets/images/skyline.webp'); background-size: cover; background-position: center; filter: grayscale(100%);"></div>
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9));"></div>
+    
+    <div class="container position-relative z-1 py-lg-5">
+        <div class="row g-5">
+            <!-- Mission -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mission-card h-100 p-4 rounded-4 border border-secondary bg-dark-gradient position-relative overflow-hidden">
+<div class="position-absolute top-0 end-0 p-4 opacity-10 text-gold display-1">&nbsp;</div>
+<h3 class="text-gold mb-2 display-6 fw-bold">Our Mission</h3>
+<p class="lead text-light mb-2 opacity-75">To revolutionize real estate advisory in India by delivering precise, insight-led, and experience-driven solutions. We aim to empower every client with clarity, confidence, and curated opportunities.</p>
+<div class="separator-line bg-gold mb-2" style="width: 50px; height: 3px;">&nbsp;</div>
+<ul class="list-unstyled text-white-50">
+<li class="mb-3 d-flex align-items-center">Client-First Approach</li>
+<li class="mb-3 d-flex align-items-center">Transparent Dealings</li>
+<li class="mb-3 d-flex align-items-center">End-to-End Support</li>
+</ul>                    </div>
+            </div>
+            
+            <!-- Vision -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="vision-card h-100 p-4 rounded-4 border border-secondary bg-dark-gradient position-relative overflow-hidden">
+<div class="position-absolute top-0 end-0 p-4 opacity-10 text-gold display-1">&nbsp;</div>
+<h3 class="text-gold mb-2 display-6 fw-bold">Our Vision</h3>
+<p class="lead text-light mb-2 opacity-75">To be the undisputed leader in luxury real estate consultancy, setting global benchmarks for professionalism and integrity. We envision a future where every investment we guide creates lasting wealth and legacy.</p>
+<div class="separator-line bg-gold mb-2" style="width: 50px; height: 3px;">&nbsp;</div>
+<ul class="list-unstyled text-white-50">
+<li class="mb-3 d-flex align-items-center">Global Standards</li>
+<li class="mb-3 d-flex align-items-center">Innovation in Service</li>
+<li class="mb-3 d-flex align-items-center">Sustainable Growth</li>
+</ul>                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="story-values py-5 bg-white">
+    <div class="container py-lg-5">
+        <div class="row g-4">
+            <div class="col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="0">
+               <iframe width="100%" height="500" src="/our-story" title="Founder Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-6 col-sm-6 my-auto text-start ps-md-5" data-aos="fade-up" data-aos-delay="100">
+<div class="text-center mb-5" data-aos="fade-up">
+<h2 class="display-5 fw-bold text-dark text-start">Mr. Viren Mehta</h2>
+<div class="separator bg-gold mb-3" style="width: 80px; height: 4px;">&nbsp;</div>
+<p style="font-weight: 600; text-align: left;">Founder &amp; Director - Sales</p>
+<p class="text-start">Mr. Viren Mehta Founder and Director at ElitePro Infra Gurugram&rsquo;s leading real estate consultancy with 15+ years of shaping the region&rsquo;s property landscape. I specialize in market analysis, investment advisory, portfolio optimization, and strategic planning, leading a team that delivers unmatched results for investors and end-users. With a strong network of industry connections, Mr. Mehta identify emerging trends, secure lucrative projects, and craft tailored realty solutions for long-term success. Throughout my career, Mr. Mehta facilitated high-value transactions across commercial acquisitions, property development, and lease negotiations, earning a reputation for exceptional negotiation skills, strategic foresight, and unwavering integrity. At ElitePro Infra, our collaborative approach and strategic partnerships with top industry players ensure we consistently surpass market standards and deliver projects of exceptional quality.</p>
+</div>            </div>
+        </div>
+    </div>
+</section>
+<section class="story-values bg-white py-0">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6 col-sm-6 my-auto text-start pe-md-5" data-aos="fade-up" data-aos-delay="100">
+<div class="text-center mb-5" data-aos="fade-up">
+<h2 class="display-5 fw-bold text-dark text-start">Mr. Rajat Mehta</h2>
+<div class="separator bg-gold mb-3" style="width: 80px; height: 4px;">&nbsp;</div>
+<p style="font-weight: 600; text-align: left;">Co-Founder &amp; Director - Operations</p>
+<p class="text-start">Mr. Rajat Mehta is the Director at ElitePro Infra, with over 17 years of experience across the hospitality and real estate sectors. His expertise lies in operations, sales &amp; marketing, and end-to-end project execution, ensuring seamless coordination from strategy to successful closure.</p>
+<p class="text-start">Since joining ElitePro Infra in 2017, he has been instrumental in expanding the company&rsquo;s presence across the dynamic markets of Delhi NCR and UAE. Transitioning from hospitality to real estate, he initially led CRM and accounting, gaining deep insights into client relations and financial management before moving into core sales and marketing.</p>
+<p class="text-start">With a strong foundation built through his tenure with renowned hospitality brands like The Leela, Radisson, and Sarovar Hotels &amp; Resorts, Mr. Mehta brings a customer-centric approach and operational excellence to real estate. Known for his hands-on leadership and strategic mindset, he consistently drives business growth, builds strong brand positioning, and delivers high-value outcomes in competitive markets.</p>
+</div>            </div>
+            <div class="col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="0">
+               <iframe width="100%" height="500" src="/our-story" title="Founder Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="story-values py-5 bg-white">
+    <div class="container py-lg-5">
+        <div class="row g-4">
+            <div class="col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="0">
+               <iframe width="100%" height="500" src="/our-story" title="Founder Video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-6 col-sm-6 my-auto text-start ps-md-5" data-aos="fade-up" data-aos-delay="100">
+<div class="text-center mb-5" data-aos="fade-up">
+<h2 class="display-5 fw-bold text-dark text-start">Robin Pahuja</h2>
+<div class="separator bg-gold mb-3" style="width: 80px; height: 4px;">&nbsp;</div>
+<p style="font-weight: 600; text-align: left;">Co-Founder &amp; Managing - Director</p>
+<p class="text-start">Mr. Robin Pahuja, Co-founder &amp; Director of ElitePro Infra, is a visionary entrepreneur who transitioned from a successful business background into diverse sectors like agriculture and coal mining, showcasing strong operational and execution expertise.</p>
+<p class="text-start">In real estate, he played a key role in rebranding Elite Landbase into ElitePro Infra, introducing a customer-first approach focused on enhanced experience and reliability. With his expansion into the Dubai market, he continues to drive growth, innovation, and transformation, aiming to elevate industry standards and deliver exceptional value.</p>
+</div>            </div>
+        </div>
+    </div>
+</section>
+<section class="story-values py-5 bg-white">
+    <div class="container py-lg-5">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="display-5 fw-bold text-dark">Our Core Values</h2>
+                            <p class="text-muted">The pillars that uphold our legacy</p>
+                        <div class="separator mx-auto bg-gold" style="width: 80px; height: 4px;"></div>
+        </div>
+        <div class="row g-4">
+                                            <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="0">
+                    <div class="value-card bg-light p-4 h-100 rounded-3 text-center shadow-sm border transition-hover">
+                                                    <div class="value-icon text-gold fs-1 mb-3"><i class="fa-solid fa-shield-alt"></i></div>
+                                                                            <h5 class="fw-bold mb-2 text-dark">Integrity</h5>
+                                                                            <p class="small text-muted mb-0">We uphold the highest standards of honesty in every transaction.</p>
+                                            </div>
+                </div>
+                                            <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-card bg-light p-4 h-100 rounded-3 text-center shadow-sm border transition-hover">
+                                                    <div class="value-icon text-gold fs-1 mb-3"><i class="fa-solid fa-star"></i></div>
+                                                                            <h5 class="fw-bold mb-2 text-dark">Excellence</h5>
+                                                                            <p class="small text-muted mb-0">Delivering premium quality and exceeding expectations is our norm.</p>
+                                            </div>
+                </div>
+                                            <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-card bg-light p-4 h-100 rounded-3 text-center shadow-sm border transition-hover">
+                                                    <div class="value-icon text-gold fs-1 mb-3"><i class="fa-solid fa-lightbulb"></i></div>
+                                                                            <h5 class="fw-bold mb-2 text-dark">Innovation</h5>
+                                                                            <p class="small text-muted mb-0">Embracing new technologies to enhance the real estate experience.</p>
+                                            </div>
+                </div>
+                                            <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-card bg-light p-4 h-100 rounded-3 text-center shadow-sm border transition-hover">
+                                                    <div class="value-icon text-gold fs-1 mb-3"><i class="fa-solid fa-users"></i></div>
+                                                                            <h5 class="fw-bold mb-2 text-dark">Client Focus</h5>
+                                                                            <p class="small text-muted mb-0">Your dreams and goals are at the heart of everything we do.</p>
+                                            </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+
+<!-- Call to Action -->
+<section class="py-5 bg-gold text-center text-white">
+    <div class="container py-4">
+<h2 class="fw-bold mb-3 display-6">Ready to Start Your Journey?</h2>
+<p class="lead mb-4">Let us guide you to your dream property with expertise and care.</p>
+<p><a class="btn btn-dark btn-lg rounded-pill px-5 shadow-lg" href="/contact">Get in Touch</a></p>    </div>
+</section>
+
+<!-- Premium Footer Links -->
+    <section class="py-5 bg-dark border-bottom border-secondary border-opacity-10">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Property in India -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">Property in India</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Gurgaon</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Mumbai</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Delhi</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Property in Noida</a></li>
+                    </ul>
+                </div>
+
+                <!-- Residential Properties -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">Residential Properties</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Birla Pravaah</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar Serenity Hills</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Tulip Monsella</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Godrej Sora</a></li>
+                    </ul>
+                </div>
+
+                <!-- Commercial Properties -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">Commercial Properties</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>AIPL Joy Central</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Conscient SOHO</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Reach Airia Corporate Tower</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar India Business Centre</a></li>
+                    </ul>
+                </div>
+
+                <!-- SCO Plots -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-gold text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem;">SCO Plots</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar EBD 65</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar EBD 65 NXT</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>M3M SCO 113 Market</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-gold transition-all d-block py-1"><i class="fas fa-angle-right me-2 text-gold small opacity-50"></i>Emaar EBD 89</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="position-relative pt-5 pb-0 text-white overflow-hidden" style="background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
+        <!-- Decorative Elements -->
+        <div class="position-absolute top-0 start-0 w-100" style="height: 2px; background: linear-gradient(90deg, transparent, #D4AF37, transparent);"></div>
+        
+        <div class="container position-relative z-1 py-5">
+            <div class="row gy-5 justify-content-between">
+                <!-- Brand Column -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="mb-4">
+                        <img src="/assets/images/Elite-pro-logo.png" alt="Elite Pro" height="70" class="mb-4  p-2 rounded-2" style="opacity: 0.9;">
+                        <p class="text-white mb-4" style="line-height: 1.8; font-size: 0.95rem;">
+                            Elite Pro Infra represents the pinnacle of luxury real estate. We blend deep market intelligence with a curated selection of premier properties to deliver an unmatched service experience.
+                        </p>
+                        <div class="d-flex gap-2">
+                            <a href="https://www.facebook.com/eliteproinfra" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/eliteproinfra?igsh=emwzMnpiZW8zejN4" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/eliteproinfra/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@eliteproinfra984" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center border-secondary text-white hover-gold" style="width: 40px; height: 40px; transition: all 0.3s;">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="text-white text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem; letter-spacing: 2px;">Quick Links</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="/" class="text-white text-decoration-none hover-white transition-all">Home</a></li>
+                        <li><a href="/our-story" class="text-white text-decoration-none hover-white transition-all">About Us</a></li>
+                        <li><a href="/properties" class="text-white text-decoration-none hover-white transition-all">Properties</a></li>
+                        <li><a href="/" class="text-white text-decoration-none hover-white transition-all">Services</a></li>
+                        <li><a href="/contact" class="text-white text-decoration-none hover-white transition-all">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="text-white text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem; letter-spacing: 2px;">Our Services</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="/investment-sales-advisory" class="text-white text-decoration-none hover-white transition-all">Investment Advisory</a></li>
+                        <li><a href="/nri-advisory" class="text-white text-decoration-none hover-white transition-all">NRI Services</a></li>
+                        <li><a href="/property-management" class="text-white text-decoration-none hover-white transition-all">Property Management</a></li>
+                        <li><a href="/land-acquisition" class="text-white text-decoration-none hover-white transition-all">Land & Acquisition</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-4">
+                    <h6 class="text-white text-uppercase fw-bold mb-4 letter-spacing-2" style="font-size: 0.85rem; letter-spacing: 2px;">Get in Touch</h6>
+                    <ul class="list-unstyled d-flex flex-column gap-4">
+                        <li class="d-flex">
+                            <a href="https://maps.app.goo.gl/Urz5goXdpGSANVGi6" class="text-decoration-none footer-link"><i class="fas fa-map-marker-alt text-gold mt-1 me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">3rd Floor, Golf View Corporate Tower A, Golf Course Road, Sector 42, Gurgaon 122002</span></a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="tel:+919968686868" class="text-decoration-none footer-link"><i class="fas fa-phone text-gold me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">+91 9968686868</span></a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="mailto:info@eliteproinfra.com" class="text-decoration-none footer-link"><i class="fas fa-envelope text-gold me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">info@eliteproinfra.com</span></a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <a href="/" target="_blank" class="text-decoration-none footer-link"><i class="fas fa-globe text-gold me-3"></i>
+                            <span class="text-white" style="font-size: 0.9rem;">www.eliteproinfra.com</span></a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-4 pt-2 footer-newsletter">
+                         <div class="input-group">
+                            <input type="email" class="form-control bg-dark border-secondary text-white shadow-none" placeholder="Your Email" style="font-size: 0.9rem;">
+                            <button class="btn btn-gold text-dark fw-bold px-3" type="button"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <small class="text-white mt-2 d-block fst-italic">Subscribe for exclusive updates.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="border-top border-secondary border-opacity-10 bg-black py-4 position-relative z-1 footer-copyright">
+            <div class="container">
+                <div class="row align-items-center gy-3">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0 text-white small">&copy; 2026 Elite Pro Infra. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4"><a href="/privacy-policy" class="text-white text-decoration-none small hover-white">Privacy Policy</a></li>
+                            <li class="list-inline-item me-4"><a href="/terms-conditions" class="text-white text-decoration-none small hover-white">Terms & Conditions</a></li>
+                            <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small hover-white">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+
+    // Handle Sub-dropdowns for Mobile
+    document.addEventListener("DOMContentLoaded", function () {
+        // Prevent closing on click inside dropdown
+        document.querySelectorAll('.dropdown-menu').forEach(function (element) {
+            element.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+
+        // Toggle sub-dropdown on mobile
+        if (window.innerWidth < 992) {
+            document.querySelectorAll('.dropdown-menu a.dropdown-toggle').forEach(function (element) {
+                element.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Stop event bubbling
+                    
+                    let nextEl = this.nextElementSibling;
+                    if (nextEl && nextEl.classList.contains('dropdown-menu')) {
+                        // Close other open sub-menus in the same parent
+                        let parent = this.closest('.dropdown-menu');
+                        if(parent){
+                            parent.querySelectorAll('.dropdown-menu.show').forEach(function(submenu){
+                                if(submenu !== nextEl){
+                                    submenu.classList.remove('show');
+                                }
+                            });
+                        }
+                        nextEl.classList.toggle('show');
+                    }
+                });
+            });
+        }
+
+        const navbarNav = document.getElementById('navbarNav');
+        const closeEls = document.querySelectorAll('[data-mobile-nav-close]');
+
+        const setMobileNavOpen = function (open) {
+            if (window.innerWidth >= 992) return;
+            document.body.classList.toggle('mobile-nav-open', !!open);
+        };
+
+        const closeMobileNav = function () {
+            if (!navbarNav) return;
+            if (window.innerWidth >= 992) return;
+            try {
+                bootstrap.Collapse.getOrCreateInstance(navbarNav).hide();
+            } catch (e) {
+                navbarNav.classList.remove('show');
+            }
+            setMobileNavOpen(false);
+        };
+
+        if (navbarNav) {
+            navbarNav.addEventListener('show.bs.collapse', function () {
+                setMobileNavOpen(true);
+            });
+
+            navbarNav.addEventListener('hidden.bs.collapse', function () {
+                setMobileNavOpen(false);
+            });
+
+            navbarNav.querySelectorAll('a.nav-link').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth >= 992) return;
+                    if (this.classList.contains('dropdown-toggle')) return;
+                    closeMobileNav();
+                });
+            });
+        }
+
+        closeEls.forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                closeMobileNav();
+            });
+        });
+    });
+
+    // Navbar Color Change on Scroll
+    const updateNavbarOnScroll = function () {
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.navbar .nav-link');
+        const logoImg = document.querySelector('.navbar .navbar-brand img');
+        const defaultLogo = logoImg ? (logoImg.getAttribute('data-default-logo') || logoImg.getAttribute('src')) : '';
+        const scrolledLogo = logoImg ? (logoImg.getAttribute('data-scrolled-logo') || 'assets/images/dark-logo.png') : 'assets/images/dark-logo.png';
+
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+
+            navLinks.forEach(link => {
+                link.classList.add('link-black');
+            });
+
+            if (logoImg && scrolledLogo) {
+                logoImg.setAttribute('src', scrolledLogo);
+            }
+        } else {
+            navbar.classList.remove('scrolled');
+
+            navLinks.forEach(link => {
+                link.classList.remove('link-black');
+            });
+
+            if (logoImg && defaultLogo) {
+                logoImg.setAttribute('src', defaultLogo);
+            }
+        }
+    };
+
+    window.addEventListener('scroll', updateNavbarOnScroll);
+    updateNavbarOnScroll();
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("autoVideo");
+
+    if (video) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            {
+                threshold: 0.5 // 50% visible hone par play
+            }
+        );
+
+        observer.observe(video);
+    }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("india");
+
+    if (video) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            },
+            {
+                threshold: 0.5 // 50% visible hone par play
+            }
+        );
+
+        observer.observe(video);
+    }
+});
+</script>
+
+</body>
+</html>
