@@ -6,7 +6,7 @@ const NAVBAR_LOGO = "/assets/images/nivesh-sarthi-full-navbar-logo.png";
 const SITE_TITLE = "Nivesh Sarthi | Premium Real Estate Consultants";
 const CONTACT_HQ_LABEL = "Corporate HQ";
 const CONTACT_ADDRESS = "628-630, 6th Floor, Puri 81 Business Hub, Sector 81, Faridabad";
-const CONTACT_PHONE_LABEL = "Luxe Concierge";
+const CONTACT_PHONE_LABEL = "Phone";
 const CONTACT_PHONE_DISPLAY = "+91 95600 31319";
 const CONTACT_PHONE_TEL = "+919560031319";
 const CONTACT_EMAIL = "info.niveshsarthi@gmail.com";
@@ -2156,7 +2156,7 @@ function applyContactDetails(root) {
       .replace(/Gurgaon \(HQ\)/gi, CONTACT_HQ_LABEL)
       .replace(/Head Office/gi, CONTACT_HQ_LABEL)
       .replace(/Call Us/gi, CONTACT_PHONE_LABEL)
-      .replace(/Email Us/gi, "Email Concierge")
+      .replace(/Email Us/gi, "Email")
       .replace(/Visit Website/gi, "Digital Desk");
 
     addressPatterns.forEach((pattern) => {
@@ -2193,7 +2193,7 @@ function applyContactDetails(root) {
   if (contactCards.length >= 4) {
     contactCards[0].querySelector("h5") && (contactCards[0].querySelector("h5").textContent = CONTACT_PHONE_LABEL);
     contactCards[0].querySelector("p") && (contactCards[0].querySelector("p").textContent = CONTACT_PHONE_DISPLAY);
-    contactCards[1].querySelector("h5") && (contactCards[1].querySelector("h5").textContent = "Email Concierge");
+    contactCards[1].querySelector("h5") && (contactCards[1].querySelector("h5").textContent = "Email");
     contactCards[1].querySelector("p") && (contactCards[1].querySelector("p").textContent = CONTACT_EMAIL);
     contactCards[2].querySelector("h5") && (contactCards[2].querySelector("h5").textContent = "Digital Desk");
     contactCards[2].querySelector("p") && (contactCards[2].querySelector("p").textContent = CONTACT_WEBSITE);
@@ -2212,7 +2212,7 @@ function applyContactDetails(root) {
     officeCards[1].querySelector("h5") && (officeCards[1].querySelector("h5").innerHTML = `<i class="fas fa-phone"></i> ${CONTACT_PHONE_LABEL}`);
     secondOfficeText[0] && (secondOfficeText[0].innerHTML = `<strong>Phone:</strong> ${CONTACT_PHONE_DISPLAY}`);
     secondOfficeText[1] && (secondOfficeText[1].innerHTML = `<strong>Email:</strong> ${CONTACT_EMAIL}`);
-    officeCards[2].querySelector("h5") && (officeCards[2].querySelector("h5").innerHTML = `<i class="fas fa-envelope"></i> Email Concierge`);
+    officeCards[2].querySelector("h5") && (officeCards[2].querySelector("h5").innerHTML = `<i class="fas fa-envelope"></i> Email`);
     thirdOfficeText[0] && (thirdOfficeText[0].innerHTML = `<strong>Email:</strong> ${CONTACT_EMAIL}`);
     thirdOfficeText[1] && (thirdOfficeText[1].innerHTML = `<strong>Address:</strong> Sector 81, Faridabad`);
   }
@@ -2679,8 +2679,8 @@ function setupContactRedesign(root, route) {
   }
 
   infoSide?.querySelectorAll("h6").forEach((heading) => {
-    if (/Call|Luxe Concierge/i.test(heading.textContent || "")) heading.textContent = CONTACT_PHONE_LABEL;
-    if (/Email/i.test(heading.textContent || "")) heading.textContent = "Email Concierge";
+    if (/Call/i.test(heading.textContent || "")) heading.textContent = CONTACT_PHONE_LABEL;
+    if (/Email/i.test(heading.textContent || "")) heading.textContent = "Email";
     if (/Visit|Corporate HQ|Head Office/i.test(heading.textContent || "")) heading.textContent = CONTACT_HQ_LABEL;
   }
   );
