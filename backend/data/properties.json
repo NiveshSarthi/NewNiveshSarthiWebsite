@@ -3,16 +3,16 @@
     "title": "BPTP SkyNest Towers",
     "slug": "bptp-skynest-towers",
     "categories": [
-      "residential"
+      "Commercial"
     ],
     "developer": "Bptp Group",
-    "location": "Sector 80, Greater Faridabad",
+    "location": "Sector 81, Greater Faridabad",
     "corridor": "Near the Delhi-Mumbai Expressway",
     "image": "/assets/images/propertymaster/optimized/bptp-skynest-towers.jpg",
     "gallery": [
       "/assets/images/propertymaster/optimized/bptp-skynest-towers.jpg"
     ],
-    "status": "Fresh Launch",
+    "status": "old launch",
     "type": "3 & 4 BHK Residences",
     "area": "3,185 - 3,856 SQFT",
     "price": "Rs 4 Cr - Rs 5.39 Cr",
@@ -22,7 +22,8 @@
       "Large-format residences",
       "Delhi-Mumbai Expressway corridor",
       "Greater Faridabad growth zone"
-    ]
+    ],
+    "updatedAt": "2026-05-30T05:34:06.514Z"
   },
   {
     "title": "Neoliv Golf One",

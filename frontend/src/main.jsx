@@ -16,6 +16,19 @@ const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/niveshsarthi_/",
   linkedin: "https://www.linkedin.com/in/nivesh-sarthi",
 };
+const API_BASE_STORAGE_KEY = "nivesh-api-base-url";
+const ADMIN_TOKEN_STORAGE_KEY = "nivesh-admin-token";
+const defaultApiBaseUrl = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const cleanApiBaseUrl = (value) => (value || "").trim().replace(/\/$/, "");
+const getApiBaseUrl = () => {
+  if (typeof window === "undefined") return defaultApiBaseUrl;
+  return cleanApiBaseUrl(window.localStorage.getItem(API_BASE_STORAGE_KEY)) || defaultApiBaseUrl;
+};
+const apiUrl = (path) => `${getApiBaseUrl()}${path}`;
+const getStoredAdminToken = () => {
+  if (typeof window === "undefined") return "";
+  return window.localStorage.getItem(ADMIN_TOKEN_STORAGE_KEY) || "";
+};
 const HERO_IMAGES = [
   "/assets/images/hero section image 3.webp",
   "/assets/images/hero section real estate.jpeg",
@@ -272,9 +285,9 @@ const WHY_NIVESH_SECTION = `
           <div class="nivesh-why-logo-effect" aria-hidden="true">
             <img src="/assets/images/nivesh-sarthi-navbar-mark.png" alt="" loading="eager" decoding="sync" fetchpriority="high">
           </div>
-          <div class="nivesh-why-feature-number">360°</div>
-          <h3>Property Clarity</h3>
-          <p>Across NCR growth corridors, luxury residences, plotted communities, and income-focused commercial assets.</p>
+          <div class="nivesh-why-feature-number">4</div>
+          <h3>Focused Asset Classes</h3>
+          <p>Residential homes, commercial spaces, SCO plots, and investment-ready assets curated around Faridabad's strongest growth pockets.</p>
         </article>
         <div class="nivesh-why-cards" data-aos="fade-left">
           <article>
@@ -823,10 +836,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/api/properties")
+    fetch(apiUrl("/api/properties"))
       .then((response) => response.ok ? response.json() : [])
       .then((items) => {
-        if (Array.isArray(items) && items.length > 0) setProperties(items);
+        if (Array.isArray(items)) setProperties(items);
       })
       .catch(() => {});
   }, []);
@@ -962,6 +975,24 @@ function AboutPage() {
     { value: "300+", label: "Families Guided" },
     { value: "4", label: "Asset Classes" },
   ];
+  const focusAreas = [
+    { title: "Residential Decisions", text: "Apartments, independent floors, villas, and plotted communities compared for family use, possession comfort, connectivity, and resale logic." },
+    { title: "Commercial Growth", text: "Retail shops, office spaces, and high-street assets reviewed through visibility, catchment, rental potential, and business usability." },
+    { title: "SCO And Land-Led Assets", text: "SCO plots, residential plots, and land opportunities evaluated for approvals, frontage, flexibility, and long-term value creation." },
+    { title: "Investment Shortlists", text: "Growth corridors, under-construction launches, and ready assets filtered for entry price, demand depth, payment plan, and exit clarity." },
+  ];
+  const process = [
+    { title: "Requirement Mapping", text: "We document budget, purpose, timeline, preferred location, family needs, and investment expectations before suggesting any project." },
+    { title: "Project Comparison", text: "Options are compared on builder credibility, pricing, inventory, layout, possession stage, approvals, and corridor strength." },
+    { title: "Site Visit Planning", text: "Shortlists are converted into practical site visits with clear talking points, questions to ask, and side-by-side observations." },
+    { title: "Closure Support", text: "From negotiation to documentation and follow-up, our team stays involved so the final decision remains informed and organized." },
+  ];
+  const promises = [
+    "No forced urgency or random inventory dumping.",
+    "Clear explanation of pros, cons, price logic, and location tradeoffs.",
+    "Faridabad-first advisory backed by local project familiarity.",
+    "Founder-led attention for high-value residential and commercial decisions.",
+  ];
 
   return (
     <main className="nivesh-about-page">
@@ -1026,6 +1057,53 @@ function AboutPage() {
             <p>{item.text}</p>
           </article>
         ))}
+      </section>
+
+      <section className="nivesh-about-focus">
+        <div className="nivesh-about-section-head">
+          <span>What We Help With</span>
+          <h2>Real Estate Guidance Across The Decisions That Matter Most</h2>
+          <p>Our work is not limited to showing properties. We help clients understand the role each asset can play in their life, business, or portfolio.</p>
+        </div>
+        <div className="nivesh-about-focus-grid">
+          {focusAreas.map((item) => (
+            <article key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="nivesh-about-method">
+        <div className="nivesh-about-method-copy">
+          <span>Our Advisory Method</span>
+          <h2>A Calm Process For A High-Value Decision</h2>
+          <p>
+            We keep the journey structured so clients can compare fewer, better options instead of getting lost in scattered listings and sales pressure.
+          </p>
+        </div>
+        <div className="nivesh-about-method-steps">
+          {process.map((item, index) => (
+            <article key={item.title}>
+              <strong>{String(index + 1).padStart(2, "0")}</strong>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="nivesh-about-promise">
+        <div>
+          <span>Client Standard</span>
+          <h2>What You Can Expect From Nivesh Sarthi</h2>
+        </div>
+        <ul>
+          {promises.map((item) => <li key={item}>{item}</li>)}
+        </ul>
       </section>
 
       <section className="nivesh-about-founder-note">
@@ -1324,19 +1402,90 @@ function AdminPanel({ properties, setProperties }) {
   const [form, setForm] = useState(blankProperty);
   const [editingSlug, setEditingSlug] = useState("");
   const [message, setMessage] = useState("");
+  const [apiBaseInput, setApiBaseInput] = useState(() => getApiBaseUrl());
+  const [adminToken, setAdminToken] = useState(() => getStoredAdminToken());
+  const [adminTokenInput, setAdminTokenInput] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(() => Boolean(getStoredAdminToken()));
+  const [apiStatus, setApiStatus] = useState(() => getStoredAdminToken() ? "Checking admin API..." : "Enter admin password to continue.");
 
-  const loadAdminData = () => {
-    fetch("/api/properties")
-      .then((response) => response.json())
-      .then((items) => Array.isArray(items) && items.length > 0 && setProperties(items))
-      .catch(() => {});
-    fetch("/api/leads")
-      .then((response) => response.json())
-      .then((items) => Array.isArray(items) && setLeads(items))
-      .catch(() => {});
+  const readJson = async (response) => {
+    const contentType = response.headers.get("content-type") || "";
+    let value = null;
+    if (contentType.includes("application/json")) value = await response.json();
+    if (!response.ok) throw new Error(value?.error || `API returned ${response.status}.`);
+    if (!contentType.includes("application/json")) throw new Error("API did not return JSON. Check the backend URL.");
+    return value;
   };
 
-  useEffect(loadAdminData, []);
+  const adminHeaders = (extraHeaders = {}, token = adminToken) => {
+    if (!token) return extraHeaders;
+    return { ...extraHeaders, "x-admin-token": token };
+  };
+
+  const loadAdminData = async (token = adminToken) => {
+    if (!token) {
+      setIsAuthenticated(false);
+      setApiStatus("Enter admin password to continue.");
+      return;
+    }
+    setApiStatus("Checking admin API...");
+    try {
+      const [propertyItems, leadItems] = await Promise.all([
+        fetch(apiUrl("/api/properties")).then(readJson),
+        fetch(apiUrl("/api/leads"), { headers: adminHeaders({}, token) }).then(readJson),
+      ]);
+      if (Array.isArray(propertyItems)) setProperties(propertyItems);
+      if (Array.isArray(leadItems)) setLeads(leadItems);
+      setIsAuthenticated(true);
+      setApiStatus(`Connected to ${getApiBaseUrl() || "local /api"}`);
+    } catch (error) {
+      if (/auth|401/i.test(error.message)) setIsAuthenticated(false);
+      setApiStatus(error.message || "Admin API is not reachable.");
+    }
+  };
+
+  useEffect(() => {
+    loadAdminData();
+  }, []);
+
+  const saveApiBaseUrl = () => {
+    const cleanedUrl = cleanApiBaseUrl(apiBaseInput);
+    if (cleanedUrl) window.localStorage.setItem(API_BASE_STORAGE_KEY, cleanedUrl);
+    else window.localStorage.removeItem(API_BASE_STORAGE_KEY);
+    setApiBaseInput(cleanedUrl);
+    loadAdminData();
+  };
+
+  const loginAdmin = async (event) => {
+    event.preventDefault();
+    const token = adminTokenInput.trim();
+    if (!token) {
+      setApiStatus("Enter admin password to continue.");
+      return;
+    }
+    setApiStatus("Checking password...");
+    try {
+      await fetch(apiUrl("/api/admin/session"), { headers: adminHeaders({}, token) }).then(readJson);
+      window.localStorage.setItem(ADMIN_TOKEN_STORAGE_KEY, token);
+      setAdminToken(token);
+      setAdminTokenInput("");
+      setIsAuthenticated(true);
+      await loadAdminData(token);
+    } catch (error) {
+      window.localStorage.removeItem(ADMIN_TOKEN_STORAGE_KEY);
+      setAdminToken("");
+      setIsAuthenticated(false);
+      setApiStatus(error.message || "Admin login failed.");
+    }
+  };
+
+  const logoutAdmin = () => {
+    window.localStorage.removeItem(ADMIN_TOKEN_STORAGE_KEY);
+    setAdminToken("");
+    setIsAuthenticated(false);
+    setLeads([]);
+    setApiStatus("Logged out.");
+  };
 
   const updateField = (field, value) => {
     const listFields = ["categories", "gallery", "highlights"];
@@ -1369,36 +1518,51 @@ function AdminPanel({ properties, setProperties }) {
   const saveProperty = async (event) => {
     event.preventDefault();
     setMessage("Saving property...");
-    const url = editingSlug ? `/api/properties/${encodeURIComponent(editingSlug)}` : "/api/properties";
-    const response = await fetch(url, {
-      method: editingSlug ? "PUT" : "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    const value = await response.json();
-    if (!response.ok) {
-      setMessage(value.error || "Could not save property.");
-      return;
+    try {
+      const url = editingSlug ? apiUrl(`/api/properties/${encodeURIComponent(editingSlug)}`) : apiUrl("/api/properties");
+      const response = await fetch(url, {
+        method: editingSlug ? "PUT" : "POST",
+        headers: adminHeaders({ "content-type": "application/json" }),
+        body: JSON.stringify(form),
+      });
+      const value = await readJson(response);
+      if (!value) return;
+      const nextResponse = await fetch(apiUrl("/api/properties"));
+      const nextProperties = await readJson(nextResponse);
+      if (Array.isArray(nextProperties)) setProperties(nextProperties);
+      resetForm();
+      setMessage("Property saved.");
+    } catch (error) {
+      setMessage(error.message || "Could not save property.");
     }
-    const nextResponse = await fetch("/api/properties");
-    const nextProperties = await nextResponse.json();
-    if (Array.isArray(nextProperties)) setProperties(nextProperties);
-    resetForm();
-    setMessage("Property saved.");
   };
 
   const deleteProperty = async (slug) => {
     if (!window.confirm("Delete this property from the website?")) return;
-    await fetch(`/api/properties/${encodeURIComponent(slug)}`, { method: "DELETE" });
-    const nextResponse = await fetch("/api/properties");
-    const nextProperties = await nextResponse.json();
-    if (Array.isArray(nextProperties)) setProperties(nextProperties);
-    setMessage("Property deleted.");
+    try {
+      await fetch(apiUrl(`/api/properties/${encodeURIComponent(slug)}`), {
+        method: "DELETE",
+        headers: adminHeaders(),
+      }).then(readJson);
+      const nextResponse = await fetch(apiUrl("/api/properties"));
+      const nextProperties = await readJson(nextResponse);
+      if (Array.isArray(nextProperties)) setProperties(nextProperties);
+      setMessage("Property deleted.");
+    } catch (error) {
+      setMessage(error.message || "Could not delete property.");
+    }
   };
 
   const deleteLead = async (id) => {
-    await fetch(`/api/leads/${encodeURIComponent(id)}`, { method: "DELETE" });
-    setLeads((current) => current.filter((lead) => lead.id !== id));
+    try {
+      await fetch(apiUrl(`/api/leads/${encodeURIComponent(id)}`), {
+        method: "DELETE",
+        headers: adminHeaders(),
+      }).then(readJson);
+      setLeads((current) => current.filter((lead) => lead.id !== id));
+    } catch (error) {
+      setMessage(error.message || "Could not delete lead.");
+    }
   };
 
   return (
@@ -1411,6 +1575,42 @@ function AdminPanel({ properties, setProperties }) {
       </section>
 
       <section className="nivesh-admin-shell">
+        <div className="nivesh-admin-api">
+          <label>
+            Backend URL
+            <input
+              value={apiBaseInput}
+              onChange={(event) => setApiBaseInput(event.target.value)}
+              placeholder="Leave empty for local /api or add https://backend-domain.com"
+            />
+          </label>
+          <button type="button" onClick={saveApiBaseUrl}>Save URL</button>
+          <span>{apiStatus}</span>
+        </div>
+
+        {!isAuthenticated ? (
+          <form className="nivesh-admin-login" onSubmit={loginAdmin}>
+            <h2>Admin Login</h2>
+            <p>Enter the backend admin password to manage properties and leads.</p>
+            <label>
+              Admin Password
+              <input
+                type="password"
+                value={adminTokenInput}
+                onChange={(event) => setAdminTokenInput(event.target.value)}
+                autoComplete="current-password"
+                required
+              />
+            </label>
+            <button type="submit">Login</button>
+          </form>
+        ) : (
+          <>
+        <div className="nivesh-admin-session">
+          <span>Admin session active</span>
+          <button type="button" onClick={logoutAdmin}>Logout</button>
+        </div>
+
         <div className="nivesh-admin-tabs">
           <button className={activeTab === "properties" ? "active" : ""} onClick={() => setActiveTab("properties")}>Properties</button>
           <button className={activeTab === "leads" ? "active" : ""} onClick={() => setActiveTab("leads")}>Leads</button>
@@ -1473,6 +1673,8 @@ function AdminPanel({ properties, setProperties }) {
               </article>
             ))}
           </div>
+        )}
+          </>
         )}
       </section>
       <RedesignedFooter />
@@ -1916,9 +2118,20 @@ function prepareMirrorDocument(documentHtml, route, properties) {
   setupFaridabadProcess(root, route);
   setupNriFaqAndReviews(root, route);
   setupContactRedesign(root, route);
+  revealHomePageImmediately(root, route);
   setupLeadCapture(root, route);
   removePremiumFooterLinks(root);
   applyRedesignedFooter(root);
+}
+
+function revealHomePageImmediately(root, route) {
+  if (!root || route !== "/") return;
+  root.querySelectorAll("[data-aos], [data-aos-delay], [data-aos-duration]").forEach((element) => {
+    element.removeAttribute("data-aos");
+    element.removeAttribute("data-aos-delay");
+    element.removeAttribute("data-aos-duration");
+    element.classList.remove("aos-init", "aos-animate");
+  });
 }
 
 function applyContactDetails(root) {
@@ -2516,7 +2729,7 @@ function setupContactRedesign(root, route) {
         message: formData.get("message") || form.querySelector("#message")?.value,
       };
       try {
-        await fetch("/api/leads", {
+        await fetch(apiUrl("/api/leads"), {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(lead),
@@ -2557,7 +2770,7 @@ function setupLeadCapture(root, route) {
         else submit.textContent = "Sending...";
       }
       try {
-        await fetch("/api/leads", {
+        await fetch(apiUrl("/api/leads"), {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({

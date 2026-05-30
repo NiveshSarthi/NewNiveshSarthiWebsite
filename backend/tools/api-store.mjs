@@ -6,6 +6,8 @@ const backendRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "
 export const dataDir = process.env.DATA_DIR || path.join(backendRoot, "data");
 export const propertiesFile = path.join(dataDir, "properties.json");
 export const leadsFile = path.join(dataDir, "leads.json");
+const isProduction = process.env.NODE_ENV === "production";
+const developmentAdminToken = "admin123";
 
 async function ensureDataDir() {
   await fs.mkdir(dataDir, { recursive: true });
@@ -148,6 +150,26 @@ export function sendJson(response, statusCode, value) {
   response.end(JSON.stringify(value));
 }
 
+function getAdminToken() {
+  return process.env.ADMIN_TOKEN || (isProduction ? "" : developmentAdminToken);
+}
+
+function requireAdmin(request) {
+  const configuredToken = getAdminToken();
+  if (!configuredToken) {
+    const error = new Error("ADMIN_TOKEN is not configured on the backend.");
+    error.statusCode = 503;
+    throw error;
+  }
+
+  const providedToken = request.headers["x-admin-token"] || "";
+  if (providedToken !== configuredToken) {
+    const error = new Error("Admin authentication required.");
+    error.statusCode = 401;
+    throw error;
+  }
+}
+
 export async function handleApiRequest(request, response, url) {
   try {
     const method = request.method || "GET";
@@ -158,28 +180,38 @@ export async function handleApiRequest(request, response, url) {
       return true;
     }
 
+    if (pathname === "/api/admin/session" && method === "GET") {
+      requireAdmin(request);
+      sendJson(response, 200, { ok: true });
+      return true;
+    }
+
     if (pathname === "/api/properties" && method === "GET") {
       sendJson(response, 200, await getProperties());
       return true;
     }
 
     if (pathname === "/api/properties" && method === "POST") {
+      requireAdmin(request);
       sendJson(response, 201, await upsertProperty(await readRequestJson(request)));
       return true;
     }
 
     const propertyMatch = pathname.match(/^\/api\/properties\/([^/]+)$/);
     if (propertyMatch && method === "PUT") {
+      requireAdmin(request);
       sendJson(response, 200, await upsertProperty(await readRequestJson(request), decodeURIComponent(propertyMatch[1])));
       return true;
     }
 
     if (propertyMatch && method === "DELETE") {
+      requireAdmin(request);
       sendJson(response, 200, await deleteProperty(decodeURIComponent(propertyMatch[1])));
       return true;
     }
 
     if (pathname === "/api/leads" && method === "GET") {
+      requireAdmin(request);
       sendJson(response, 200, await getLeads());
       return true;
     }
@@ -191,6 +223,7 @@ export async function handleApiRequest(request, response, url) {
 
     const leadMatch = pathname.match(/^\/api\/leads\/([^/]+)$/);
     if (leadMatch && method === "DELETE") {
+      requireAdmin(request);
       sendJson(response, 200, await deleteLead(decodeURIComponent(leadMatch[1])));
       return true;
     }

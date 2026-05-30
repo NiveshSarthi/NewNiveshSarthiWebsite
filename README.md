@@ -25,27 +25,45 @@ npm run start
 
 The API runs at `http://127.0.0.1:5174/api/health`.
 
-## Combined Local Serve
+## Deployment
 
-After building the frontend:
+Frontend and backend can be deployed as two separate services.
 
-```bash
-cd frontend
-npm run build
-cd ../backend
-npm run serve -- 4180
-```
+### Frontend Service
 
-This serves the built frontend and the local API together at `http://127.0.0.1:4180/`.
-
-## Docker Deployment
-
-The frontend deployment Dockerfile is in `frontend/Dockerfile`:
+Use the root `Dockerfile` when the Docker build context is the repository root. If Coolify is pointed at `frontend/` instead, use `frontend/Dockerfile`.
 
 ```bash
-cd frontend
 docker build -t nivesh-sarthi-frontend .
 docker run -p 8080:80 nivesh-sarthi-frontend
 ```
 
-Property data lives in `backend/data/properties.json`. Leads are written to `backend/data/leads.json`.
+Set this build argument or environment variable during the frontend build:
+
+```bash
+VITE_API_BASE_URL=https://your-backend-domain.com
+```
+
+When it is empty, the frontend uses same-origin `/api`, which is useful for local development with the Vite proxy.
+
+### Backend Service
+
+Use `backend/Dockerfile` when the Docker build context is `backend/`:
+
+```bash
+cd backend
+docker build -t nivesh-sarthi-backend .
+docker run -p 5174:80 nivesh-sarthi-backend
+```
+
+The deployed API health check is `/api/health`.
+
+Set this backend environment variable:
+
+```bash
+ADMIN_TOKEN=your-strong-admin-password
+```
+
+Use the same value to log in at `/admin`. Local development uses `admin123` if `ADMIN_TOKEN` is not set.
+
+Property data lives in `backend/data/properties.json`. Leads are written to `backend/data/leads.json`. For production, mount persistent storage to `/app/backend/data` so admin changes and leads survive container rebuilds.
