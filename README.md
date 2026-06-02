@@ -57,16 +57,20 @@ Use `backend/Dockerfile` when the Docker build context is `backend/`:
 ```bash
 cd backend
 docker build -t nivesh-sarthi-backend .
-docker run -p 5174:80 nivesh-sarthi-backend
+docker run -p 5174:3000 nivesh-sarthi-backend
 ```
 
 The deployed API health check is `/api/health`.
+
+For Coolify, set the backend exposed port to `3000`. The backend reads `API_PORT` first and also supports Coolify's `PORT` environment variable.
 
 Set these backend environment variables:
 
 ```bash
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD=your-strong-admin-password
+API_HOST=0.0.0.0
+API_PORT=3000
 ```
 
 Use those credentials to log in at `/admin`. Local development uses `admin` / `admin123` if no env values are set. `ADMIN_TOKEN` can still be set as an optional API token for direct API requests, but the admin panel login uses username and password.

@@ -1,7 +1,7 @@
 import http from "node:http";
 import { handleApiRequest, sendJson } from "./api-store.mjs";
 
-const port = Number(process.env.API_PORT || process.argv[2] || 5174);
+const port = Number(process.env.API_PORT || process.env.PORT || process.argv[2] || 5174);
 const host = process.env.API_HOST || process.env.HOST || "0.0.0.0";
 
 const server = http.createServer(async (request, response) => {
