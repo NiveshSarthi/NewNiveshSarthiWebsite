@@ -44,7 +44,11 @@ Set this build argument or environment variable during the frontend build:
 VITE_API_BASE_URL=https://your-backend-domain.com
 ```
 
-When it is empty, the frontend uses same-origin `/api`, which is useful for local development with the Vite proxy.
+When it is empty, the frontend uses same-origin `/api`, which is useful for local development with the Vite proxy. In production, do not leave it empty unless the frontend domain is reverse-proxying `/api` to the backend. For example, if the frontend is deployed at `https://new.niveshsarthi.com` and the backend is deployed at `https://api.niveshsarthi.com`, build the frontend with:
+
+```bash
+VITE_API_BASE_URL=https://api.niveshsarthi.com
+```
 
 ### Backend Service
 
@@ -58,12 +62,13 @@ docker run -p 5174:80 nivesh-sarthi-backend
 
 The deployed API health check is `/api/health`.
 
-Set this backend environment variable:
+Set these backend environment variables:
 
 ```bash
-ADMIN_TOKEN=your-strong-admin-password
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=your-strong-admin-password
 ```
 
-Use the same value to log in at `/admin`. Local development uses `admin123` if `ADMIN_TOKEN` is not set.
+Use those credentials to log in at `/admin`. Local development uses `admin` / `admin123` if no env values are set. `ADMIN_TOKEN` can still be set as an optional API token for direct API requests, but the admin panel login uses username and password.
 
 Property data lives in `backend/data/properties.json`. Leads are written to `backend/data/leads.json`. For production, mount persistent storage to `/app/backend/data` so admin changes and leads survive container rebuilds.
