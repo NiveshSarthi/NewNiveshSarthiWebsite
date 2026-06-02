@@ -1413,8 +1413,18 @@ function AdminPanel({ properties, setProperties }) {
     const contentType = response.headers.get("content-type") || "";
     let value = null;
     if (contentType.includes("application/json")) value = await response.json();
-    if (!response.ok) throw new Error(value?.error || `API returned ${response.status}.`);
-    if (!contentType.includes("application/json")) throw new Error("API did not return JSON. Check the backend URL.");
+    if (!response.ok) {
+      const error = new Error(value?.error || `API returned ${response.status}.`);
+      error.status = response.status;
+      error.url = response.url;
+      throw error;
+    }
+    if (!contentType.includes("application/json")) {
+      const error = new Error("API did not return JSON. Check the backend URL.");
+      error.status = response.status;
+      error.url = response.url;
+      throw error;
+    }
     return value;
   };
 
@@ -1457,9 +1467,10 @@ function AdminPanel({ properties, setProperties }) {
       setApiStatus("Enter admin password to continue.");
       return;
     }
-    setApiStatus("Checking password...");
+    const loginUrl = apiUrl("/api/admin/login");
+    setApiStatus(`Checking password at ${loginUrl}...`);
     try {
-      const session = await fetch(apiUrl("/api/admin/login"), {
+      const session = await fetch(loginUrl, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -1475,7 +1486,9 @@ function AdminPanel({ properties, setProperties }) {
       window.localStorage.removeItem(ADMIN_TOKEN_STORAGE_KEY);
       setAdminToken("");
       setIsAuthenticated(false);
-      setApiStatus(error.message || "Admin login failed.");
+      const statusDetails = error.status ? ` (${error.status})` : "";
+      const urlDetails = error.url || loginUrl;
+      setApiStatus(`${error.message || "Admin login failed."}${statusDetails} - ${urlDetails}`);
     }
   };
 
