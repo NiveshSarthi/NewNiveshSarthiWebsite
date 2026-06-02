@@ -17,7 +17,17 @@ const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/nivesh-sarthi",
 };
 const ADMIN_TOKEN_STORAGE_KEY = "nivesh-admin-token";
-const defaultApiBaseUrl = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const resolveApiBaseUrl = () => {
+  const configuredApiBaseUrl = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+  if (configuredApiBaseUrl) return configuredApiBaseUrl;
+  if (typeof window === "undefined") return "";
+  const hostname = window.location.hostname;
+  if (hostname === "new.niveshsarthi.com" || hostname === "www.niveshsarthi.com" || hostname === "niveshsarthi.com") {
+    return "https://api.niveshsarthi.com";
+  }
+  return "";
+};
+const defaultApiBaseUrl = resolveApiBaseUrl();
 const apiUrl = (path) => `${defaultApiBaseUrl}${path}`;
 const getStoredAdminToken = () => {
   if (typeof window === "undefined") return "";
