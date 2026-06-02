@@ -16,15 +16,9 @@ const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/niveshsarthi_/",
   linkedin: "https://www.linkedin.com/in/nivesh-sarthi",
 };
-const API_BASE_STORAGE_KEY = "nivesh-api-base-url";
 const ADMIN_TOKEN_STORAGE_KEY = "nivesh-admin-token";
 const defaultApiBaseUrl = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
-const cleanApiBaseUrl = (value) => (value || "").trim().replace(/\/$/, "");
-const getApiBaseUrl = () => {
-  if (typeof window === "undefined") return defaultApiBaseUrl;
-  return cleanApiBaseUrl(window.localStorage.getItem(API_BASE_STORAGE_KEY)) || defaultApiBaseUrl;
-};
-const apiUrl = (path) => `${getApiBaseUrl()}${path}`;
+const apiUrl = (path) => `${defaultApiBaseUrl}${path}`;
 const getStoredAdminToken = () => {
   if (typeof window === "undefined") return "";
   return window.localStorage.getItem(ADMIN_TOKEN_STORAGE_KEY) || "";
@@ -851,7 +845,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (route !== "/properties/industrial" && route !== "/properties/category-4") return;
+    if (route !== "/properties/industrial") return;
     history.replaceState({}, "", "/properties");
     setRoute("/properties");
   }, [route]);
@@ -929,12 +923,16 @@ function App() {
     return <ProjectDetail project={project} onBack={() => setRoute(normalizeRoute("/"))} />;
   }
 
-  if (propertyCategory) {
-    return <PropertyListingPage category={propertyCategory} properties={properties} />;
-  }
-
   if (route === "/services") {
     return <ServicesPage />;
+  }
+
+  if (route === "/consulting" || route === "/properties/category-4") {
+    return <ConsultingPage />;
+  }
+
+  if (propertyCategory) {
+    return <PropertyListingPage category={propertyCategory} properties={properties} />;
   }
 
   if (route === "/career") {
@@ -943,6 +941,10 @@ function App() {
 
   if (route === "/our-story") {
     return <AboutPage />;
+  }
+
+  if (route === "/contact") {
+    return <ContactPage />;
   }
 
   if (route === "/admin") {
@@ -1402,9 +1404,8 @@ function AdminPanel({ properties, setProperties }) {
   const [form, setForm] = useState(blankProperty);
   const [editingSlug, setEditingSlug] = useState("");
   const [message, setMessage] = useState("");
-  const [apiBaseInput, setApiBaseInput] = useState(() => getApiBaseUrl());
   const [adminToken, setAdminToken] = useState(() => getStoredAdminToken());
-  const [adminTokenInput, setAdminTokenInput] = useState("");
+  const [adminLogin, setAdminLogin] = useState({ username: "admin", password: "" });
   const [isAuthenticated, setIsAuthenticated] = useState(() => Boolean(getStoredAdminToken()));
   const [apiStatus, setApiStatus] = useState(() => getStoredAdminToken() ? "Checking admin API..." : "Enter admin password to continue.");
 
@@ -1437,7 +1438,7 @@ function AdminPanel({ properties, setProperties }) {
       if (Array.isArray(propertyItems)) setProperties(propertyItems);
       if (Array.isArray(leadItems)) setLeads(leadItems);
       setIsAuthenticated(true);
-      setApiStatus(`Connected to ${getApiBaseUrl() || "local /api"}`);
+      setApiStatus(`Connected to ${defaultApiBaseUrl || "local /api"}`);
     } catch (error) {
       if (/auth|401/i.test(error.message)) setIsAuthenticated(false);
       setApiStatus(error.message || "Admin API is not reachable.");
@@ -1448,27 +1449,26 @@ function AdminPanel({ properties, setProperties }) {
     loadAdminData();
   }, []);
 
-  const saveApiBaseUrl = () => {
-    const cleanedUrl = cleanApiBaseUrl(apiBaseInput);
-    if (cleanedUrl) window.localStorage.setItem(API_BASE_STORAGE_KEY, cleanedUrl);
-    else window.localStorage.removeItem(API_BASE_STORAGE_KEY);
-    setApiBaseInput(cleanedUrl);
-    loadAdminData();
-  };
-
   const loginAdmin = async (event) => {
     event.preventDefault();
-    const token = adminTokenInput.trim();
-    if (!token) {
+    const username = adminLogin.username.trim();
+    const password = adminLogin.password.trim();
+    if (!username || !password) {
       setApiStatus("Enter admin password to continue.");
       return;
     }
     setApiStatus("Checking password...");
     try {
-      await fetch(apiUrl("/api/admin/session"), { headers: adminHeaders({}, token) }).then(readJson);
+      const session = await fetch(apiUrl("/api/admin/login"), {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      }).then(readJson);
+      const token = session.token;
+      if (!token) throw new Error("Admin login did not return a session token.");
       window.localStorage.setItem(ADMIN_TOKEN_STORAGE_KEY, token);
       setAdminToken(token);
-      setAdminTokenInput("");
+      setAdminLogin((current) => ({ ...current, password: "" }));
       setIsAuthenticated(true);
       await loadAdminData(token);
     } catch (error) {
@@ -1568,23 +1568,16 @@ function AdminPanel({ properties, setProperties }) {
   return (
     <main className="nivesh-admin-page">
       <LocalNavbar />
-      <section className="nivesh-admin-hero">
-        <span>Admin Panel</span>
-        <h1>Manage Leads And Properties</h1>
-        <p>Add, edit, or delete Faridabad properties and review website enquiries from one local dashboard.</p>
-      </section>
-
       <section className="nivesh-admin-shell">
+        <div className="nivesh-admin-heading">
+          <div>
+            <h1>Admin Panel</h1>
+            <p>Manage properties and leads.</p>
+          </div>
+          {isAuthenticated && <button type="button" onClick={logoutAdmin}>Logout</button>}
+        </div>
+
         <div className="nivesh-admin-api">
-          <label>
-            Backend URL
-            <input
-              value={apiBaseInput}
-              onChange={(event) => setApiBaseInput(event.target.value)}
-              placeholder="Leave empty for local /api or add https://backend-domain.com"
-            />
-          </label>
-          <button type="button" onClick={saveApiBaseUrl}>Save URL</button>
           <span>{apiStatus}</span>
         </div>
 
@@ -1593,11 +1586,20 @@ function AdminPanel({ properties, setProperties }) {
             <h2>Admin Login</h2>
             <p>Enter the backend admin password to manage properties and leads.</p>
             <label>
-              Admin Password
+              Username
+              <input
+                value={adminLogin.username}
+                onChange={(event) => setAdminLogin((current) => ({ ...current, username: event.target.value }))}
+                autoComplete="username"
+                required
+              />
+            </label>
+            <label>
+              Password
               <input
                 type="password"
-                value={adminTokenInput}
-                onChange={(event) => setAdminTokenInput(event.target.value)}
+                value={adminLogin.password}
+                onChange={(event) => setAdminLogin((current) => ({ ...current, password: event.target.value }))}
                 autoComplete="current-password"
                 required
               />
@@ -1606,11 +1608,6 @@ function AdminPanel({ properties, setProperties }) {
           </form>
         ) : (
           <>
-        <div className="nivesh-admin-session">
-          <span>Admin session active</span>
-          <button type="button" onClick={logoutAdmin}>Logout</button>
-        </div>
-
         <div className="nivesh-admin-tabs">
           <button className={activeTab === "properties" ? "active" : ""} onClick={() => setActiveTab("properties")}>Properties</button>
           <button className={activeTab === "leads" ? "active" : ""} onClick={() => setActiveTab("leads")}>Leads</button>
@@ -1747,6 +1744,281 @@ function PropertyListingPage({ category, properties }) {
           </div>
         )}
       </section>
+      <RedesignedFooter />
+    </main>
+  );
+}
+
+function ConsultingPage() {
+  const pillars = [
+    {
+      title: "Buyer Advisory",
+      text: "Requirement mapping, budget clarity, location comparison, and a focused shortlist for end-use residential decisions.",
+      icon: "fa-house-chimney-user",
+    },
+    {
+      title: "Investment Planning",
+      text: "Project selection through entry price, payment plan, rental demand, resale depth, and corridor growth logic.",
+      icon: "fa-chart-line",
+    },
+    {
+      title: "Commercial Strategy",
+      text: "Guidance for SCO plots, shops, office spaces, and business addresses based on frontage, catchment, and usability.",
+      icon: "fa-building",
+    },
+  ];
+  const process = [
+    "Understand your purpose, budget, timeline, and risk comfort.",
+    "Compare locations, builders, inventory, pricing, and future usability.",
+    "Plan site visits with clear questions and side-by-side observations.",
+    "Support negotiation, documentation, and final decision clarity.",
+  ];
+  const outcomes = [
+    "A sharper shortlist instead of scattered options.",
+    "Clear explanation of pros, cons, and price logic.",
+    "Faridabad and Greater Faridabad market context.",
+    "Founder-led guidance for high-value decisions.",
+  ];
+
+  return (
+    <main className="nivesh-consulting-page">
+      <LocalNavbar flat />
+
+      <section className="nivesh-consulting-hero">
+        <div className="nivesh-consulting-hero-copy">
+          <span>Real Estate Consulting</span>
+          <h1>Clarity Before You Commit To A Property Decision</h1>
+          <p>
+            Nivesh Sarthi helps buyers and investors compare Faridabad opportunities with structure, local market context, and calm advisory support.
+          </p>
+          <div className="nivesh-consulting-actions">
+            <a href="/contact">Book Consultation</a>
+            <a href="/properties">View Properties</a>
+          </div>
+        </div>
+        <div className="nivesh-consulting-hero-media" aria-label="Consulting highlights">
+          <img src="/assets/images/hero section real estate.jpeg" alt="Faridabad real estate consulting" loading="eager" decoding="async" />
+          <div>
+            <strong>Faridabad First</strong>
+            <span>Residential, commercial, SCO and investment advisory</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="nivesh-consulting-pulse">
+        <div>
+          <span>01</span>
+          <strong>Requirement-Led</strong>
+          <p>We begin with your purpose, not with available inventory.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <strong>Comparison-Ready</strong>
+          <p>Options are filtered through price, location, builder, and usability.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <strong>Decision Support</strong>
+          <p>From shortlist to closure, the process stays organized.</p>
+        </div>
+      </section>
+
+      <section className="nivesh-consulting-pillars">
+        <div className="nivesh-consulting-section-head">
+          <span>Where We Help</span>
+          <h2>Consulting That Matches The Way Real Estate Decisions Actually Happen</h2>
+          <p>Every client arrives with a different goal. We shape the process around that goal before recommending any property.</p>
+        </div>
+        <div className="nivesh-consulting-pillar-grid">
+          {pillars.map((item) => (
+            <article key={item.title}>
+              <i className={`fas ${item.icon}`}></i>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="nivesh-consulting-process">
+        <div>
+          <span>Advisory Flow</span>
+          <h2>A Calm Process For A High-Value Decision</h2>
+          <p>We keep the journey practical so you can move from confusion to comparison to confidence.</p>
+        </div>
+        <ol>
+          {process.map((step) => <li key={step}>{step}</li>)}
+        </ol>
+      </section>
+
+      <section className="nivesh-consulting-outcomes">
+        <div className="nivesh-consulting-section-head">
+          <span>What You Receive</span>
+          <h2>Guidance Built Around Clarity, Not Pressure</h2>
+        </div>
+        <div>
+          {outcomes.map((item) => (
+            <article key={item}>
+              <i className="fas fa-check"></i>
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="nivesh-consulting-cta">
+        <div>
+          <span>Start With A Clear Brief</span>
+          <h2>Planning A Faridabad Property Move?</h2>
+          <p>Share your requirement and we will help you compare the right residential, commercial, SCO, or investment options.</p>
+        </div>
+        <a href="/contact">Start A Consultation</a>
+      </section>
+
+      <RedesignedFooter />
+    </main>
+  );
+}
+
+function ContactPage() {
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    requirement: "Residential",
+    message: "",
+  });
+  const [status, setStatus] = useState("idle");
+  const contactCards = [
+    {
+      label: "Call",
+      value: CONTACT_PHONE_DISPLAY,
+      href: `tel:${CONTACT_PHONE_TEL}`,
+      icon: "fa-phone",
+      text: "Speak with the Faridabad advisory desk.",
+    },
+    {
+      label: "Email",
+      value: CONTACT_EMAIL,
+      href: `mailto:${CONTACT_EMAIL}`,
+      icon: "fa-envelope",
+      text: "Send your requirement and preferred timeline.",
+    },
+    {
+      label: "Office",
+      value: "Sector 81, Faridabad",
+      href: "https://maps.google.com/?q=Puri%2081%20Business%20Hub%20Sector%2081%20Faridabad",
+      icon: "fa-location-dot",
+      text: CONTACT_ADDRESS,
+    },
+  ];
+
+  const updateField = (field, value) => {
+    setForm((current) => ({ ...current, [field]: value }));
+  };
+
+  const submitLead = async (event) => {
+    event.preventDefault();
+    setStatus("sending");
+    try {
+      await fetch(apiUrl("/api/leads"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, source: "contact-page" }),
+      });
+      setForm({ name: "", phone: "", email: "", requirement: "Residential", message: "" });
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    } finally {
+      window.setTimeout(() => setStatus("idle"), 2600);
+    }
+  };
+
+  return (
+    <main className="nivesh-contact-page">
+      <LocalNavbar flat />
+
+      <section className="nivesh-contact-hero">
+        <div className="nivesh-contact-copy">
+          <span>Contact Nivesh Sarthi</span>
+          <h1>Start With A Clear Property Conversation</h1>
+          <p>
+            Share what you are planning in Faridabad or Greater Faridabad. We will help you compare the right residential, commercial, SCO, or investment options with a calm advisory process.
+          </p>
+          <div className="nivesh-contact-quick">
+            <a href={`tel:${CONTACT_PHONE_TEL}`}>Call Now</a>
+            <a href={`mailto:${CONTACT_EMAIL}`}>Send Email</a>
+          </div>
+        </div>
+        <form className="nivesh-contact-form-native" onSubmit={submitLead}>
+          <span>Send Requirement</span>
+          <h2>Tell Us What You Need</h2>
+          <label>
+            Name
+            <input value={form.name} onChange={(event) => updateField("name", event.target.value)} placeholder="Your name" required />
+          </label>
+          <label>
+            Phone
+            <input value={form.phone} onChange={(event) => updateField("phone", event.target.value)} placeholder="+91" required />
+          </label>
+          <label>
+            Email
+            <input type="email" value={form.email} onChange={(event) => updateField("email", event.target.value)} placeholder="you@example.com" />
+          </label>
+          <label>
+            Requirement
+            <select value={form.requirement} onChange={(event) => updateField("requirement", event.target.value)}>
+              <option>Residential</option>
+              <option>Commercial</option>
+              <option>SCO / Plot</option>
+              <option>Investment Advisory</option>
+              <option>Property Management</option>
+            </select>
+          </label>
+          <label>
+            Message
+            <textarea value={form.message} onChange={(event) => updateField("message", event.target.value)} placeholder="Budget, location preference, timeline, or project name" rows="4"></textarea>
+          </label>
+          <button type="submit" disabled={status === "sending"}>
+            {status === "sending" ? "Sending..." : status === "sent" ? "Enquiry Sent" : status === "error" ? "Try Again" : "Submit Enquiry"}
+          </button>
+        </form>
+      </section>
+
+      <section className="nivesh-contact-cards">
+        {contactCards.map((card) => (
+          <a key={card.label} href={card.href} target={card.href.startsWith("http") ? "_blank" : undefined} rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}>
+            <i className={`fas ${card.icon}`}></i>
+            <span>{card.label}</span>
+            <strong>{card.value}</strong>
+            <p>{card.text}</p>
+          </a>
+        ))}
+      </section>
+
+      <section className="nivesh-contact-visit">
+        <div>
+          <span>Visit The Advisory Desk</span>
+          <h2>Meet Us At Puri 81 Business Hub</h2>
+          <p>Our Faridabad office supports property discovery, site-visit planning, project comparison, documentation coordination, and post-purchase guidance.</p>
+        </div>
+        <div className="nivesh-contact-map-card">
+          <strong>{CONTACT_HQ_LABEL}</strong>
+          <p>{CONTACT_ADDRESS}</p>
+          <a href="https://maps.google.com/?q=Puri%2081%20Business%20Hub%20Sector%2081%20Faridabad" target="_blank" rel="noopener noreferrer">Open Map</a>
+        </div>
+      </section>
+
+      <section className="nivesh-contact-map-embed" aria-label="Nivesh Sarthi office map">
+        <iframe
+          title="Nivesh Sarthi office location"
+          src="https://www.google.com/maps?q=Puri%2081%20Business%20Hub%20Sector%2081%20Faridabad&output=embed"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+
       <RedesignedFooter />
     </main>
   );
@@ -1961,6 +2233,7 @@ function LocalNavbar({ flat = false }) {
                       <li><a className="dropdown-item" href="/properties/commercial" onClick={closeMenu}>Commercial</a></li>
                       <li><a className="dropdown-item" href="/properties/residential" onClick={closeMenu}>Residential</a></li>
                       <li><a className="dropdown-item" href="/properties/sco" onClick={closeMenu}>SCO Plots</a></li>
+                      <li><a className="dropdown-item" href="/consulting" onClick={closeMenu}>Consulting</a></li>
                     </ul>
                   </li>
                 </>
@@ -2421,13 +2694,10 @@ function applyNavbarBranding(root) {
     "/properties/category-1": "/properties/commercial",
     "/properties/category-2": "/properties/residential",
     "/properties/category-3": "/properties/sco",
+    "/properties/category-4": "/consulting",
   };
   root?.querySelectorAll(".navbar a[href^='/properties/category-']").forEach((link) => {
     const href = link.getAttribute("href");
-    if (href === "/properties/category-4") {
-      link.closest("li")?.remove();
-      return;
-    }
     if (propertyCategoryLinks[href]) link.setAttribute("href", propertyCategoryLinks[href]);
   });
 

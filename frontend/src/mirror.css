@@ -3348,11 +3348,9 @@ body {
 
 .nivesh-about-page {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 12% 10%, rgba(197, 151, 55, 0.16), transparent 34%),
-    radial-gradient(circle at 92% 24%, rgba(255, 255, 255, 0.08), transparent 30%),
-    linear-gradient(135deg, #050505 0%, #15100a 48%, #080808 100%);
-  color: #fff;
+  overflow: hidden;
+  background: #f7f3ea;
+  color: #18140d;
   font-family: "Lato", system-ui, sans-serif;
 }
 
@@ -3368,12 +3366,48 @@ body {
 }
 
 .nivesh-about-signature {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1fr);
   gap: clamp(34px, 5vw, 76px);
   align-items: start;
   min-height: auto;
   padding: 106px 0 64px;
+}
+
+.nivesh-about-signature::before,
+.nivesh-about-storyline::before,
+.nivesh-about-values::before,
+.nivesh-about-focus::before,
+.nivesh-about-method::before,
+.nivesh-about-promise::before,
+.nivesh-about-founder-note::before,
+.nivesh-about-page .nivesh-about-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.nivesh-about-signature::before,
+.nivesh-about-values::before,
+.nivesh-about-method::before,
+.nivesh-about-founder-note::before {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(245, 207, 113, 0.16), transparent 30%),
+    radial-gradient(circle at 88% 20%, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(135deg, #050505 0%, #15100a 48%, #080808 100%);
+}
+
+.nivesh-about-storyline::before,
+.nivesh-about-focus::before,
+.nivesh-about-promise::before,
+.nivesh-about-page .nivesh-about-cta::before {
+  background:
+    radial-gradient(circle at 88% 20%, rgba(191, 149, 54, 0.12), transparent 28%),
+    linear-gradient(180deg, #fffaf0 0%, #f7f3ea 100%);
 }
 
 .nivesh-about-signature-copy span,
@@ -3610,6 +3644,8 @@ body {
 }
 
 .nivesh-about-storyline {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
   gap: 26px;
@@ -3680,6 +3716,8 @@ body {
 }
 
 .nivesh-about-values {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
@@ -3719,6 +3757,8 @@ body {
 }
 
 .nivesh-about-focus {
+  position: relative;
+  isolation: isolate;
   padding: 0 0 70px;
 }
 
@@ -3764,6 +3804,8 @@ body {
 }
 
 .nivesh-about-method {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
   gap: 34px;
@@ -3804,6 +3846,8 @@ body {
 }
 
 .nivesh-about-promise {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
   gap: 36px;
@@ -3842,6 +3886,8 @@ body {
 }
 
 .nivesh-about-founder-note {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
   gap: 34px;
@@ -3849,6 +3895,8 @@ body {
 }
 
 .nivesh-about-page .nivesh-about-cta {
+  position: relative;
+  isolation: isolate;
   color: #fff;
 }
 
@@ -3879,6 +3927,77 @@ body {
   font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 0.6px;
+}
+
+.nivesh-about-storyline,
+.nivesh-about-focus,
+.nivesh-about-promise,
+.nivesh-about-page .nivesh-about-cta {
+  color: #18140d;
+}
+
+.nivesh-about-storyline .nivesh-about-story-copy,
+.nivesh-about-storyline .nivesh-about-stats,
+.nivesh-about-focus .nivesh-about-focus-grid article,
+.nivesh-about-promise,
+.nivesh-about-page .nivesh-about-cta {
+  border-color: rgba(185, 138, 39, 0.2);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(251, 246, 235, 0.76)),
+    #fbf6eb;
+  box-shadow: 0 24px 64px rgba(75, 55, 12, 0.1);
+}
+
+.nivesh-about-storyline .nivesh-about-story-copy h2,
+.nivesh-about-focus .nivesh-about-section-head h2,
+.nivesh-about-promise h2,
+.nivesh-about-page .nivesh-about-cta h2 {
+  color: #18140d;
+}
+
+.nivesh-about-storyline .nivesh-about-story-copy p,
+.nivesh-about-focus .nivesh-about-section-head p,
+.nivesh-about-focus .nivesh-about-focus-grid p,
+.nivesh-about-promise li,
+.nivesh-about-page .nivesh-about-cta p,
+.nivesh-about-page .nivesh-about-cta-contact span {
+  color: rgba(24, 20, 13, 0.68);
+}
+
+.nivesh-about-storyline .nivesh-about-story-copy span,
+.nivesh-about-focus .nivesh-about-section-head span,
+.nivesh-about-promise span,
+.nivesh-about-page .nivesh-about-cta span {
+  color: #b98a27;
+}
+
+.nivesh-about-storyline .nivesh-about-story-copy span::before,
+.nivesh-about-focus .nivesh-about-section-head span::before,
+.nivesh-about-promise span::before,
+.nivesh-about-page .nivesh-about-cta span::before {
+  background: linear-gradient(90deg, transparent, #b98a27);
+}
+
+.nivesh-about-storyline .nivesh-about-stats div,
+.nivesh-about-promise li {
+  border-color: rgba(185, 138, 39, 0.18);
+  background: rgba(255, 250, 240, 0.78);
+}
+
+.nivesh-about-storyline .nivesh-about-stats span {
+  color: rgba(24, 20, 13, 0.62);
+}
+
+.nivesh-about-focus .nivesh-about-focus-grid h3 {
+  color: #18140d;
+}
+
+.nivesh-about-promise li::before {
+  border-color: #b98a27;
+}
+
+.nivesh-about-page .nivesh-about-cta-contact strong {
+  color: #b98a27;
 }
 
 .nivesh-about-essence {
@@ -4627,121 +4746,122 @@ body {
 
 .nivesh-admin-page {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 16% 12%, rgba(245, 207, 113, 0.16), transparent 30%),
-    linear-gradient(135deg, #050505 0%, #15110a 48%, #070707 100%);
-  color: #fff;
+  background: #f7f8fa;
+  color: #1b1f24;
   font-family: "Lato", system-ui, sans-serif;
 }
 
-.nivesh-admin-hero {
-  width: min(1180px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 146px 0 44px;
-}
-
-.nivesh-admin-hero span {
-  display: inline-flex;
-  margin-bottom: 16px;
-  color: #f4d276;
-  font-size: 0.74rem;
-  font-weight: 900;
-  letter-spacing: 1.7px;
-  text-transform: uppercase;
-}
-
-.nivesh-admin-hero h1 {
-  max-width: 780px;
-  margin: 0;
-  color: #fff;
-  font-family: "Playfair Display", Georgia, serif !important;
-  font-size: clamp(2.6rem, 5.6vw, 5.5rem);
-  letter-spacing: 0;
-  line-height: 0.95;
-}
-
-.nivesh-admin-hero p {
-  max-width: 650px;
-  margin: 20px 0 0;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.75;
-}
-
 .nivesh-admin-shell {
-  width: min(1180px, calc(100% - 40px));
+  width: min(1220px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 0 0 88px;
+  padding: 108px 0 54px;
 }
 
-.nivesh-admin-tabs {
+.nivesh-admin-heading {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.nivesh-admin-heading h1 {
+  margin: 0;
+  color: #171717;
+  font-family: "Lato", system-ui, sans-serif !important;
+  font-size: 1.55rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.nivesh-admin-heading p {
+  margin: 4px 0 0;
+  color: #667085;
+  font-size: 0.92rem;
 }
 
 .nivesh-admin-api,
-.nivesh-admin-session {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(180px, auto);
-  gap: 12px;
-  align-items: end;
-  margin-bottom: 18px;
-  padding: 16px;
-  border: 1px solid rgba(245, 207, 113, 0.18);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.07);
+.nivesh-admin-login,
+.nivesh-admin-form,
+.nivesh-admin-list,
+.nivesh-admin-leads {
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.05);
 }
 
-.nivesh-admin-session {
-  grid-template-columns: minmax(0, 1fr) auto;
+.nivesh-admin-api {
+  margin-bottom: 14px;
+  padding: 10px 12px;
 }
 
 .nivesh-admin-api label,
-.nivesh-admin-login label {
+.nivesh-admin-login label,
+.nivesh-admin-form label {
   display: grid;
-  gap: 7px;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  gap: 6px;
+  color: #344054;
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
 .nivesh-admin-api input,
-.nivesh-admin-login input {
+.nivesh-admin-login input,
+.nivesh-admin-form input,
+.nivesh-admin-form textarea {
   width: 100%;
-  min-height: 42px;
-  border: 1px solid rgba(245, 207, 113, 0.18);
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.24);
-  color: #fff;
-  padding: 11px 13px;
+  min-height: 40px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  background: #fff;
+  color: #101828;
+  padding: 10px 12px;
   font: inherit;
+  outline: none;
+}
+
+.nivesh-admin-form textarea {
+  resize: vertical;
+}
+
+.nivesh-admin-api input:focus,
+.nivesh-admin-login input:focus,
+.nivesh-admin-form input:focus,
+.nivesh-admin-form textarea:focus {
+  border-color: #b98a27;
+  box-shadow: 0 0 0 3px rgba(185, 138, 39, 0.12);
 }
 
 .nivesh-admin-api span,
-.nivesh-admin-session span,
-.nivesh-admin-login p {
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 0.84rem;
+.nivesh-admin-login p,
+.nivesh-admin-list span,
+.nivesh-admin-list em,
+.nivesh-admin-leads span,
+.nivesh-admin-leads em,
+.nivesh-admin-leads p {
+  color: #667085;
+  font-size: 0.86rem;
+  font-style: normal;
   line-height: 1.45;
 }
 
 .nivesh-admin-login {
   display: grid;
-  gap: 14px;
-  max-width: 520px;
-  padding: 24px;
-  border: 1px solid rgba(245, 207, 113, 0.18);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  gap: 12px;
+  max-width: 440px;
+  padding: 18px;
 }
 
-.nivesh-admin-login h2 {
-  margin: 0;
-  color: #fff;
-  font-family: "Playfair Display", Georgia, serif !important;
+.nivesh-admin-login h2,
+.nivesh-admin-form h2,
+.nivesh-admin-list h2,
+.nivesh-admin-leads h2 {
+  margin: 0 0 8px;
+  color: #101828;
+  font-family: "Lato", system-ui, sans-serif !important;
+  font-size: 1.1rem;
+  font-weight: 900;
   letter-spacing: 0;
 }
 
@@ -4749,147 +4869,101 @@ body {
   margin: 0;
 }
 
+.nivesh-admin-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.nivesh-admin-heading button,
 .nivesh-admin-tabs button,
 .nivesh-admin-api button,
-.nivesh-admin-session button,
 .nivesh-admin-login button,
 .nivesh-admin-form-actions button,
 .nivesh-admin-list button,
 .nivesh-admin-leads button {
-  min-height: 42px;
-  padding: 11px 16px;
-  border: 1px solid rgba(245, 207, 113, 0.3);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
-  color: #f4d276;
-  font-size: 0.72rem;
+  min-height: 38px;
+  padding: 9px 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  background: #fff;
+  color: #344054;
+  font-size: 0.78rem;
   font-weight: 900;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .nivesh-admin-tabs button.active,
 .nivesh-admin-api button,
 .nivesh-admin-login button,
 .nivesh-admin-form-actions button:first-child {
-  background: linear-gradient(135deg, #f5dd92, #b98a27);
-  color: #090909;
+  border-color: #b98a27;
+  background: #b98a27;
+  color: #fff;
 }
 
 .nivesh-admin-message {
-  margin-bottom: 16px;
-  padding: 14px 16px;
-  border: 1px solid rgba(245, 207, 113, 0.22);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #f4d276;
+  margin-bottom: 14px;
+  padding: 11px 12px;
+  border: 1px solid #f0d98a;
+  border-radius: 6px;
+  background: #fff8df;
+  color: #7a560f;
+  font-size: 0.9rem;
 }
 
 .nivesh-admin-grid {
   display: grid;
-  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+  gap: 16px;
   align-items: start;
-}
-
-.nivesh-admin-form,
-.nivesh-admin-list,
-.nivesh-admin-leads {
-  border: 1px solid rgba(245, 207, 113, 0.18);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(18px);
 }
 
 .nivesh-admin-form {
   display: grid;
-  gap: 12px;
-  padding: 22px;
+  gap: 10px;
+  padding: 16px;
   position: sticky;
   top: 92px;
-}
-
-.nivesh-admin-form h2,
-.nivesh-admin-list h2,
-.nivesh-admin-leads h2 {
-  margin: 0 0 8px;
-  color: #fff;
-  font-family: "Playfair Display", Georgia, serif !important;
-  letter-spacing: 0;
-}
-
-.nivesh-admin-form label {
-  display: grid;
-  gap: 7px;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.nivesh-admin-form input,
-.nivesh-admin-form textarea {
-  width: 100%;
-  border: 1px solid rgba(245, 207, 113, 0.18);
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.24);
-  color: #fff;
-  padding: 12px 13px;
-  font: inherit;
 }
 
 .nivesh-admin-form-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .nivesh-admin-list,
 .nivesh-admin-leads {
   display: grid;
-  gap: 12px;
-  padding: 22px;
+  gap: 10px;
+  padding: 16px;
 }
 
 .nivesh-admin-list article,
 .nivesh-admin-leads article {
   display: grid;
-  grid-template-columns: 82px minmax(0, 1fr) auto auto;
-  gap: 14px;
+  grid-template-columns: 72px minmax(0, 1fr) auto auto;
+  gap: 12px;
   align-items: center;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.22);
+  padding: 12px;
+  border: 1px solid #e4e7ec;
+  border-radius: 6px;
+  background: #fcfcfd;
 }
 
 .nivesh-admin-list img {
-  width: 82px;
-  height: 64px;
-  border-radius: 8px;
+  width: 72px;
+  height: 56px;
+  border-radius: 4px;
   object-fit: cover;
 }
 
 .nivesh-admin-list strong,
 .nivesh-admin-leads strong {
   display: block;
-  color: #fff;
-  font-size: 1rem;
-}
-
-.nivesh-admin-list span,
-.nivesh-admin-list em,
-.nivesh-admin-leads span,
-.nivesh-admin-leads em,
-.nivesh-admin-leads p {
-  display: block;
-  margin: 4px 0 0;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.86rem;
-  font-style: normal;
-  line-height: 1.45;
+  color: #101828;
+  font-size: 0.98rem;
 }
 
 .nivesh-admin-leads article {
@@ -5276,6 +5350,803 @@ body {
   width: fit-content;
 }
 
+.nivesh-consulting-page {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #080808;
+  color: #fff;
+  font-family: "Lato", system-ui, sans-serif;
+}
+
+.nivesh-consulting-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
+  gap: clamp(34px, 5vw, 76px);
+  align-items: center;
+  width: min(1220px, calc(100% - 40px));
+  min-height: 92vh;
+  margin: 0 auto;
+  padding: 124px 0 72px;
+  isolation: isolate;
+}
+
+.nivesh-consulting-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  background:
+    radial-gradient(circle at 16% 16%, rgba(245, 207, 113, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 22%, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(135deg, #050505 0%, #15100a 48%, #080808 100%);
+}
+
+.nivesh-consulting-hero-copy > span,
+.nivesh-consulting-section-head > span,
+.nivesh-consulting-process > div > span,
+.nivesh-consulting-cta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: #f4d276;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.nivesh-consulting-hero-copy > span::before,
+.nivesh-consulting-section-head > span::before,
+.nivesh-consulting-process > div > span::before,
+.nivesh-consulting-cta span::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f4d276);
+}
+
+.nivesh-consulting-hero h1,
+.nivesh-consulting-section-head h2,
+.nivesh-consulting-process h2,
+.nivesh-consulting-cta h2 {
+  margin: 0;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.nivesh-consulting-hero h1 {
+  max-width: 760px;
+  font-size: clamp(2.8rem, 5.8vw, 6.1rem);
+  line-height: 0.96;
+}
+
+.nivesh-consulting-hero p,
+.nivesh-consulting-section-head p,
+.nivesh-consulting-process p,
+.nivesh-consulting-cta p {
+  max-width: 680px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.03rem;
+  line-height: 1.82;
+}
+
+.nivesh-consulting-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.nivesh-consulting-actions a,
+.nivesh-consulting-cta > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 14px 24px;
+  border: 1px solid rgba(255, 231, 160, 0.58);
+  border-radius: 999px;
+  color: #090909;
+  background: linear-gradient(135deg, #f7df95, #b98a27);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.nivesh-consulting-actions a:last-child {
+  color: #f8e4ad;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.nivesh-consulting-actions a:hover,
+.nivesh-consulting-actions a:focus,
+.nivesh-consulting-cta > a:hover,
+.nivesh-consulting-cta > a:focus {
+  color: #090909;
+  border-color: rgba(255, 231, 160, 0.82);
+  box-shadow: 0 18px 42px rgba(185, 138, 39, 0.24);
+  transform: translateY(-2px);
+}
+
+.nivesh-consulting-actions a:last-child:hover,
+.nivesh-consulting-actions a:last-child:focus {
+  color: #f8e4ad;
+}
+
+.nivesh-consulting-hero-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  border: 1px solid rgba(245, 207, 113, 0.26);
+  border-radius: 18px 18px 8px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 30px 95px rgba(0, 0, 0, 0.34);
+  isolation: isolate;
+}
+
+.nivesh-consulting-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 42%, rgba(0, 0, 0, 0.86) 100%);
+}
+
+.nivesh-consulting-hero-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  object-fit: cover;
+  filter: saturate(0.98) contrast(1.06);
+}
+
+.nivesh-consulting-hero-media div {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  z-index: 2;
+  padding: 20px;
+  border: 1px solid rgba(255, 231, 160, 0.24);
+  border-radius: 8px;
+  background: rgba(8, 8, 8, 0.62);
+  backdrop-filter: blur(16px);
+}
+
+.nivesh-consulting-hero-media strong {
+  display: block;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.nivesh-consulting-hero-media span {
+  display: block;
+  margin-top: 9px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.55;
+}
+
+.nivesh-consulting-pulse,
+.nivesh-consulting-pillars,
+.nivesh-consulting-process,
+.nivesh-consulting-outcomes,
+.nivesh-consulting-cta {
+  position: relative;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  isolation: isolate;
+}
+
+.nivesh-consulting-pulse::before,
+.nivesh-consulting-process::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  background:
+    radial-gradient(circle at 88% 20%, rgba(191, 149, 54, 0.12), transparent 28%),
+    linear-gradient(180deg, #fffaf0 0%, #f7f3ea 100%);
+}
+
+.nivesh-consulting-pillars::before,
+.nivesh-consulting-outcomes::before,
+.nivesh-consulting-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(245, 207, 113, 0.16), transparent 30%),
+    linear-gradient(135deg, #050505 0%, #15100a 48%, #080808 100%);
+}
+
+.nivesh-consulting-pulse {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 70px 0;
+  color: #18140d;
+}
+
+.nivesh-consulting-pulse div,
+.nivesh-consulting-process ol,
+.nivesh-consulting-process li {
+  border: 1px solid rgba(185, 138, 39, 0.2);
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(251, 246, 235, 0.76)),
+    #fbf6eb;
+  box-shadow: 0 24px 64px rgba(75, 55, 12, 0.1);
+}
+
+.nivesh-consulting-pulse div {
+  padding: 28px;
+}
+
+.nivesh-consulting-pulse span {
+  display: block;
+  color: #b98a27;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.nivesh-consulting-pulse strong {
+  display: block;
+  margin-top: 14px;
+  color: #18140d;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.12;
+}
+
+.nivesh-consulting-pulse p {
+  margin: 12px 0 0;
+  color: rgba(24, 20, 13, 0.68);
+  line-height: 1.72;
+}
+
+.nivesh-consulting-pillars,
+.nivesh-consulting-outcomes {
+  padding: 74px 0;
+}
+
+.nivesh-consulting-section-head {
+  max-width: 860px;
+  margin-bottom: 34px;
+}
+
+.nivesh-consulting-section-head h2,
+.nivesh-consulting-process h2,
+.nivesh-consulting-cta h2 {
+  font-size: clamp(2.15rem, 4.2vw, 4.25rem);
+  line-height: 1;
+}
+
+.nivesh-consulting-pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.nivesh-consulting-pillar-grid article,
+.nivesh-consulting-outcomes article {
+  border: 1px solid rgba(245, 207, 113, 0.18);
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+    rgba(12, 12, 12, 0.78);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(18px);
+}
+
+.nivesh-consulting-pillar-grid article {
+  min-height: 310px;
+  padding: 30px;
+}
+
+.nivesh-consulting-pillar-grid i {
+  display: inline-grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f7df95, #b98a27);
+  color: #090909;
+  font-size: 1.2rem;
+}
+
+.nivesh-consulting-pillar-grid h3 {
+  margin: 22px 0 12px;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.62rem;
+  line-height: 1.08;
+}
+
+.nivesh-consulting-pillar-grid p,
+.nivesh-consulting-outcomes p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.72;
+}
+
+.nivesh-consulting-process {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+  padding: 74px 0;
+  color: #18140d;
+}
+
+.nivesh-consulting-process > div > span {
+  color: #b98a27;
+}
+
+.nivesh-consulting-process > div > span::before {
+  background: linear-gradient(90deg, transparent, #b98a27);
+}
+
+.nivesh-consulting-process h2 {
+  color: #18140d;
+}
+
+.nivesh-consulting-process p {
+  color: rgba(24, 20, 13, 0.68);
+}
+
+.nivesh-consulting-process ol {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 22px;
+  list-style: none;
+  counter-reset: consulting-step;
+}
+
+.nivesh-consulting-process li {
+  position: relative;
+  min-height: 76px;
+  padding: 20px 20px 20px 70px;
+  color: rgba(24, 20, 13, 0.72);
+  font-weight: 800;
+  line-height: 1.55;
+  counter-increment: consulting-step;
+}
+
+.nivesh-consulting-process li::before {
+  content: counter(consulting-step);
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f5dd92, #b98a27);
+  color: #090909;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+}
+
+.nivesh-consulting-outcomes > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.nivesh-consulting-outcomes article {
+  min-height: 170px;
+  padding: 24px;
+}
+
+.nivesh-consulting-outcomes i {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 18px;
+  place-items: center;
+  border: 1px solid rgba(245, 207, 113, 0.36);
+  border-radius: 999px;
+  color: #f4d276;
+}
+
+.nivesh-consulting-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 74px 0 86px;
+}
+
+.nivesh-consulting-cta > div {
+  max-width: 760px;
+}
+
+.nivesh-consulting-cta > a {
+  min-width: max-content;
+}
+
+.nivesh-contact-page {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f7f3ea;
+  color: #18140d;
+  font-family: "Lato", system-ui, sans-serif;
+}
+
+.nivesh-contact-hero,
+.nivesh-contact-cards,
+.nivesh-contact-visit,
+.nivesh-contact-map-embed {
+  position: relative;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  isolation: isolate;
+}
+
+.nivesh-contact-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(480px, 1.08fr);
+  gap: clamp(30px, 4.2vw, 64px);
+  align-items: center;
+  min-height: 92vh;
+  padding: 124px 0 72px;
+  color: #fff;
+}
+
+.nivesh-contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  background:
+    radial-gradient(circle at 16% 16%, rgba(245, 207, 113, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 22%, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(135deg, #050505 0%, #15100a 48%, #080808 100%);
+}
+
+.nivesh-contact-copy > span,
+.nivesh-contact-form-native > span,
+.nivesh-contact-visit span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: #f4d276;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.nivesh-contact-copy > span::before,
+.nivesh-contact-form-native > span::before,
+.nivesh-contact-visit span::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f4d276);
+}
+
+.nivesh-contact-copy h1,
+.nivesh-contact-form-native h2,
+.nivesh-contact-visit h2 {
+  margin: 0;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.nivesh-contact-copy h1 {
+  max-width: 560px;
+  font-size: clamp(2.55rem, 4.8vw, 5.15rem);
+  line-height: 0.98;
+}
+
+.nivesh-contact-copy p {
+  max-width: 520px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.03rem;
+  line-height: 1.82;
+}
+
+.nivesh-contact-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.nivesh-contact-quick a,
+.nivesh-contact-form-native button,
+.nivesh-contact-map-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 14px 24px;
+  border: 1px solid rgba(255, 231, 160, 0.58);
+  border-radius: 999px;
+  color: #090909;
+  background: linear-gradient(135deg, #f7df95, #b98a27);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.nivesh-contact-quick a:last-child {
+  color: #f8e4ad;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.nivesh-contact-quick a:hover,
+.nivesh-contact-quick a:focus,
+.nivesh-contact-form-native button:hover,
+.nivesh-contact-form-native button:focus,
+.nivesh-contact-map-card a:hover,
+.nivesh-contact-map-card a:focus {
+  border-color: rgba(255, 231, 160, 0.82);
+  box-shadow: 0 18px 42px rgba(185, 138, 39, 0.24);
+  color: #090909;
+  transform: translateY(-2px);
+}
+
+.nivesh-contact-quick a:last-child:hover,
+.nivesh-contact-quick a:last-child:focus {
+  color: #f8e4ad;
+}
+
+.nivesh-contact-form-native {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: clamp(26px, 3.4vw, 42px);
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background:
+    linear-gradient(150deg, rgba(14, 14, 14, 0.78), rgba(25, 20, 11, 0.58)) padding-box,
+    linear-gradient(135deg, rgba(255, 236, 174, 0.92), rgba(185, 138, 39, 0.86), rgba(255, 255, 255, 0.18)) border-box;
+  box-shadow:
+    0 34px 100px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(22px);
+}
+
+.nivesh-contact-form-native::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: 17px;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(245, 207, 113, 0.2), transparent 32%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.035));
+}
+
+.nivesh-contact-form-native h2 {
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1;
+}
+
+.nivesh-contact-form-native label {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nivesh-contact-form-native input,
+.nivesh-contact-form-native select,
+.nivesh-contact-form-native textarea {
+  width: 100%;
+  border: 1px solid rgba(245, 207, 113, 0.18);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.24);
+  color: #fff;
+  padding: 13px 14px;
+  font: inherit;
+  outline: none;
+}
+
+.nivesh-contact-form-native select option {
+  color: #18140d;
+}
+
+.nivesh-contact-form-native textarea {
+  resize: vertical;
+}
+
+.nivesh-contact-form-native input:focus,
+.nivesh-contact-form-native select:focus,
+.nivesh-contact-form-native textarea:focus {
+  border-color: rgba(245, 207, 113, 0.5);
+  box-shadow: 0 0 0 3px rgba(245, 207, 113, 0.12);
+}
+
+.nivesh-contact-form-native button {
+  width: 100%;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.nivesh-contact-form-native button:disabled {
+  cursor: wait;
+  opacity: 0.78;
+}
+
+.nivesh-contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 70px 0;
+}
+
+.nivesh-contact-cards::before,
+.nivesh-contact-visit::before,
+.nivesh-contact-map-embed::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  background:
+    radial-gradient(circle at 88% 20%, rgba(191, 149, 54, 0.12), transparent 28%),
+    linear-gradient(180deg, #fffaf0 0%, #f7f3ea 100%);
+}
+
+.nivesh-contact-cards a,
+.nivesh-contact-map-card {
+  border: 1px solid rgba(185, 138, 39, 0.2);
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(251, 246, 235, 0.76)),
+    #fbf6eb;
+  box-shadow: 0 24px 64px rgba(75, 55, 12, 0.1);
+}
+
+.nivesh-contact-cards a {
+  display: grid;
+  gap: 10px;
+  min-height: 250px;
+  padding: 28px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.nivesh-contact-cards a:hover,
+.nivesh-contact-cards a:focus {
+  border-color: rgba(185, 138, 39, 0.38);
+  box-shadow: 0 28px 72px rgba(75, 55, 12, 0.16);
+  transform: translateY(-4px);
+}
+
+.nivesh-contact-cards i {
+  display: inline-grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f7df95, #b98a27);
+  color: #090909;
+  font-size: 1.1rem;
+}
+
+.nivesh-contact-cards span {
+  margin-top: 8px;
+  color: #b98a27;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.nivesh-contact-cards strong {
+  color: #18140d;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1.12;
+}
+
+.nivesh-contact-cards p,
+.nivesh-contact-visit p,
+.nivesh-contact-map-card p {
+  margin: 0;
+  color: rgba(24, 20, 13, 0.68);
+  line-height: 1.72;
+}
+
+.nivesh-contact-visit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  gap: 28px;
+  align-items: stretch;
+  padding: 0 0 76px;
+}
+
+.nivesh-contact-visit span {
+  color: #b98a27;
+}
+
+.nivesh-contact-visit span::before {
+  background: linear-gradient(90deg, transparent, #b98a27);
+}
+
+.nivesh-contact-visit h2 {
+  max-width: 760px;
+  color: #18140d;
+  font-size: clamp(2.15rem, 4.2vw, 4.25rem);
+  line-height: 1;
+}
+
+.nivesh-contact-visit > div:first-child {
+  padding: 42px;
+  border: 1px solid rgba(185, 138, 39, 0.2);
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(251, 246, 235, 0.76)),
+    #fbf6eb;
+  box-shadow: 0 24px 64px rgba(75, 55, 12, 0.1);
+}
+
+.nivesh-contact-map-card {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  padding: 42px;
+}
+
+.nivesh-contact-map-card strong {
+  color: #18140d;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.nivesh-contact-map-card a {
+  width: fit-content;
+}
+
+.nivesh-contact-map-embed {
+  padding: 0 0 76px;
+}
+
+.nivesh-contact-map-embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 440px;
+  border: 1px solid rgba(185, 138, 39, 0.2);
+  border-radius: 12px;
+  background: #fbf6eb;
+  box-shadow: 0 24px 64px rgba(75, 55, 12, 0.12);
+}
+
 @media (min-width: 992px) and (max-width: 1199.98px) {
   #mirrored-page .navbar-brand img {
     height: 41px;
@@ -5361,6 +6232,36 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .nivesh-consulting-hero,
+  .nivesh-consulting-process,
+  .nivesh-consulting-cta,
+  .nivesh-contact-hero,
+  .nivesh-contact-visit {
+    grid-template-columns: 1fr;
+  }
+
+  .nivesh-consulting-hero,
+  .nivesh-contact-hero {
+    min-height: auto;
+    padding-top: 112px;
+  }
+
+  .nivesh-consulting-hero-media,
+  .nivesh-consulting-hero-media img {
+    min-height: 420px;
+  }
+
+  .nivesh-consulting-pulse,
+  .nivesh-consulting-pillar-grid,
+  .nivesh-consulting-outcomes > div:last-child,
+  .nivesh-contact-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nivesh-consulting-cta > a {
+    width: fit-content;
+  }
+
   .nivesh-property-index-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -5400,6 +6301,82 @@ body {
     grid-template-columns: 1fr;
     width: min(100% - 28px, 1180px);
     padding: 168px 0 38px;
+  }
+
+  .nivesh-consulting-hero {
+    grid-template-columns: 1fr;
+    width: min(100% - 28px, 1180px);
+    min-height: auto;
+    padding: 132px 0 48px;
+  }
+
+  .nivesh-contact-hero {
+    grid-template-columns: 1fr;
+    width: min(100% - 28px, 1180px);
+    min-height: auto;
+    padding: 132px 0 48px;
+  }
+
+  .nivesh-consulting-hero h1,
+  .nivesh-contact-copy h1 {
+    font-size: clamp(2.4rem, 15vw, 3.8rem);
+  }
+
+  .nivesh-consulting-hero-media,
+  .nivesh-consulting-hero-media img {
+    min-height: 340px;
+  }
+
+  .nivesh-consulting-pulse,
+  .nivesh-consulting-pillars,
+  .nivesh-consulting-process,
+  .nivesh-consulting-outcomes,
+  .nivesh-consulting-cta {
+    width: min(100% - 28px, 1180px);
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  .nivesh-contact-cards,
+  .nivesh-contact-visit,
+  .nivesh-contact-map-embed {
+    width: min(100% - 28px, 1180px);
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  .nivesh-consulting-pulse,
+  .nivesh-consulting-pillar-grid,
+  .nivesh-consulting-process,
+  .nivesh-consulting-outcomes > div:last-child,
+  .nivesh-consulting-cta,
+  .nivesh-contact-cards,
+  .nivesh-contact-visit {
+    grid-template-columns: 1fr;
+  }
+
+  .nivesh-consulting-section-head h2,
+  .nivesh-consulting-process h2,
+  .nivesh-consulting-cta h2 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .nivesh-consulting-actions,
+  .nivesh-consulting-actions a,
+  .nivesh-consulting-cta > a,
+  .nivesh-contact-quick,
+  .nivesh-contact-quick a,
+  .nivesh-contact-map-card a {
+    width: 100%;
+  }
+
+  .nivesh-contact-visit > div:first-child,
+  .nivesh-contact-map-card {
+    padding: 28px 22px;
+  }
+
+  .nivesh-contact-map-embed iframe {
+    min-height: 340px;
   }
 
   .nivesh-property-index-stats {
@@ -5661,13 +6638,17 @@ body {
     min-width: 0;
   }
 
-  .nivesh-admin-hero,
   .nivesh-admin-shell {
     width: min(100% - 28px, 1180px);
   }
 
-  .nivesh-admin-hero {
-    padding-top: 152px;
+  .nivesh-admin-shell {
+    padding-top: 108px;
+  }
+
+  .nivesh-admin-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .nivesh-admin-grid,

@@ -1,13 +1,40 @@
+import fsSync from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { randomUUID } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const backendRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-export const dataDir = process.env.DATA_DIR || path.join(backendRoot, "data");
+const workspaceRoot = path.resolve(backendRoot, "..");
+
+function loadEnvFile(filePath) {
+  if (!fsSync.existsSync(filePath)) return;
+  const lines = fsSync.readFileSync(filePath, "utf8").split(/\r?\n/);
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) return;
+    const separator = trimmed.indexOf("=");
+    if (separator === -1) return;
+    const key = trimmed.slice(0, separator).trim();
+    const rawValue = trimmed.slice(separator + 1).trim();
+    const value = rawValue.replace(/^["']|["']$/g, "");
+    if (key && process.env[key] === undefined) process.env[key] = value;
+  });
+}
+
+loadEnvFile(path.join(workspaceRoot, ".env"));
+loadEnvFile(path.join(backendRoot, ".env"));
+
+const configuredDataDir = process.env.DATA_DIR || path.join(backendRoot, "data");
+export const dataDir = path.isAbsolute(configuredDataDir)
+  ? configuredDataDir
+  : path.resolve(backendRoot, configuredDataDir);
 export const propertiesFile = path.join(dataDir, "properties.json");
 export const leadsFile = path.join(dataDir, "leads.json");
 const isProduction = process.env.NODE_ENV === "production";
 const developmentAdminToken = "admin123";
+const developmentAdminUsername = "admin";
+const adminSessions = new Set();
 
 async function ensureDataDir() {
   await fs.mkdir(dataDir, { recursive: true });
@@ -154,16 +181,53 @@ function getAdminToken() {
   return process.env.ADMIN_TOKEN || (isProduction ? "" : developmentAdminToken);
 }
 
-function requireAdmin(request) {
-  const configuredToken = getAdminToken();
-  if (!configuredToken) {
-    const error = new Error("ADMIN_TOKEN is not configured on the backend.");
+function getAdminUsername() {
+  return process.env.ADMIN_USERNAME || developmentAdminUsername;
+}
+
+function getAdminPassword() {
+  return process.env.ADMIN_PASSWORD || process.env.ADMIN_TOKEN || (isProduction ? "" : developmentAdminToken);
+}
+
+function ensureAdminPassword() {
+  const configuredPassword = getAdminPassword();
+  if (!configuredPassword) {
+    const error = new Error("ADMIN_PASSWORD or ADMIN_TOKEN is not configured on the backend.");
     error.statusCode = 503;
     throw error;
   }
+  return configuredPassword;
+}
 
+function createAdminSession(input) {
+  const configuredPassword = ensureAdminPassword();
+  const configuredUsername = getAdminUsername();
+  const username = String(input.username || "").trim();
+  const password = String(input.password || input.token || "").trim();
+
+  if (username !== configuredUsername || password !== configuredPassword) {
+    const error = new Error("Invalid admin username or password.");
+    error.statusCode = 401;
+    throw error;
+  }
+
+  const token = randomUUID();
+  adminSessions.add(token);
+  return { ok: true, token, username: configuredUsername };
+}
+
+function requireAdmin(request) {
+  const configuredToken = getAdminToken();
   const providedToken = request.headers["x-admin-token"] || "";
-  if (providedToken !== configuredToken) {
+
+  if (providedToken && adminSessions.has(providedToken)) return;
+  if (configuredToken && providedToken === configuredToken) return;
+
+  if (!configuredToken && !providedToken) {
+    ensureAdminPassword();
+  }
+
+  {
     const error = new Error("Admin authentication required.");
     error.statusCode = 401;
     throw error;
@@ -177,6 +241,11 @@ export async function handleApiRequest(request, response, url) {
 
     if (pathname === "/api/health") {
       sendJson(response, 200, { ok: true });
+      return true;
+    }
+
+    if (pathname === "/api/admin/login" && method === "POST") {
+      sendJson(response, 200, createAdminSession(await readRequestJson(request)));
       return true;
     }
 
