@@ -10,8 +10,10 @@ ENV ADMIN_PASSWORD=
 ENV ADMIN_TOKEN=
 
 COPY package*.json ./
+RUN npm install --omit=dev
 COPY tools ./tools
 COPY data ./data
+COPY data ./seed-data
 
 EXPOSE 3000
 

@@ -31,10 +31,17 @@ export const dataDir = path.isAbsolute(configuredDataDir)
   : path.resolve(backendRoot, configuredDataDir);
 export const propertiesFile = path.join(dataDir, "properties.json");
 export const leadsFile = path.join(dataDir, "leads.json");
+const seedDataDir = path.join(backendRoot, "seed-data");
+const seedPropertiesFile = path.join(seedDataDir, "properties.json");
+const seedLeadsFile = path.join(seedDataDir, "leads.json");
+const dbDriver = String(process.env.DB_DRIVER || "json").trim().toLowerCase();
+const pouchDbName = String(process.env.POUCHDB_NAME || "nivesh-sarthi").trim();
 const isProduction = process.env.NODE_ENV === "production";
 const developmentAdminToken = "admin123";
 const developmentAdminUsername = "admin";
 const adminSessions = new Set();
+let pouchDbPromise = null;
+let pouchMigrationPromise = null;
 
 async function ensureDataDir() {
   await fs.mkdir(dataDir, { recursive: true });
@@ -49,9 +56,122 @@ async function readJson(filePath, fallback) {
   }
 }
 
+async function readSeededJson(filePath, seedFilePath, fallback) {
+  const value = await readJson(filePath, null);
+  if (value !== null) return value;
+  return readJson(seedFilePath, fallback);
+}
+
 async function writeJson(filePath, value) {
   await ensureDataDir();
   await fs.writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+}
+
+function usePouchDb() {
+  return dbDriver === "pouchdb";
+}
+
+async function getPouchDb() {
+  if (!usePouchDb()) return null;
+  if (!pouchDbPromise) {
+    pouchDbPromise = (async () => {
+      await ensureDataDir();
+      const { default: PouchDB } = await import("pouchdb");
+      return new PouchDB(path.join(dataDir, pouchDbName));
+    })();
+  }
+  return pouchDbPromise;
+}
+
+function stripPouchMeta(doc) {
+  if (!doc) return doc;
+  const { _id, _rev, kind, ...value } = doc;
+  return value;
+}
+
+function propertyDocId(slug) {
+  return `property:${slug}`;
+}
+
+function leadDocId(id) {
+  return `lead:${id}`;
+}
+
+async function getPouchDoc(id) {
+  const db = await getPouchDb();
+  try {
+    return await db.get(id);
+  } catch (error) {
+    if (error.status === 404 || error.name === "not_found") return null;
+    throw error;
+  }
+}
+
+async function putPouchDoc(id, kind, value) {
+  const db = await getPouchDb();
+  const existing = await getPouchDoc(id);
+  await db.put({
+    ...value,
+    _id: id,
+    ...(existing?._rev ? { _rev: existing._rev } : {}),
+    kind,
+  });
+  return value;
+}
+
+async function deletePouchDoc(id) {
+  const db = await getPouchDb();
+  const existing = await getPouchDoc(id);
+  if (!existing) return false;
+  await db.remove(existing);
+  return true;
+}
+
+async function getPouchDocs(prefix) {
+  const db = await getPouchDb();
+  const result = await db.allDocs({
+    include_docs: true,
+    startkey: prefix,
+    endkey: `${prefix}\ufff0`,
+  });
+  return result.rows.map((row) => stripPouchMeta(row.doc));
+}
+
+async function migrateJsonToPouch() {
+  if (!usePouchDb()) return;
+  if (!pouchMigrationPromise) {
+    pouchMigrationPromise = (async () => {
+      const migrationDoc = await getPouchDoc("meta:json-migrated");
+      if (migrationDoc?.completed) return;
+
+      const [jsonProperties, jsonLeads] = await Promise.all([
+        readSeededJson(propertiesFile, seedPropertiesFile, []),
+        readSeededJson(leadsFile, seedLeadsFile, []),
+      ]);
+
+      if (Array.isArray(jsonProperties)) {
+        for (const property of jsonProperties) {
+          if (property?.slug && !(await getPouchDoc(propertyDocId(property.slug)))) {
+            await putPouchDoc(propertyDocId(property.slug), "property", property);
+          }
+        }
+      }
+
+      if (Array.isArray(jsonLeads)) {
+        for (const lead of jsonLeads) {
+          if (lead?.id && !(await getPouchDoc(leadDocId(lead.id)))) {
+            await putPouchDoc(leadDocId(lead.id), "lead", lead);
+          }
+        }
+      }
+
+      await putPouchDoc("meta:json-migrated", "meta", {
+        completed: true,
+        completedAt: new Date().toISOString(),
+      });
+    })();
+  }
+  await pouchMigrationPromise;
 }
 
 export function slugify(value) {
@@ -95,11 +215,28 @@ function normalizeProperty(input, existing = {}) {
 }
 
 export async function getProperties() {
-  const value = await readJson(propertiesFile, []);
+  if (usePouchDb()) {
+    await migrateJsonToPouch();
+    const properties = await getPouchDocs("property:");
+    return properties.sort((a, b) => String(b.updatedAt || b.createdAt || "").localeCompare(String(a.updatedAt || a.createdAt || "")));
+  }
+  const value = await readSeededJson(propertiesFile, seedPropertiesFile, []);
   return Array.isArray(value) ? value : [];
 }
 
 export async function saveProperties(properties) {
+  if (usePouchDb()) {
+    await migrateJsonToPouch();
+    const existing = await getPouchDocs("property:");
+    const nextSlugs = new Set(properties.map((property) => property.slug).filter(Boolean));
+    for (const property of properties) {
+      if (property?.slug) await putPouchDoc(propertyDocId(property.slug), "property", property);
+    }
+    for (const property of existing) {
+      if (property?.slug && !nextSlugs.has(property.slug)) await deletePouchDoc(propertyDocId(property.slug));
+    }
+    return properties;
+  }
   await writeJson(propertiesFile, properties);
   return properties;
 }
@@ -126,6 +263,10 @@ export async function upsertProperty(input, slug) {
 }
 
 export async function deleteProperty(slug) {
+  if (usePouchDb()) {
+    await migrateJsonToPouch();
+    return { deleted: await deletePouchDoc(propertyDocId(slug)) };
+  }
   const properties = await getProperties();
   const nextProperties = properties.filter((item) => item.slug !== slug);
   await saveProperties(nextProperties);
@@ -133,7 +274,12 @@ export async function deleteProperty(slug) {
 }
 
 export async function getLeads() {
-  const value = await readJson(leadsFile, []);
+  if (usePouchDb()) {
+    await migrateJsonToPouch();
+    const leads = await getPouchDocs("lead:");
+    return leads.sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")));
+  }
+  const value = await readSeededJson(leadsFile, seedLeadsFile, []);
   return Array.isArray(value) ? value : [];
 }
 
@@ -150,16 +296,33 @@ export async function createLead(input) {
     propertySlug: String(input.propertySlug || "").trim(),
     createdAt: new Date().toISOString(),
   };
-  leads.unshift(lead);
-  await writeJson(leadsFile, leads);
+  if (usePouchDb()) await putPouchDoc(leadDocId(lead.id), "lead", lead);
+  else {
+    leads.unshift(lead);
+    await writeJson(leadsFile, leads);
+  }
   return lead;
 }
 
 export async function deleteLead(id) {
+  if (usePouchDb()) {
+    await migrateJsonToPouch();
+    return { deleted: await deletePouchDoc(leadDocId(id)) };
+  }
   const leads = await getLeads();
   const nextLeads = leads.filter((item) => item.id !== id);
   await writeJson(leadsFile, nextLeads);
   return { deleted: nextLeads.length !== leads.length };
+}
+
+export async function getAssets() {
+  const properties = await getProperties();
+  const assetSet = new Set();
+  for (const property of properties) {
+    if (property.image) assetSet.add(property.image);
+    for (const item of property.gallery || []) assetSet.add(item);
+  }
+  return [...assetSet].sort().map((url) => ({ url }));
 }
 
 export async function readRequestJson(request) {
@@ -257,6 +420,12 @@ export async function handleApiRequest(request, response, url) {
 
     if (pathname === "/api/properties" && method === "GET") {
       sendJson(response, 200, await getProperties());
+      return true;
+    }
+
+    if (pathname === "/api/assets" && method === "GET") {
+      requireAdmin(request);
+      sendJson(response, 200, await getAssets());
       return true;
     }
 

@@ -71,8 +71,12 @@ ADMIN_USERNAME=admin
 ADMIN_PASSWORD=your-strong-admin-password
 API_HOST=0.0.0.0
 API_PORT=3000
+PORT=3000
+DB_DRIVER=pouchdb
+POUCHDB_NAME=nivesh-sarthi
+DATA_DIR=./data
 ```
 
 Use those credentials to log in at `/admin`. Local development uses `admin` / `admin123` if no env values are set. `ADMIN_TOKEN` can still be set as an optional API token for direct API requests, but the admin panel login uses username and password.
 
-Property data lives in `backend/data/properties.json`. Leads are written to `backend/data/leads.json`. For production, mount persistent storage to `/app/backend/data` so admin changes and leads survive container rebuilds.
+Property data and leads are stored in the backend data directory. With `DB_DRIVER=pouchdb`, PouchDB stores documents under `DATA_DIR` and seeds initial properties from the bundled `seed-data` folder when the database is empty. For production, mount persistent storage to `/app/backend/data` so admin changes, leads, and PouchDB files survive container rebuilds.
