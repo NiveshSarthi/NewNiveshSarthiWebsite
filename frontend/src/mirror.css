@@ -4757,12 +4757,31 @@ body {
   padding: 108px 0 54px;
 }
 
+.nivesh-admin-shell.is-login {
+  min-height: calc(100vh - 86px);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding: 112px 0 64px;
+}
+
 .nivesh-admin-heading {
   display: flex;
   gap: 16px;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
+}
+
+.nivesh-admin-shell.is-login .nivesh-admin-heading,
+.nivesh-admin-shell.is-login .nivesh-admin-api,
+.nivesh-admin-shell.is-login .nivesh-admin-login {
+  width: min(460px, 100%);
+}
+
+.nivesh-admin-shell.is-login .nivesh-admin-heading {
+  justify-content: center;
+  text-align: center;
 }
 
 .nivesh-admin-heading h1 {
@@ -4794,6 +4813,10 @@ body {
 .nivesh-admin-api {
   margin-bottom: 14px;
   padding: 10px 12px;
+}
+
+.nivesh-admin-shell.is-login .nivesh-admin-api {
+  text-align: center;
 }
 
 .nivesh-admin-api label,
@@ -4851,6 +4874,11 @@ body {
   gap: 12px;
   max-width: 440px;
   padding: 18px;
+}
+
+.nivesh-admin-shell.is-login .nivesh-admin-login {
+  max-width: none;
+  padding: 24px;
 }
 
 .nivesh-admin-login h2,

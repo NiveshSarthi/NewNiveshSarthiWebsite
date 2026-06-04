@@ -1591,7 +1591,7 @@ function AdminPanel({ properties, setProperties }) {
   return (
     <main className="nivesh-admin-page">
       <LocalNavbar />
-      <section className="nivesh-admin-shell">
+      <section className={`nivesh-admin-shell${isAuthenticated ? "" : " is-login"}`}>
         <div className="nivesh-admin-heading">
           <div>
             <h1>Admin Panel</h1>
